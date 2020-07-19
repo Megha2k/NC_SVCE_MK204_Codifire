@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+{% load static %}
+<HTML>
+<HEAD>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+<title>Sankalan</title>
+
+<!-- fevicon - icon -->
+<link rel="icon" href="{% static 'images/icon.png' %}">
+
+<!-- Bootstrap connection links -->
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+<!-- Bootstrap CSS FOR POPUP LOGIN-->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<!-- LINKS FOR POPUP LOGIN -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<!--END OF LINKS REQUIRED FOR POPUP LOGIN  -->
+
+<!--Links for responsive images in footer-->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<!--End of links for footer images-->
+
+<!-- CSS file link -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+<!--Links for the icons used in navigation bar-->
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+<!--kit code for social media icons-->
+<script src="https://kit.fontawesome.com/525c81d911.js" crossorigin="anonymous"></script>
+
+<!-- to adjust the view according to different devices -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--images beside the video tutorial-->
+<style>
+
+.manshowing
+{
+    width:24%; 
+    position:absolute; 
+    top:10%; 
+    right:-3%;
+}
+.womanshowing
+{
+    width:15%;
+    position:absolute; 
+    top:16%; 
+    left:5%;
+}
+  @media only screen and (max-width: 600px)
+  { .manshowing { display:none; } }
+  @media only screen and (max-width: 600px)
+  { .womanshowing  { display:none; }  }
+
+</style>
+
+</HEAD>
+
+<BODY>
+
+<a name="top"></a>
+
+<!-- marquee -->
+<marquee height="35" bgcolor="#F80D54" scrollamount="5">
+<font size="5" color="white">Please cross-check the details of the surveyor, which is displayed after login.</font>
+</marquee>
+
+<!-- logo -->
+
+<div style="background: url({% static 'images/cyan.jpg' %}); background-size: cover; isolation: isolate; margin-bottom: 0.5%;">
+<div class="center" id="logo_border">
+  <div class="logo">
+<img src="{% static 'images/logo.png' %}" alt="LOGO" class="desktop" id="logo_img"/>
+<img src="{% static 'images/sankalan_logo.png' %}" class="mobile" id="logo_img">
+</div></div></div>
+
+<!-- navigation bar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="#">&nbsp;&nbsp;Sankalan</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-lg-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#top"><i class='fas fa-home'></i>Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" onclick="openBar3()" href="#contact_anchor" onclick="open_collapse_bar()"><i class='fas fa-envelope'></i>Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" onclick="openBar2()" href="#faq_anchor"><i class='fas fa-question-circle'></i>FAQs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" onclick="openBar4()" href="#feedback_anchor"><i class='fas fa-edit'></i>Feedback</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" onclick="openBar1()" href="#about_anchor"><i class='fas fa-info-circle'></i>About</a>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+<br>
+
+<!-- login button -->
+
+<div align="right">
+  <button type="button" class="btn btn-primary" id = "login_button" data-toggle="modal" data-target="#staticBackdrop" style="vertical-align: middle;">
+    <span>Sign in</span>
+  </button>&nbsp
+</div>
+
+<br><br><br>
+
+<div class="video" style="position:relative;">
+<video class="desktop" preload="auto" controls>
+  <source src="{% static 'images/Sankalan_tutorial.mp4' %}" type="video/mp4">
+  Your browser does not support the video tag!
+</video>
+<video class="mobile" preload="auto" controls>
+  <source src="{% static 'images/Sankalan_tutorial.mp4' %}" type="video/mp4">
+  Your browser does not support the video tag!
+</video>
+
+<div>
+    <img class="womanshowing" src="{% static 'images/woman_showing.png' %}" alt="">
+</div>
+<div>
+    <img class="manshowing" src="{% static 'images/man_showing.png' %}" alt="">
+</div>
+</div>
+<br><br>
+
+<div class="process">
+<img src="{% static 'images/how.jpg' %}" align="center" width="70%" class="desktop1" id="how_img">
+<img src="{% static 'images/process1.jpg' %}" align="center" width="60%" class="desktop2" id="process1_img">
+<img src="{% static 'images/process2.jpg' %}" align="center" width="60%" class="desktop2" id="process2_img">
+<img src="{% static 'images/how.jpg' %}" align="center" width="98%" class="mobile1" id="how_img">
+<img src="{% static 'images/process1.jpg' %}" align="center" width="90%" class="mobile2" id="process1_img">
+<img src="{% static 'images/process2.jpg' %}" align="center" width="90%" class="mobile2" id="process2_img">
+</div>
+
+<!-- Collapse bars for FAQs -->
+
+<a id="faq_anchor"></a>
+
+<button class="accordion">Frequently Asked Questions</button>
+<div id="faq" class="panel">
+
+        <font face="Georgia" size=4>
+        <b>Q.  How do we know that the surveyor approaching ia a true government official?</b>
+        <br>
+        A.  The government has provided each surveyor with an ID-card, please tally the photograph as well as other details.
+        Moreover he/she has a unique surveyor ID to login at the website. All the necessary details of the surveyor are displayed on the screen after login.
+        <br><br>
+        <b>Q.  What if we are mistaken to submit wrong details? How to get them corrected?</b>
+        <br>
+        A.   After submitting your details, a link of your data will be sent to you via SMS. You can correct your errors there, within a time limit of 10 days.
+         The link expires as the time limit expires.
+        </font>
+</div>
+
+<!-- Collapse bars for Contact -->
+
+<a id="contact_anchor"></a>
+ <button class="accordion" type="button" data-toggle="collapse" data-target="#con" aria-expanded="false" aria-controls="collapseExample">
+    Contact
+  </button>
+  <div id="contact" class="panel">
+   <div class="container collapse" id="con">
+    <div class="jumbotron" id="contactJumbotron">
+        <div class="card" id="contactCard">
+          <h5 class="card-header info-color white-text text-center py-4">
+            <strong>Contact us</strong>
+          </h5>
+          <div class="card-body">
+            <form name="contact_form" class="text-center" action="" method="POST">
+              {% csrf_token %}
+              <div class="md-form mt-3">
+                <input type="text" name="fname" id="materialContactFormFirstName" class="form-control" placeholder="First Name" required="required">
+              </div>
+              <div class="md-form mt-3">
+                <input type="text" name="lname" id="materialContactFormLastName" class="form-control" placeholder="Last Name">
+              <div class="md-form mt-3">
+                <label for="state" id="stateLabel">State: &nbsp;&nbsp;&nbsp;</label>
+                <select id="state" class="form-control" name="state" required="required">
+                  <option value="Andhra Pradesh">Andhra Pradesh</option><option value="Arunachal Pradesh">Arunachal Pradesh</option><option value="Assam">Assam</option><option value="Bihar">Bihar</option><option value="Chhattisgarh">Chhattisgarh</option><option value="Goa">Goa</option><option value="Gujarat">Gujarat</option><option value="Haryana">Haryana</option><option value="Himachal Pradesh">Himachal Pradesh</option><option value="Jharkhand">Jharkhand</option><option value="Karnataka">Karnataka</option><option value="Kerala">Kerala</option><option value="Madhya Pradesh">Madhya Pradesh</option><option value="Maharashtra">Maharashtra</option><option value="Manipur">Manipur</option><option value="Meghalaya">Meghalaya</option><option value="Mizoram">Mizoram</option><option value="Nagaland">Nagaland</option><option value="Odisha">Odisha</option><option value="Punjab">Punjab</option><option value="Rajasthan">Rajasthan</option><option value="Sikkim">Sikkim</option><option value="Tamil Nadu">Tamil Nadu</option><option value="Telangana">Telangana</option><option value="Tripura">Tripura</option><option value="Uttar Pradesh">Uttar Pradesh</option><option value="Uttarakhand">Uttarakhand</option><option value="West Bengal">West Bengal</option><option value="Dadra & Nagar Haveli and Daman & Diu">Dadra & Nagar Haveli and Daman & Diu</option><option value="Chandigarh">Chandigarh</option><option value="Delhi">Delhi</option><option value="Jammu & Kashmir">Jammu & Kashmir</option><option value="Ladakh">Ladakh</option><option value="Lakshadweep">Lakshadweep</option><option value="Puducherry">Puducherry</option>
+                </select>
+              </div>
+              <div>
+                <br>
+                <br>
+                <br>
+              </div>
+              <div class="md-form mt-3">
+                <input type="email" id="phone" name="email" class="form-control" placeholder="Email.." required="required" required="required">
+              </div>
+              <div class="md-form mt-3">
+                <label for="subject" id = "subjectLabel" class="form-control">Subject:</label><br>
+                <textarea class="form-control" id="subject" name="subject" placeholder="..write here...." cols=40 rows=4 required="required"></textarea>
+              </div>
+              <div id="SubmitButton">
+                <input type="submit" name="contact_form" value="Submit" class="btn" id = "contactSubmitButton">
+              </div>
+              <hr size="3px">
+              <div id ="callmailanchor">
+                <a class="mail_anchor" href="mailto: codifire.sankalan@gmail.com">
+                  <img src="{% static 'images/gmail.png' %}" width="12%">
+                </a>&emsp;&emsp;&emsp;&emsp;
+                <a class="call_anchor" href="tel:9354742566">
+                  <img src="{% static 'images/call.png' %}" width="9%" align="center">
+                </a>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+<!-- Collapse bars for About -->
+
+<a id="about_anchor"></a>
+
+<button class="accordion">About</button>
+<div id="about" class="panel">
+  <p>Often the ground-level data collection process leads to errors. Government has started this scheme named "Sankalan" to digitalise the process of data collection and storage.<br>This process involves complete involvement & credibility of the citizens of India. </p>
+</div>
+
+<!-- Collapse bars for FEEDBACK FORM -->
+
+<a id="feedback_anchor"></a>
+<button class="accordion" type="button" data-toggle="collapse" data-target="#feedbackForm" aria-expanded="false" aria-controls="collapseExample">
+   Feedback
+ </button>
+<div id="faq" class="panel">
+<div class="container collapse" id="feedbackForm">
+  <div class="jumbotron" id="feedbackJumbotron">
+      <div class="card" id="feedbackCard">
+        <h5 class="card-header info-color white-text text-center py-4">
+          <strong>Feedback</strong>
+        </h5>
+        <div class="card-body">
+          <form class="text-center" name="feedback_form" method="POST">
+            {% csrf_token %}
+            <div class="md-form mt-3">
+              <input type="text" name="fname" id="materialFeedbackFormFirstName" class="form-control" placeholder="First Name">
+            </div>
+            <div class="md-form mt-3">
+              <input type="text" name="lname" id="materialFeedbackFormLastName" class="form-control" placeholder="Last Name">
+            <div>
+            </div>
+            <div class="md-form mt-3">
+              <input type="text" name="email" id="phone" class="form-control" placeholder="Email..">
+            </div>
+            <div class="md-form mt-3">
+              <label for="subject" id = "feedbackLabel" class="form-control">Feedback:</label><br>
+              <textarea class="form-control" id="subject" name="subject" placeholder="..write here...." cols=40 rows=4 required="required"></textarea>
+            </div>
+            <!-- Rating Section  -->
+            <div>
+              <pre>
+                <br>
+
+                <pre>
+            </div><br><br>
+            <h5 align="center" id="rateHeading">How would you like to rate us?</h5>
+            <div class="rating-container">
+              <div class="md-form mt-3 rating">
+              <input id = "unhappy" class="form-control emoji" type="radio" name="rating" value="unhappy" required="required">
+              <label for="unhappy" id="unhappyLabel" class="form-control"><img src="https://cdn.shopify.com/s/files/1/1061/1924/products/Unhappy_Face_Emoji_Icon_ios10_1024x1024.png?v=1571606093" width="26" height="26">
+              <small><br>Unhappy</small></label>
+              </div>
+
+              <div class="md-form mt-3 rating rating">
+              <input id = "neutral" class="form-control emoji"  type="radio" name="rating" value="neutral" required="required">
+              <label for = "neutral" id="neutralLabel" class="form-control"><img src="https://cdn.clipart.email/30380ddf0e83195f1400ceb0379acb4f_neutral-emoji-png-transparent-background-image-free-png-templates-_1000-824.png" width="37" height="30">
+              <small><br>Neutral</small></label>
+              </div>
+               <div class="md-form mt-3 rating rating">
+              <input id = "satisfied" class="form-control emoji"  type="radio" name="rating" value="satisfied" required="required" checked="checked">
+              <label for = "satisfied" id="satisfiedLabel" class="form-control"><img src="https://cdn.clipart.email/4a15651f8968c277aa48d027cb71f6c6_laughing-emoji-png-icon-transparent-background-image-free-png-_1000-824.png" width="38" height="32">
+             <small><br>Satisfied</small></label>
+            </div>
+          </div><br>
+            <div id="FeedbackSubmitButton">
+                <input type="submit" class="btn" id = "feedback_submit_btn" name="feedback_form" value="Submit">
+            </div>
+            <hr size="3px">
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- JavaScript file link for responsive collapse bars -->
+<script type="text/javascript" src="{% static 'js/dynamic.js' %}"></script>
+
+<!-- footer -->
+<br><br><br>
+
+<!--horizontal dotted rule-->
+<hr class="dotted_line">
+
+<!--social media follow links-->
+<div class="bottom-container" style="margin-bottom:0px;">
+    <p class="footer-p" style="font-size:20px;">Follow us</p>
+  <a class="fb-link"  href="https://www.facebook.com/sankalan.sih.7?_rdr">
+  <i class="fa fa-facebook" style="font-size:200%; text-shadow: 1px 1px #000000;" title="Facebook"></i>
+  </a>&emsp;&emsp;
+  <a class="tw-link" href="https://twitter.com/sankala91466336">
+ <i class="fa fa-twitter" style="font-size:200%; text-shadow: 1px 1px #000000;" title="Twitter"></i>
+ </a>&emsp;&emsp;
+  <a class="ins-link" href="https://www.instagram.com/sankalan.sih/">
+  <i class="fa fa-instagram" style="font-size:200%; text-shadow: 1px 1px #000000;" title="Instagram"></i>
+  </a>
+
+</div>
+
+
+<!--disclaimer-->
+<div style="text-align:center;">
+<p color="black" style="margin-bottom:0px;"><b>Disclaimer:</b>&nbsp;This website is a model website built only for Smart India Hackathon. This has no other purpose.</p>
+</div>
+
+<!-- arrow link to the top -->
+
+<div class="arrow">
+<a id="arrow_anchor" href="#top">
+  <img src="{% static 'images/arrow.png' %}" height="35" width="35" style="border-radius: 25px;">
+</a>
+</div>
+
+
+<!-- POPUP LOGIN FORM  -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static"  tabindex="-1" role="dialog" aria-labelledby="staticBackdropLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <img src="{% static 'images/loginImage.png' %}" class="admin">
+        <a type="button" id = "form-close" class="close" data-dismiss="modal">&times;</a>
+
+        <h3 class="modal-title w-100 font-weight-bold">Login Here</h3>
+        </div>
+      <div class="modal-body">
+            <form action="" method="POST" onsubmit="return validate()" name="login_form">
+              {% csrf_token %}
+              <p><b>Username</b></p>
+              <input id="uname" type="text" name="username" placeholder="Enter username" required="required">
+              <div id="name_error" class="name_c_error"></div>
+              <p><b>Password</b></p>
+              <input id="pass" type="password" name="password" placeholder="Enter Password" required="required">
+              <div id="pass_error" class="pass_c_error"></div>
+              <input type="submit" name="login_form" value="Login">
+              <a href="#">Forgot Password?</a>
+            </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if status %}
+  <script type="text/javascript">
+    alert("{{status}}");
+    window.location="/"
+  </script>
+{% endif %}
+
+<script type="text/javascript">
+    $('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+    })
+</script>
+<!--POPUP LOGIN END-->
+
+<!--live chat-->
+<script async type="text/javascript" src="https://userlike-cdn-widgets.s3-eu-west-1.amazonaws.com/8103e423efc237b7270aa3350fafad7be68edbe52cdc4b7c3d6546a12409ecec.js"></script>
+
+</BODY>
+</HTML>

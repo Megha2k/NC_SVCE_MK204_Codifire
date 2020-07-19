@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Sankalan</title>
+
+	<!-- fevicon - icon -->
+	<link rel="icon" href="{% static 'images/icon.png' %}">
+
+	<!-- bootstrap CSS links -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+	<!-- bootstrap JS links -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+	<!-- bootstrap JQuery links -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- CSS file link -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+
+</head>
+
+<body style="background: url({% static 'images/register_bg.jpg' %}); background-size: cover; background-attachment: fixed;">
+
+<!-- Data entry form -->
+
+<div class="row">
+
+<form name="registration_form" class="registration_form" method="POST" action="" enctype="multipart/form-data">
+  <font face="Georgia" size=4><b><br>
+    {% csrf_token %}
+
+    <div class="form-group">
+    <label for="name">Name</label>
+    <input class="form-control" type="text" name="fname" placeholder="Enter First name.." id="name" required="required"><br>
+    <input class="form-control" type="text" name="lname" placeholder="Enter Last name.." id="name">
+    </div>
+
+    <div class="form-group">
+    	<small id="result"></small>
+    </div>
+
+    <div class="form-group">
+    <label for="username">Username</label>
+    <input class="form-control" type="text" name="username" placeholder="Enter userame name.." id="username" required="required" onkeyup="checkuser()">
+    </div>
+
+    <div class="form-group">
+    <label for="surveyor_id">Surveyor ID</label>
+    <input class="form-control" type="text" name="surveyor_id" placeholder="Enter Surveyor ID name.." id="surveyor_id" required="required">
+    </div>
+
+    <div class="form-group">
+    <label for="email">Email</label>
+    <input class="form-control" type="email" name="email" placeholder="Enter Email.." id="email" required="required">
+    </div>
+
+    <div class="form-group">
+    <label for="password">Password</label>
+    <input class="form-control" type="password" name="password" placeholder="Enter Password.." id="password" required="required" title="8 characters minimum" minlength="8">
+    <small>* minimum 8 characters</small>
+    </div>
+
+    <div class="form-group">
+    <label for="contact_no">Contact</label>
+    <input class="form-control" type="tel" name="contact" placeholder="Enter Mobile number.." id="contact_no" pattern="[0-9]{10}" required="required">
+    </div>
+
+    <div class="form-group">Sex</b>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="sex" id="female" value="female" checked="checked" required="required">
+    <label class="form-check-label" for="female">Female</label>&emsp;&emsp;
+    <input class="form-check-input" type="radio" name="sex" id="male" value="male" required="required">
+    <label class="form-check-label" for="male">Male</label>&emsp;&emsp;
+    <input class="form-check-input" type="radio" name="sex" id="other" value="other" required="required">
+    <label class="form-check-label" for="other">Other</label>
+    </div>
+    </div><b>
+
+    <div class="form-group">
+    <label for="aadhaar_no">Aadhar Number</label>
+    <input class="form-control" type="number" name="aadhaar_no" placeholder="Enter Aadhaar number.." id="aadhaar_no" required="required" min="100000000000" max="999999999999">
+    </div>
+
+    <div class="form-group">
+    <label for="photo">Photograph</label>
+    <input class="form-control" type="file" name="photo" id="photo" required="required">
+    </div>
+
+    <div class="form-group">
+    <label for="address">Address</label>
+    <input class="form-control" type="textarea" name="address" placeholder="Enter Address.." id="address" required="required"><br>
+    <input class="form-control" type="text" name="city" placeholder="Enter City.." id="address" required="required"><br>
+    <select id="address" name="state" class="form-control" required="required">
+            <option value="Andhra Pradesh">Andhra Pradesh</option><option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option><option value="Arunachal Pradesh">Arunachal Pradesh</option><option value="Assam">Assam</option><option value="Bihar">Bihar</option></option><option value="Chhattisgarh">Chhattisgarh</option><option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option><option value="Daman and Diu">Daman and Diu</option><option value="Delhi">Delhi</option><option value="Lakshadweep">Lakshadweep</option><option value="Puducherry">Puducherry</option><option value="Goa">Goa</option><option value="Gujarat">Gujarat</option><option value="Haryana">Haryana</option><option value="Himachal Pradesh">Himachal Pradesh</option><option value="Jammu and Kashmir">Jammu and Kashmir</option><option value="Jharkhand">Jharkhand</option><option value="Karnataka">Karnataka</option><option value="Kerala">Kerala</option><option value="Ladakh">Ladakh</option><option value="Lakshadweep">Lakshadweep</option><option value="Leh">Leh</option><option value="Madhya Pradesh">Madhya Pradesh</option><option value="Maharashtra">Maharashtra</option><option value="Manipur">Manipur</option><option value="Meghalaya">Meghalaya</option><option value="Mizoram">Mizoram</option><option value="Nagaland">Nagaland</option><option value="Odisha">Odisha</option><option value="Punjab">Punjab</option><option value="Rajasthan">Rajasthan</option><option value="Sikkim">Sikkim</option><option value="Tamil Nadu">Tamil Nadu</option><option value="Telangana">Telangana</option><option value="Tripura">Tripura</option><option value="Uttar Pradesh">Uttar Pradesh</option><option value="Uttarakhand">Uttarakhand</option><option value="West Bengal">West Bengal</option>
+    </select><br>
+    <select id="address" name="country" class="form-control">
+            <option value="India">India</option>
+    </select>
+    </div>
+    
+    <div><center>
+        <br><input type="submit" class="btn" id="registration_submit_btn" name="registration_form" value="Submit">
+    </center></div><br>
+
+  </b></font>
+</form>
+</div>
+
+<script type="text/javascript">
+	function checkuser()
+	{
+		let usrname = document.getElementById("username").value;
+		$.ajax(
+		{
+			url:"{% url 'check_user' %}",
+			type:"get",
+			data:{un:usrname},
+			success:function(data)
+			{	if (data == "exists")
+					{ 	$("#result").html("This username already taken!").addClass("text-danger");
+						$("#username").addClass("alert alert-danger");
+						$("#registration_submit_btn").attr("disabled","disabled");
+					}
+			  	else
+			  		{ 	$("#result").html("");
+			  			$("#username").removeClass("alert alert-danger");
+			  			$("#registration_submit_btn").removeAttr("disabled","disabled")
+			  		}
+			}
+		})
+	}
+</script>
+
+</body>
+</html> 
