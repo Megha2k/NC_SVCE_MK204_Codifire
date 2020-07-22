@@ -7,6 +7,8 @@ from sankalan_app.models import Feedback
 from sankalan_app.models import Civilian_data
 from sankalan_app.models import Surveyor
 from django.contrib.auth.decorators import login_required
+from twilio.rest import Client
+from django.conf import settings
 
 # Create your views here.
 def index(request):
@@ -79,8 +81,20 @@ def data_entry(request):
 
 		data = Civilian_data(fname=fname,lname=lname,aadhaar_no=aadhaar_no,dob=dob,sex=sex,email=email,mobile_no=mobile_no,address=address,city=city,state=state,country=country,occupation=occupation,family_members=family_members)
 		data.save()
-
-		return render(request,'data_entry_form_redirect.html')
+        
+        # Shubham Starts here ..............................................................
+        obj1 = Civilian_data.objects.get(aadhaar_no = aadhaar_no)
+        fname = obj1.fname
+        lname = obj1.lname
+        aadhaar_no = obj1.aadhaar_no
+        mob_no = "+91"+str(obj1.mobile_no)
+        message_to_broadcast = ("Hello \n Data entered is \n Name = %s %s , \n aadhar num = %d" %(fname, lname, aadhaar_no))
+        client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
+        if obj1.aadhar_no and obj1.mobile_no:
+            client.messages.create(to=mob_no,
+                                   from_=settings.TWILIO_NUMBER,
+                                   body=message_to_broadcast)
+		return render(request,'data_entry_form_redirect.html', contex)
 
 	return render(request,'data_entry.html',context)
 
