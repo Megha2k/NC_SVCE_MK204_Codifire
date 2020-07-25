@@ -35,6 +35,10 @@ TWILIO_ACCOUNT_SID = config('TWILIO_ACCOUNT_SID')
 TWILIO_AUTH_TOKEN = 'ae91c0dfbd413deb26d96a4bb0e0fe18'
 TWILIO_NUMBER = config('TWILIO_NUMBER')
 
+# Credentials for SMS Stored in .env file
+TWILIO_ACCOUNT_SID = config('TWILIO_ACCOUNT_SID')
+TWILIO_AUTH_TOKEN = config('TWILIO_AUTH_TOKEN')
+TWILIO_NUMBER = config('TWILIO_NUMBER')
 
 # Application definition
 

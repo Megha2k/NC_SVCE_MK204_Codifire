@@ -7,12 +7,6 @@ from sankalan_app.models import Feedback
 from sankalan_app.models import Civilian_data
 from sankalan_app.models import Surveyor
 from django.contrib.auth.decorators import login_required
-from twilio.rest import Client
-from django.conf import settings
-<<<<<<< HEAD
-
-=======
->>>>>>> 5dc70dd55ca34d5e7b0b0f1b99f5f5fab1db68d5
 
 # Create your views here.
 def index(request):
@@ -52,7 +46,7 @@ def index(request):
 			email = request.POST["email"]
 			subject = request.POST["subject"]
 			rating = request.POST["rating"]
-
+		
 			data = Feedback(fname=fname,lname=lname,email=email,subject=subject,rating=rating)
 			data.save()
 
@@ -68,37 +62,6 @@ def data_entry(request):
 	context["surveyor_data"] = surveyor_data
 
 	if 'data_entry_form' in request.POST:
-<<<<<<< HEAD
-	    fname = request.POST["fname"]
-	    lname = request.POST["lname"]
-	    aadhaar_no = request.POST["aadhaar_no"]
-	    dob = request.POST["dob"]
-	    sex = request.POST["sex"]
-	    email = request.POST["email"]
-	    mobile_no = request.POST["mobile_no"]
-	    address = request.POST["address"]
-	    city = request.POST["city"]
-	    state = request.POST["state"]
-	    country = request.POST["country"]
-	    occupation = request.POST["occupation"]
-	    family_members = request.POST["family_members"]
-	    data = Civilian_data(fname=fname,lname=lname,aadhaar_no=aadhaar_no,dob=dob,sex=sex,email=email,mobile_no=mobile_no,address=address,city=city,state=state,country=country,occupation=occupation,family_members=family_members)
-	    data.save()
-	    obj1 = Civilian_data.objects.get(aadhaar_no = aadhaar_no)
-	    fnameobj1 = obj1.fname
-	    lnameobj1 = obj1.lname
-	    aadhaar_noobj1 = obj1.aadhaar_no
-	    mob_noobj1 = "+918700573206"
-	    message_to_broadcast = ("Hello \n Data entered is \n Name = %s %s , \n aadhar num = %d" %(fnameobj1, lnameobj1, aadhaar_noobj1))
-	    client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
-	    if obj1.aadhaar_no and obj1.mobile_no:
-	        client.messages.create(to=mob_noobj1,
-                                   from_=settings.TWILIO_NUMBER,
-                                   body=message_to_broadcast)
-	    return render(request,'data_entry_form_redirect.html')
-	else:
-	    return render(request,'data_entry.html',context)
-=======
 
 		fname = request.POST["fname"]
 		lname = request.POST["lname"]
@@ -116,23 +79,10 @@ def data_entry(request):
 
 		data = Civilian_data(fname=fname,lname=lname,aadhaar_no=aadhaar_no,dob=dob,sex=sex,email=email,mobile_no=mobile_no,address=address,city=city,state=state,country=country,occupation=occupation,family_members=family_members)
 		data.save()
-        
-        # Shubham Starts here ..............................................................
-        obj1 = Civilian_data.objects.get(aadhaar_no = aadhaar_no)
-        fname = obj1.fname
-        lname = obj1.lname
-        aadhaar_no = obj1.aadhaar_no
-        mob_no = "+91"+str(obj1.mobile_no)
-        message_to_broadcast = ("Hello \n Data entered is \n Name = %s %s , \n aadhar num = %d" %(fname, lname, aadhaar_no))
-        client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
-        if obj1.aadhar_no and obj1.mobile_no:
-            client.messages.create(to=mob_no,
-                                   from_=settings.TWILIO_NUMBER,
-                                   body=message_to_broadcast)
-		return render(request,'data_entry_form_redirect.html', contex)
+
+		return render(request,'data_entry_form_redirect.html')
 
 	return render(request,'data_entry.html',context)
->>>>>>> 5dc70dd55ca34d5e7b0b0f1b99f5f5fab1db68d5
 
 @login_required
 def user_logout(request):
