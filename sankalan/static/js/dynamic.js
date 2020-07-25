@@ -17,3 +17,18 @@ var acc = document.getElementsByClassName("accordion");
       }
     });
   }
+
+
+// JAVASCRIPT FOR FEEDBACK FORM RATING PART  OF THE FORM
+const ratingEl = document.querySelectorAll(".rating");
+var fdBtn = document.querySelector("#feedback_submit_btn");
+
+
+ratingEl.forEach((e1) =>{
+  e1.addEventListener("click",() =>{
+    ratingEl.forEach((innerE1) =>{
+      innerE1.classList.remove("active");
+    });
+    e1.classList.add("active");
+  });
+});

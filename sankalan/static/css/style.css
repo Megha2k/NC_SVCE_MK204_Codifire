@@ -116,7 +116,7 @@
 /*navigation links*/
 .navbar{
   background: #F80D54;
-  padding: 20px 0;
+  padding: 10px 0;
   line-height: 20px;
 }
 
@@ -341,9 +341,10 @@ textarea{
   justify-content: center;
   margin:1%;
 }
-.rating .active,
+.rating.active,
 .rating:hover{
   transform: scale(1.2);
+  border:none;
   /*box-shadow: 0px 0px 10px rgba(0,0,0,0.3);*/
 }
 

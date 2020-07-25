@@ -40,10 +40,11 @@
 
         <!-- Modal body -->
         <div class="modal-body">
-          <div class="text-center"><img src="/media/{{surveyor_data.photo}}" style="height: 15%; width: 15%;"></div>
+          <div class="text-center"><img src="/media/{{surveyor_data.photo}}" style="height: 20%; width: 20%;"></div>
+          <br>
           <table class="table table-bordered">
             <tr><th>Name</th><td>{{user.first_name}}&nbsp;{{user.last_name}}</td></tr>
-            <tr><th>Surveyor ID</th><td>{{surveyor_data.surveyor_id}}</td></tr>           
+            <tr><th>Surveyor ID</th><td>{{surveyor_data.surveyor_id}}</td></tr>
           </table>
 
         </div>
@@ -133,7 +134,7 @@
     <label for="members">Family Members</label>
     <input class="form-control" type="number" name="family_members" placeholder="Number of Family members.." id="members" required="required" min="1">
     </div>
-    
+
     <div><center>
         <br><input type="submit" class="btn" id="data_entry_submit_btn" name="data_entry_form" value="Submit">
     </center></div><br>

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +28,12 @@ SECRET_KEY = 'xu^@ao87d*2-h%v_13v=oz4j#nd6ab!%bk5l$dp(+pw0!4p1=t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sankalanin.pythonanywhere.com']
+
+# Credentials for SMS Stored in .env file
+TWILIO_ACCOUNT_SID = config('TWILIO_ACCOUNT_SID')
+TWILIO_AUTH_TOKEN = 'ae91c0dfbd413deb26d96a4bb0e0fe18'
+TWILIO_NUMBER = config('TWILIO_NUMBER')
 
 
 # Application definition
