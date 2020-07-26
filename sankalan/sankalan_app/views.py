@@ -9,10 +9,6 @@ from sankalan_app.models import Surveyor
 from django.contrib.auth.decorators import login_required
 from twilio.rest import Client
 from django.conf import settings
-<<<<<<< HEAD
-
-=======
->>>>>>> 5dc70dd55ca34d5e7b0b0f1b99f5f5fab1db68d5
 
 # Create your views here.
 def index(request):
@@ -68,7 +64,7 @@ def data_entry(request):
 	context["surveyor_data"] = surveyor_data
 
 	if 'data_entry_form' in request.POST:
-<<<<<<< HEAD
+
 	    fname = request.POST["fname"]
 	    lname = request.POST["lname"]
 	    aadhaar_no = request.POST["aadhaar_no"]
@@ -98,7 +94,6 @@ def data_entry(request):
 	    return render(request,'data_entry_form_redirect.html')
 	else:
 	    return render(request,'data_entry.html',context)
-=======
 
 		fname = request.POST["fname"]
 		lname = request.POST["lname"]
@@ -132,7 +127,6 @@ def data_entry(request):
 		return render(request,'data_entry_form_redirect.html', contex)
 
 	return render(request,'data_entry.html',context)
->>>>>>> 5dc70dd55ca34d5e7b0b0f1b99f5f5fab1db68d5
 
 @login_required
 def user_logout(request):
