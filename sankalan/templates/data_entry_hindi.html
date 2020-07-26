@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+
+  <title>डाटा प्रविष्टि</title>
+  <meta charset="utf-8">
+
+  <!-- fevicon - icon -->
+  <link rel="icon" href="{% static 'images/icon.png' %}">
+
+  <!-- to adjust the view according to different devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap connection links -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  <!-- CSS file link -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/data_entry.css' %}">
+
+</head>
+
+<body class="body" style="background: url({% static 'images/tricolor.jpg' %}); background-size: cover; background-attachment: fixed;">
+
+<div class="container">
+
+  <!-- The Modal - for Surveyor's detail's pop-up -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title"><u>सर्वेक्षक का विवरण:</u></h4>
+          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="text-center"><img src="/media/{{surveyor_data.photo}}" style="height: 15%; width: 15%;"></div>
+          <table class="table table-bordered">
+            <tr><th>नाम</th><td>{{user.first_name}}&nbsp;{{user.last_name}}</td></tr>
+            <tr><th>सर्वेक्षक आई.डी.</th><td>{{surveyor_data.surveyor_id}}</td></tr>           
+          </table>
+
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" id="close_btn" data-dismiss="modal">जाँच लिया</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- JavaScript code to load the modal on page load -->
+<script type="text/javascript" src="{% static 'js/data_entry.js' %}"></script>
+
+<!-- logout button -->
+<a href="{% url 'user_logout' %}">
+    <button type="button" class="btn btn-primary" style="float: right; margin-top: 1%; margin-right: 1%; margin-bottom: 1%;"><h4><font face="Monotype Corsiva" color="white">लॉग आउट</font></h4></button>
+</a><br>
+
+<!-- Data entry form -->
+
+<div class="row">
+
+<form name="data_entry_form" class="data_entry_form" method="POST" action="/data_entry_page">
+  <font face="Georgia" size=4><b><br>
+    {% csrf_token %}
+
+    <div class="form-group">
+    <label for="name">नाम</label>
+    <input class="form-control" type="text" name="fname" placeholder="नाम दर्ज करें.." id="name" required="required"><br>
+    <input class="form-control" type="text" name="lname" placeholder="उपनाम दर्ज करें.." id="name">
+    </div>
+
+    <div class="form-group">
+    <label for="aadhaar_no">आधार संख्या</label>
+    <input class="form-control" type="number" name="aadhaar_no" placeholder="आधार संख्या दर्ज करें.." id="aadhaar_no" required="required" min="100000000000" max="999999999999">
+    </div>
+
+    <div class="form-group">
+    <label for="dob">जन्म् तिथि</label>
+    <input class="form-control" type="date" name="dob" placeholder="जन्म् की तारीख़ दर्ज करे.." id="dob" required="required" max="" max="2020-08-01">
+    </div>
+
+    <div class="form-group">लिंग</b>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="sex" id="female" value="female" checked="checked" required="required">
+    <label class="form-check-label" for="female">महिला</label>&emsp;&emsp;
+    <input class="form-check-input" type="radio" name="sex" id="male" value="male" required="required">
+    <label class="form-check-label" for="male">नर</label>&emsp;&emsp;
+    <input class="form-check-input" type="radio" name="sex" id="other" value="other" required="required">
+    <label class="form-check-label" for="other">अन्य</label>
+    </div>
+    </div><b>
+
+    <div class="form-group">
+    <label for="email">ईमेल</label>
+    <input class="form-control" type="email" name="email" placeholder="ईमेल दर्ज करें.." id="email" required="required">
+    </div>
+
+    <div class="form-group">
+    <label for="contact_no">संपर्क</label>
+    <input class="form-control" type="tel" name="mobile_no" placeholder="मोबाइल नंबर दर्ज करें.." id="contact_no" pattern="[0-9]{10}" required="required">
+    </div>
+
+    <div class="form-group">
+    <label for="address">घर का पता</label>
+    <input class="form-control" type="textarea" name="address" placeholder="घर का पता दर्ज करें.." id="address" required="required"><br>
+    <input class="form-control" type="text" name="city" placeholder="Enter City.." id="address" required="required"><br>
+    <select id="address" name="state" class="form-control" required="required">
+            <option value="Andhra Pradesh">आंध्र प्रदेश</option><option value="Arunachal Pradesh">अरुणाचल प्रदेश</option><option value="Assam">असम</option><option value="Bihar">बिहार</option><option value="Chhattisgarh">छत्तीसगढ़</option><option value="Goa">गोवा</option><option value="Gujarat">गुजरात</option><option value="Haryana">हरियाणा</option><option value="Himachal Pradesh">हिमाचल प्रदेश</option><option value="Jharkhand">झारखंड</option><option value="Karnataka">कर्नाटक</option><option value="Kerala">केरल</option><option value="Madhya Pradesh">मध्य प्रदेश</option><option value="Maharashtra">महाराष्ट्र</option><option value="Manipur">मणिपुर</option><option value="Meghalaya">मेघालय</option><option value="Mizoram">मिजोरम</option><option value="Nagaland">नगालैंड</option><option value="Odisha">ओडिशा</option><option value="Punjab">पंजाब</option><option value="Rajasthan">राजस्थान</option><option value="Sikkim">सिक्किम</option><option value="Tamil Nadu">तमिलनाडु</option><option value="Telangana">तेलंगाना</option><option value="Tripura">त्रिपुरा</option><option value="Uttar Pradesh">उत्तर प्रदेश</option><option value="Uttarakhand">उत्तराखंड</option><option value="West Bengal">पश्चिम बंगाल</option><option value="Dadra & Nagar Haveli and Daman & Diu">दादरा और नगर हवेली और दमन और दीव</option><option value="Chandigarh">चंडीगढ़</option><option value="Delhi">दिल्ली</option><option value="Jammu & Kashmir">जम्मू और कश्मीर</option><option value="Ladakh">लद्दाख</option><option value="Lakshadweep">लक्षद्वीप</option><option value="Puducherry">पुडुचेरी</option>
+    </select><br>
+    <select id="address" name="country" class="form-control">
+            <option value="India">भारत</option>
+    </select>
+    </div>
+
+    <div class="form-group">
+    <label for="occupation">व्यवसाय</label>
+    <input class="form-control" type="text" name="occupation" placeholder="व्यवसाय दर्ज करें.." id="occupation" required="required">
+    </div>
+
+    <div class="form-group">
+    <label for="members">परिवार के सदस्य</label>
+    <input class="form-control" type="number" name="family_members" placeholder="परिवार के सदस्यों की संख्या.." id="members" required="required" min="1">
+    </div>
+    
+    <div><center>
+        <br><input type="submit" class="btn" id="data_entry_submit_btn" name="data_entry_form" value="फार्म जमा करें">
+    </center></div><br>
+
+  </b></font>
+</form>
+
+</div>
+
+</body>
+
+</html>

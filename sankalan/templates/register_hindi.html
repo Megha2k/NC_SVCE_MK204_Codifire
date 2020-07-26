@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>संकलन</title>
+
+	<!-- fevicon - icon -->
+	<link rel="icon" href="{% static 'images/icon.png' %}">
+
+	<!-- bootstrap CSS links -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+	<!-- bootstrap JS links -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+	<!-- bootstrap JQuery links -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- CSS file link -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+
+</head>
+
+<body style="background: url({% static 'images/register_bg.jpg' %}); background-size: cover; background-attachment: fixed;">
+
+<!-- Data entry form -->
+
+<div class="row">
+
+<form name="registration_form" class="registration_form" method="POST" action="" enctype="multipart/form-data">
+  <font face="Georgia" size=4><b><br>
+    {% csrf_token %}
+
+    <div class="form-group">
+    <label for="name">नाम</label>
+    <input class="form-control" type="text" name="fname" placeholder="नाम दर्ज करें.." id="name" required="required"><br>
+    <input class="form-control" type="text" name="lname" placeholder="उपनाम दर्ज करें.." id="name">
+    </div>
+
+    <div class="form-group">
+    	<small id="result"></small>
+    </div>
+
+    <div class="form-group">
+    <label for="username">उपयोगकर्ता नाम</label>
+    <input class="form-control" type="text" name="username" placeholder="उपयोगकर्ता नाम दर्ज करें.." id="username" required="required" onkeyup="checkuser()">
+    </div>
+
+    <div class="form-group">
+    <label for="surveyor_id">सर्वेक्षक आई.डी.</label>
+    <input class="form-control" type="text" name="surveyor_id" placeholder="सर्वेक्षक आई.डी. दर्ज करें.." id="surveyor_id" required="required">
+    </div>
+
+    <div class="form-group">
+    <label for="email">ईमेल</label>
+    <input class="form-control" type="email" name="email" placeholder="ईमेल दर्ज करें.." id="email" required="required">
+    </div>
+
+    <div class="form-group">
+    <label for="password">कुंजिका</label>
+    <input class="form-control" type="password" name="password" placeholder="कुंजिका दर्ज करें.." id="password" required="required" title="8 characters minimum" minlength="8">
+    <small>* न्यूनतम 8 वर्ण</small>
+    </div>
+
+    <div class="form-group">
+    <label for="contact_no">संपर्क</label>
+    <input class="form-control" type="tel" name="contact" placeholder="मोबाइल नंबर दर्ज करें.." id="contact_no" pattern="[0-9]{10}" required="required">
+    </div>
+
+    <div class="form-group">लिंग</b>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="sex" id="female" value="female" checked="checked" required="required">
+    <label class="form-check-label" for="female">महिला</label>&emsp;&emsp;
+    <input class="form-check-input" type="radio" name="sex" id="male" value="male" required="required">
+    <label class="form-check-label" for="male">नर</label>&emsp;&emsp;
+    <input class="form-check-input" type="radio" name="sex" id="other" value="other" required="required">
+    <label class="form-check-label" for="other">अन्य</label>
+    </div>
+    </div><b>
+
+    <div class="form-group">
+    <label for="aadhaar_no">आधार संख्या</label>
+    <input class="form-control" type="number" name="aadhaar_no" placeholder="आधार संख्या दर्ज करें.." id="aadhaar_no" required="required" min="100000000000" max="999999999999">
+    </div>
+
+    <div class="form-group">
+    <label for="photo">तस्वीर</label>
+    <input class="form-control" type="file" name="photo" id="photo" required="required">
+    </div>
+
+    <div class="form-group">
+    <label for="address">घर का पता</label>
+    <input class="form-control" type="textarea" name="address" placeholder="घर का पता दर्ज करें.." id="address" required="required"><br>
+    <input class="form-control" type="text" name="city" placeholder="शहर दर्ज करें .." id="address" required="required"><br>
+    <select id="address" name="state" class="form-control" required="required">
+            <option value="Andhra Pradesh">आंध्र प्रदेश</option><option value="Arunachal Pradesh">अरुणाचल प्रदेश</option><option value="Assam">असम</option><option value="Bihar">बिहार</option><option value="Chhattisgarh">छत्तीसगढ़</option><option value="Goa">गोवा</option><option value="Gujarat">गुजरात</option><option value="Haryana">हरियाणा</option><option value="Himachal Pradesh">हिमाचल प्रदेश</option><option value="Jharkhand">झारखंड</option><option value="Karnataka">कर्नाटक</option><option value="Kerala">केरल</option><option value="Madhya Pradesh">मध्य प्रदेश</option><option value="Maharashtra">महाराष्ट्र</option><option value="Manipur">मणिपुर</option><option value="Meghalaya">मेघालय</option><option value="Mizoram">मिजोरम</option><option value="Nagaland">नगालैंड</option><option value="Odisha">ओडिशा</option><option value="Punjab">पंजाब</option><option value="Rajasthan">राजस्थान</option><option value="Sikkim">सिक्किम</option><option value="Tamil Nadu">तमिलनाडु</option><option value="Telangana">तेलंगाना</option><option value="Tripura">त्रिपुरा</option><option value="Uttar Pradesh">उत्तर प्रदेश</option><option value="Uttarakhand">उत्तराखंड</option><option value="West Bengal">पश्चिम बंगाल</option><option value="Dadra & Nagar Haveli and Daman & Diu">दादरा और नगर हवेली और दमन और दीव</option><option value="Chandigarh">चंडीगढ़</option><option value="Delhi">दिल्ली</option><option value="Jammu & Kashmir">जम्मू और कश्मीर</option><option value="Ladakh">लद्दाख</option><option value="Lakshadweep">लक्षद्वीप</option><option value="Puducherry">पुडुचेरी</option>
+    </select><br>
+    <select id="address" name="country" class="form-control">
+            <option value="India">भारत</option>
+    </select>
+    </div>
+    
+    <div><center>
+        <br><input type="submit" class="btn" id="registration_submit_btn" name="registration_form" value="फार्म जमा करें">
+    </center></div><br>
+
+  </b></font>
+</form>
+</div>
+
+<script type="text/javascript">
+	function checkuser()
+	{
+		let usrname = document.getElementById("username").value;
+		$.ajax(
+		{
+			url:"{% url 'check_user' %}",
+			type:"get",
+			data:{un:usrname},
+			success:function(data)
+			{	if (data == "exists")
+					{ 	$("#result").html("यह उपयोगकर्ता नाम पहले से ही ले लिया गया है!").addClass("text-danger");
+						$("#username").addClass("alert alert-danger");
+						$("#registration_submit_btn").attr("disabled","disabled");
+					}
+			  	else
+			  		{ 	$("#result").html("");
+			  			$("#username").removeClass("alert alert-danger");
+			  			$("#registration_submit_btn").removeAttr("disabled","disabled")
+			  		}
+			}
+		})
+	}
+</script>
+
+</body>
+</html> 
