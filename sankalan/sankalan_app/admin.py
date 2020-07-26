@@ -5,7 +5,7 @@ from sankalan_app.models import Civilian_data
 from sankalan_app.models import Surveyor
 
 # Register your models here.
-
+# This is just a comment
 admin.site.site_header = "SANKALAN Administration"
 
 class ContactAdmin(admin.ModelAdmin):
