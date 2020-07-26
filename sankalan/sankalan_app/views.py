@@ -78,6 +78,7 @@ def data_entry(request):
 	    country = request.POST["country"]
 	    occupation = request.POST["occupation"]
 	    family_members = request.POST["family_members"]
+
 	    data = Civilian_data(fname=fname,lname=lname,aadhaar_no=aadhaar_no,dob=dob,sex=sex,email=email,mobile_no=mobile_no,address=address,city=city,state=state,country=country,occupation=occupation,family_members=family_members)
 	    data.save()
 	    obj1 = Civilian_data.objects.get(aadhaar_no = aadhaar_no)
@@ -88,45 +89,11 @@ def data_entry(request):
 	    message_to_broadcast = ("Hello \n Data entered is \n Name = %s %s , \n aadhar num = %d" %(fnameobj1, lnameobj1, aadhaar_noobj1))
 	    client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
 	    if obj1.aadhaar_no and obj1.mobile_no:
-	        client.messages.create(to=mob_noobj1,
-                                   from_=settings.TWILIO_NUMBER,
-                                   body=message_to_broadcast)
+	        client.messages.create(to=mob_noobj1, from_=settings.TWILIO_NUMBER, body=message_to_broadcast)
+
 	    return render(request,'data_entry_form_redirect.html')
 	else:
 	    return render(request,'data_entry.html',context)
-
-		fname = request.POST["fname"]
-		lname = request.POST["lname"]
-		aadhaar_no = request.POST["aadhaar_no"]
-		dob = request.POST["dob"]
-		sex = request.POST["sex"]
-		email = request.POST["email"]
-		mobile_no = request.POST["mobile_no"]
-		address = request.POST["address"]
-		city = request.POST["city"]
-		state = request.POST["state"]
-		country = request.POST["country"]
-		occupation = request.POST["occupation"]
-		family_members = request.POST["family_members"]
-
-		data = Civilian_data(fname=fname,lname=lname,aadhaar_no=aadhaar_no,dob=dob,sex=sex,email=email,mobile_no=mobile_no,address=address,city=city,state=state,country=country,occupation=occupation,family_members=family_members)
-		data.save()
-        
-        # Shubham Starts here ..............................................................
-        obj1 = Civilian_data.objects.get(aadhaar_no = aadhaar_no)
-        fname = obj1.fname
-        lname = obj1.lname
-        aadhaar_no = obj1.aadhaar_no
-        mob_no = "+91"+str(obj1.mobile_no)
-        message_to_broadcast = ("Hello \n Data entered is \n Name = %s %s , \n aadhar num = %d" %(fname, lname, aadhaar_no))
-        client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
-        if obj1.aadhar_no and obj1.mobile_no:
-            client.messages.create(to=mob_no,
-                                   from_=settings.TWILIO_NUMBER,
-                                   body=message_to_broadcast)
-		return render(request,'data_entry_form_redirect.html', contex)
-
-	return render(request,'data_entry.html',context)
 
 @login_required
 def user_logout(request):
