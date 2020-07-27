@@ -9,6 +9,8 @@ from sankalan_app.models import Surveyor
 from django.contrib.auth.decorators import login_required
 from twilio.rest import Client
 from django.conf import settings
+import os
+from twilio.http.http_client import TwilioHttpClient
 
 # Create your views here.
 def index(request):
@@ -62,6 +64,7 @@ def data_entry(request):
 	surveyor_data = Surveyor.objects.get(user__id=request.user.id)
 	context = {}
 	context["surveyor_data"] = surveyor_data
+	proxy_client = TwilioHttpClient(proxy={'http': os.environ['http_proxy'], 'https': os.environ['https_proxy']})
 
 	if 'data_entry_form' in request.POST:
 
@@ -87,7 +90,7 @@ def data_entry(request):
 	    aadhaar_noobj1 = obj1.aadhaar_no
 	    mob_noobj1 = "+918700573206"
 	    message_to_broadcast = ("Hello \n Data entered is \n Name = %s %s , \n aadhar num = %d" %(fnameobj1, lnameobj1, aadhaar_noobj1))
-	    client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
+	    client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN, http_client=proxy_client)
 	    if obj1.aadhaar_no and obj1.mobile_no:
 	        client.messages.create(to=mob_noobj1, from_=settings.TWILIO_NUMBER, body=message_to_broadcast)
 
@@ -182,7 +185,7 @@ def index_hindi(request):
 			email = request.POST["email"]
 			subject = request.POST["subject"]
 			rating = request.POST["rating"]
-		
+
 			data = Feedback(fname=fname,lname=lname,email=email,subject=subject,rating=rating)
 			data.save()
 
