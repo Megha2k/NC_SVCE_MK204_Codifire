@@ -146,6 +146,98 @@ body{
   padding-left: 50px 20px;
 }
 
+/*responsive navbar*/
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #F08080;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  float: right;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+  font-family:Andalus ;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: crimson;
+  color: white;
+  padding: 0px 10px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+
+}
+
+#mySidebar , #main{
+  display: none;
+}
+
+@media (max-width: 600px)
+{
+  #mySidebar , .openbtn{
+  display: block;
+}
+
+
+  .navbar
+  {
+    display: none;
+  }
+
+  #main{
+    display: block;
+    background:crimson;
+    line-height: 10px;
+  }
+
+}
+
+.openbtn{
+  background: crimson;
+  float: right;
+}
+
 /*for responsive video*/
 .video .mobile
 {

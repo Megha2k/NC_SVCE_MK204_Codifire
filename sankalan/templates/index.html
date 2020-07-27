@@ -131,6 +131,34 @@
 
   </div>
 </nav>
+
+<!--Respnsive navbar-->
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="#top"><i class='fas fa-home'></i>Home <span class="sr-only">Home</a>
+  <a onclick="openBar4()" href="#contact_anchor"><i class='fas fa-envelope'></i>Contact</a>
+  <a onclick="openBar2()" href="#faq_anchor"><i class='fas fa-question-circle'></i>FAQs</a>
+  <a onclick="openBar3()" href="#feedback_anchor"><i class='fas fa-edit'></i>Feedback</a>
+  <a onclick="openBar1()" href="#about_anchor"><i class='fas fa-info-circle'></i>About</a>
+</div>
+
+<div id="main">
+  <div style="float: left; font-weight: bold; font-size: 150% ;  font-family:Andalus ; padding-left:1%;padding-top: 0; color: white;">Sankalan</div>
+  <button class="openbtn" onclick="openNav()">?</button>  
+  
+</div>
+
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
 <br>
 
 <!-- login button -->
