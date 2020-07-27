@@ -94,16 +94,15 @@
 <font size="5" color="white">कृपया सर्वेक्षणकर्ता के विवरण को क्रॉस-चेक करें, जो लॉगिन के बाद प्रदर्शित होता है।</font>
 </marquee>
 
-<!-- button for language change -->
-<a href="{% url 'index' %}">
-    <button type="button"><h4><font face="Monotype Corsiva" color="white">English</font></h4></button>
-</a>
-
 <!-- logo -->
 
 <div style="background: url({% static 'images/cyan.jpg' %}); background-size: cover; isolation: isolate; margin-bottom: 0.5%;">
 <div class="center" id="logo_border">
   <div class="logo">
+  <!-- button for language change -->
+  <a href="{% url 'index' %}" style="float: right;">
+    <button type="button">English</button>
+  </a>
 <img src="{% static 'images/sankalan_logo_hindi.png' %}" alt="LOGO" class="desktop" id="logo_img"/>
 <img src="{% static 'images/sankalan_logo_hindi.png' %}" class="mobile" id="logo_img">
 </div></div></div>
