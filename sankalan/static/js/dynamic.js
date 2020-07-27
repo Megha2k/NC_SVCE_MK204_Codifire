@@ -23,7 +23,7 @@ var acc = document.getElementsByClassName("accordian");
 
 function openBar1()
     {
-      var x = document.getElementById('about');
+      var x = document.getElementById('contact');
      if (x.style.display === "none")
      {
        x.style.display = "block";
@@ -49,7 +49,7 @@ function openBar1()
 
 function openBar3()
     {
-      var x = document.getElementById("contact");
+      var x = document.getElementById("feedback");
      if (x.style.display === "none")
      {
        x.style.display = "block";
@@ -62,7 +62,7 @@ function openBar3()
 
 function openBar4()
     {
-      var x = document.getElementById("feedback");
+      var x = document.getElementById("about");
      if (x.style.display === "none")
      {
        x.style.display = "block";
