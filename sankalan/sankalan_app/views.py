@@ -24,10 +24,10 @@ def index(request):
 
 			user = authenticate(username=username, password=password)
 
-			if user:
+			if user and not user.is_staff:
 				login(request,user)
 				return HttpResponseRedirect("/data_entry_page")
-			elif user and user.is_staff:
+            elif user and user.is_staff:
 				login(request,user)
 				return HttpResponseRedirect("/register")
 			else:
