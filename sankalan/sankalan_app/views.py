@@ -27,6 +27,9 @@ def index(request):
 			if user:
 				login(request,user)
 				return HttpResponseRedirect("/data_entry_page")
+			elif user and user.is_staff:
+				login(request,user)
+				return HttpResponseRedirect("/register")
 			else:
 				return render(request,'index.html',{"status":"Invalid username or password!"})
 
@@ -103,6 +106,7 @@ def user_logout(request):
 	logout(request)
 	return HttpResponseRedirect("/homepage")
 
+@login_required
 def register(request):
 
 	if 'registration_form' in request.POST:
