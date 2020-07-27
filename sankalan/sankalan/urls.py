@@ -33,7 +33,7 @@ urlpatterns = [
 
     # Hindi
     path('hindi', views.index_hindi),
-    path('homepage_hindi', views.index_hindi),
+    path('homepage_hindi', views.index_hindi,name="homepage_hindi"),
     path('data_entry_page_hindi', views.data_entry_hindi,name="data_entry_hindi"),
     path('register_hindi/', views.register_hindi),
     path('user_logout_hindi/', views.user_logout_hindi, name="user_logout_hindi"),
