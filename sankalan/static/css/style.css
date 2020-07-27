@@ -1,3 +1,7 @@
+body{
+  background-color: #E1F2F7;
+  /*#F6DADF; */
+}
 @media(min-width: 768px){
   #feedbackJumbotron{
     margin-left: 25%;
