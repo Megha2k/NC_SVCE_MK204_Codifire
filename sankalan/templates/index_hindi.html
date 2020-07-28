@@ -99,8 +99,10 @@
 <div style="background: url({% static 'images/cyan.jpg' %}); background-size: cover; isolation: isolate; margin-bottom: 0.5%;">
 <div class="center" id="logo_border">
   <div class="logo">
-  
-  
+  <!-- button for language change -->
+  <a href="{% url 'index' %}" style="float: right;">
+    <button type="button">English</button>
+  </a>
 <img src="{% static 'images/sankalan_logo_hindi.png' %}" alt="LOGO" class="desktop" id="logo_img"/>
 <img src="{% static 'images/sankalan_logo_hindi.png' %}" class="mobile" id="logo_img">
 </div></div></div>
@@ -135,7 +137,7 @@
         </button>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'index' %}">English/a>
+        <a class="nav-link" href="{% url 'index' %}">English</a>
       </li>
     </ul>
 
@@ -175,13 +177,6 @@ function closeNav() {
 </script>
 <br>
 
-<!-- login button -->
-
-<div align="right">
-  <button type="button" class="btn btn-primary" id = "login_button" data-toggle="modal" data-target="#staticBackdrop" style="vertical-align: middle;">
-    <span>साइन इन करें</span>
-  </button>&nbsp;
-</div>
 
 <br><br><br>
 
