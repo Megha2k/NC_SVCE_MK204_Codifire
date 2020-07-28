@@ -128,11 +128,15 @@
       <li class="nav-item">
         <a class="nav-link" onclick="openBar4()" href="#about_anchor"><i class='fas fa-info-circle'></i>About</a>
       </li>
-      <li>
-        <button type="button" class="btn btn-primary" id = "login_button" data-toggle="modal" data-target="#staticBackdrop" style="vertical-align: middle;">
-          <span>Sign in</span>
-        </button>
+      {% if user.is_authenticated %}
+      <li class="nav-item">
+        <a class= "nav-link" href="{% url 'user_logout' %}"><i class = "fas fa-sign-out-alt"></i>Sign out</a>
       </li>
+      {% else %}
+      <li class="nav-item" >
+        <a class= "nav-link" href="{% url 'index' %}"  data-toggle="modal" data-target="#staticBackdrop"><i class = "fas fa-sign-in-alt"></i>Sign in</a>
+      </li>
+      {% endif %}
       <li class="nav-item">
         <a class="nav-link" href="{% url 'homepage_hindi' %}">हिंदी</a>
       </li>
@@ -149,9 +153,11 @@
   <a onclick="openBar2()" href="#faq_anchor"><i class='fas fa-question-circle'></i>FAQs</a>
   <a onclick="openBar3()" href="#feedback_anchor"><i class='fas fa-edit'></i>Feedback</a>
   <a onclick="openBar1()" href="#about_anchor"><i class='fas fa-info-circle'></i>About</a>
-  <button type="button" class="btn btn-primary" id = "login_button" data-toggle="modal" data-target="#staticBackdrop" style="vertical-align: middle;">
-          <span><i class="fa fa-sign-in" aria-hidden="true" style= "padding-left:15px;"></i>Sign in</span>
-   </button>
+  {% if user.is_authenticated %}
+  <a href="{% url 'user_logout' %}"><i class="fa-sign-out-alt"></i>Sign out</a>
+  {% else %}
+  <a href="{% url 'index' %}" data-toggle="modal" data-target="#staticBackdrop"><i class = "fas fa-sign-in-alt"></i>Sign in</a>
+  {% endif %}
   <a href="{% url 'homepage_hindi' %}">हिंदी</a>
 </div>
 
