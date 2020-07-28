@@ -23,14 +23,14 @@
 #login_button
 {
   display: inline-block;
-  border-radius: 25px;
-  background-color: #02BBAA;
+  border-radius: 5px;
+  background-color: crimson;
   border: none;
   color: white;
   text-align: center;
   font-size: 19px;
-  padding: 8px;
-  width: 200px;
+  padding-top: 0;
+  width: 100px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 4px;
@@ -63,6 +63,15 @@
 {
   opacity: 1;
   right: 0;
+}
+
+@media (max-width: 600px)
+{
+  #login_button
+  {
+    background-color:#F08080;
+    color:black;
+  }
 }
 
 /*logo*/
@@ -223,9 +232,10 @@
   }
 
   #main{
-    display: block;
+    display: inline-block;
     background:crimson;
     line-height: 10px;
+    width:100%;
   }
 
 }

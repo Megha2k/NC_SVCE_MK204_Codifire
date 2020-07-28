@@ -99,10 +99,7 @@
 <div style="background: url({% static 'images/cyan.jpg' %}); background-size: cover; isolation: isolate; margin-bottom: 0.5%;">
 <div class="center" id="logo_border">
   <div class="logo">
-  <!-- button for language change -->
-  <a href="{% url 'homepage_hindi' %}" style="float: right;">
-    <button type="button">Hindi</button>
-  </a>
+  
 <img src="{% static 'images/logo.png' %}" alt="LOGO" class="desktop" id="logo_img"/>
 <img src="{% static 'images/sankalan_logo.png' %}" class="mobile" id="logo_img">
 </div></div></div>
@@ -131,6 +128,14 @@
       <li class="nav-item">
         <a class="nav-link" onclick="openBar4()" href="#about_anchor"><i class='fas fa-info-circle'></i>About</a>
       </li>
+      <li>
+        <button type="button" class="btn btn-primary" id = "login_button" data-toggle="modal" data-target="#staticBackdrop" style="vertical-align: middle;">
+          <span>Sign in</span>
+        </button>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'homepage_hindi' %}">हिंदी</a>
+      </li>
     </ul>
 
   </div>
@@ -138,17 +143,21 @@
 
 <!--Respnsive navbar-->
 <div id="mySidebar" class="sidebar">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">X</a>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class='fas fa-times'></i></a>
   <a href="#top"><i class='fas fa-home'></i>Home <span class="sr-only">Home</a>
   <a onclick="openBar4()" href="#contact_anchor"><i class='fas fa-envelope'></i>Contact</a>
   <a onclick="openBar2()" href="#faq_anchor"><i class='fas fa-question-circle'></i>FAQs</a>
   <a onclick="openBar3()" href="#feedback_anchor"><i class='fas fa-edit'></i>Feedback</a>
   <a onclick="openBar1()" href="#about_anchor"><i class='fas fa-info-circle'></i>About</a>
+  <button type="button" class="btn btn-primary" id = "login_button" data-toggle="modal" data-target="#staticBackdrop" style="vertical-align: middle;">
+          <span><i class="fa fa-sign-in" aria-hidden="true" style= "padding-left:15px;"></i>Sign in</span>
+   </button>
+  <a href="{% url 'homepage_hindi' %}">हिंदी</a>
 </div>
 
 <div id="main">
   <div style="float: left; font-weight: bold; font-size: 150% ;  font-family:Andalus ; padding-left:1%;padding-top: 0; color: white;">Sankalan</div>
-  <button class="openbtn" onclick="openNav()">?</button>  
+  <button class="openbtn" onclick="openNav()"><i class="fa fa-reorder"></i></button>  
   
 </div>
 

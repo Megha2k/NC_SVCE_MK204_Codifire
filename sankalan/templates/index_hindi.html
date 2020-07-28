@@ -99,10 +99,8 @@
 <div style="background: url({% static 'images/cyan.jpg' %}); background-size: cover; isolation: isolate; margin-bottom: 0.5%;">
 <div class="center" id="logo_border">
   <div class="logo">
-  <!-- button for language change -->
-  <a href="{% url 'index' %}" style="float: right;">
-    <button type="button">English</button>
-  </a>
+  
+  
 <img src="{% static 'images/sankalan_logo_hindi.png' %}" alt="LOGO" class="desktop" id="logo_img"/>
 <img src="{% static 'images/sankalan_logo_hindi.png' %}" class="mobile" id="logo_img">
 </div></div></div>
@@ -131,10 +129,50 @@
       <li class="nav-item">
         <a class="nav-link" onclick="openBar1()" href="#about_anchor"><i class='fas fa-info-circle'></i>बारे में</a>
       </li>
+      <li>
+        <button type="button" class="btn btn-primary" id = "login_button" data-toggle="modal" data-target="#staticBackdrop" style="vertical-align: middle;">
+          <span>सिग्न इन</span>
+        </button>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'index' %}">English/a>
+      </li>
     </ul>
 
   </div>
 </nav>
+
+<!--Respnsive navbar-->
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class='fas fa-times'></i></a>
+  <a href="#top"><i class='fas fa-home'></i>होमपेज  <span class="sr-only">होमपेज </a>
+  <a onclick="openBar4()" href="#contact_anchor"><i class='fas fa-envelope'></i>संपर्क</a>
+  <a onclick="openBar2()" href="#faq_anchor"><i class='fas fa-question-circle'></i>प्रश्न</a>
+  <a onclick="openBar3()" href="#feedback_anchor"><i class='fas fa-edit'></i>प्रतिपुष्टि</a>
+  <a onclick="openBar1()" href="#about_anchor"><i class='fas fa-info-circle'></i>बारे में</a>
+  <button type="button" class="btn btn-primary" id = "login_button" data-toggle="modal" data-target="#staticBackdrop" style="vertical-align: middle;">
+          <span><i class="fa fa-sign-in" aria-hidden="true" style= "padding-left:15px;"></i>सिग्न इन</span>
+   </button>
+  <a href="{% url 'index' %}">English</a>
+</div>
+
+<div id="main">
+  <div style="float: left; font-weight: bold; font-size: 150% ;  font-family:Andalus ; padding-left:1%;padding-top: 0; color: white;">Sankalan</div>
+  <button class="openbtn" onclick="openNav()"><i class="fa fa-reorder"></i></button>  
+  
+</div>
+
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
 <br>
 
 <!-- login button -->
