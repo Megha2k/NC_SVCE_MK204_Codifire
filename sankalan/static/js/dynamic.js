@@ -1,6 +1,6 @@
 //javascript code for responsive collapse bars
 
-var acc = document.getElementsByClassName("accordian");
+var acc = document.getElementsByClassName("accordion");
   var i;
   for(i=0; i<acc.length; i++)
   {
