@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$',views.index,name="index"),
     url(r'^sankalan_app/',include('sankalan_app.urls')),
+    url(r'^sms/',views.sms_response,name='sms'),
     path('homepage', views.index),
     path('data_entry_page', views.data_entry,name="data_entry"),
     path('register/', views.register),

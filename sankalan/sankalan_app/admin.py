@@ -3,6 +3,7 @@ from sankalan_app.models import Contact
 from sankalan_app.models import Feedback
 from sankalan_app.models import Civilian_data
 from sankalan_app.models import Surveyor
+from sankalan_app.models import Received_SMS
 
 # Register your models here.
 # This is just a comment
@@ -31,7 +32,14 @@ class SurveyorAdmin(admin.ModelAdmin):
 	search_fields = ["fname","lname","email","state","surveyor_id","aadhaar_no","city","state"]
 	list_filter = ['state','city']
 
+class Received_SMSAdmin(admin.ModelAdmin):
+	list_display = ["aadhaar_no","date"]
+	search_fields = ["aadhaar_no","mobile_no","date"]
+	readonly_fields = ["date"]
+
+
 admin.site.register(Contact,ContactAdmin)
 admin.site.register(Feedback,FeedbackAdmin)
 admin.site.register(Civilian_data,Civilian_dataAdmin)
 admin.site.register(Surveyor,SurveyorAdmin)
+admin.site.register(Received_SMS,Received_SMSAdmin)
