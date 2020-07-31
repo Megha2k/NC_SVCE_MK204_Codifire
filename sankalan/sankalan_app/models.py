@@ -76,3 +76,12 @@ class Surveyor(models.Model):
 
 	def __str__(self):
 		return self.user.username
+
+class Received_SMS(models.Model):
+	aadhaar_no = models.IntegerField(unique=True)
+	mobile_no = models.CharField(max_length=15)
+	date = models.DateTimeField(default=datetime.now, blank=True)
+
+	class Meta:
+		verbose_name_plural = "Received SMS"
+

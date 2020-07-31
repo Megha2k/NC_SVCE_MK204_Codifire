@@ -6,11 +6,14 @@ from sankalan_app.models import Contact
 from sankalan_app.models import Feedback
 from sankalan_app.models import Civilian_data
 from sankalan_app.models import Surveyor
+from sankalan_app.models import Received_SMS  
 from django.contrib.auth.decorators import login_required
 from twilio.rest import Client
 from django.conf import settings
 import os
 from twilio.http.http_client import TwilioHttpClient
+from django.views.decorators.csrf import csrf_exempt
+from twilio.twiml.messaging_response import MessagingResponse
 
 # Create your views here.
 def index(request):
@@ -150,6 +153,27 @@ def check_user(request):
 			return HttpResponse("exists")
 		else:
 			return HttpResponse("not exists")
+
+
+@csrf_exempt
+def sms_response(request):
+	
+    # Use this data in your application logic
+    from_number = request.form['From']
+    body = request.form['Body']
+    
+    aadhaar_no_rec = int(body)
+    
+    data = Received_SMS(aadhaar_no = aadhaar_no_rec, mobile_no = from_number)
+    data.save()
+    
+    # Start our TwiML response
+    resp = MessagingResponse()
+    
+    # Add a message
+    resp.message("Message Received")
+    
+    return HttpResponse(str(resp))
 
 # Hindi
 
