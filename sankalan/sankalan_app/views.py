@@ -163,6 +163,17 @@ def check_user(request):
 		else:
 			return HttpResponse("not exists")
 
+def aadhaar_authentication(request):
+
+	if request.method == "GET":
+		aadhaar_no = request.GET["adhar"]
+		print(aadhaar_no)
+		check = Aadhaar_data.objects.filter(aadhaar_no=aadhaar_no)
+		if len(check) == 1:
+			return HttpResponse("exists")
+		else:
+			return HttpResponse("not exists")
+
 
 @csrf_exempt
 def sms_response(request):

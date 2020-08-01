@@ -3,6 +3,7 @@ from sankalan_app.models import Contact
 from sankalan_app.models import Feedback
 from sankalan_app.models import Civilian_data
 from sankalan_app.models import Surveyor
+from sankalan_app.models import Aadhaar_data
 from sankalan_app.models import Received_SMS
 
 # Register your models here.
@@ -43,3 +44,4 @@ admin.site.register(Feedback,FeedbackAdmin)
 admin.site.register(Civilian_data,Civilian_dataAdmin)
 admin.site.register(Surveyor,SurveyorAdmin)
 admin.site.register(Received_SMS,Received_SMSAdmin)
+admin.site.register(Aadhaar_data)

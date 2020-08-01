@@ -18,6 +18,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
+  <!-- bootstrap JQuery links -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
   <!-- CSS file link -->
   <link rel="stylesheet" type="text/css" href="{% static 'css/data_entry.css' %}">
 
@@ -83,8 +86,12 @@
     </div>
 
     <div class="form-group">
+      <small id="result"></small>
+    </div>
+
+    <div class="form-group">
     <label for="aadhaar_no">Aadhar Number</label>
-    <input class="form-control" type="number" name="aadhaar_no" placeholder="Enter Aadhaar number.." id="aadhaar_no" required="required" min="100000000000" max="999999999999">
+    <input class="form-control" type="number" name="aadhaar_no" placeholder="Enter Aadhaar number.." id="aadhaar_no" required="required" min="100000000000" max="999999999999" onkeyup="aadhaar_details()">
     </div>
 
     <div class="form-group">
@@ -143,6 +150,22 @@
 </form>
 
 </div>
+
+<script type="text/javascript">
+  function aadhaar_details()
+  {
+    let adhr = document.getElementById("aadhaar_no").value;
+    $.ajax({
+      url:"{% url 'aadhaar_authentication' %}",
+      type:"get",
+      data:{adhar:adhr},
+      success:function(data){
+        alert(data);
+        $("#result").html(data);
+      }
+    })
+  }
+</script>
 
 </body>
 
