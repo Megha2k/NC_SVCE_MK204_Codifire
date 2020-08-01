@@ -30,6 +30,7 @@ urlpatterns = [
     path('data_entry_page', views.data_entry,name="data_entry"),
     path('register/', views.register),
     path('check_user/', views.check_user, name="check_user"),
+    path('aadhaar_authentication/', views.aadhaar_authentication, name="aadhaar_authentication"),
     path('user_logout/', views.user_logout, name="user_logout"),
 
     # Hindi
