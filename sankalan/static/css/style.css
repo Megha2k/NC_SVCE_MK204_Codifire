@@ -17,6 +17,7 @@
   margin:0;
   list-style: none;
   box-sizing: border-box;
+  background-color:white;
 }
 
 /*login button*/
@@ -235,7 +236,7 @@
     display: inline-block;
     background:crimson;
     line-height: 10px;
-    width:100%;
+    width:100%c;
   }
 
 }
