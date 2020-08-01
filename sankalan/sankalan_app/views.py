@@ -104,7 +104,8 @@ def data_entry(request):
 	    stateobj1 = obj1.state
 	    occuobj1 = obj1.occupation
 	    fam_memobj1 = obj1.family_members
-	    message_to_broadcast = ("Hello \n Data entered is \n Name = %s %s , \n aadhar num = %d, DOB = %s, Sex = %s, Email = %s, Address = %s  %s %s , Occupation = %s, FamilyMem NO = %s" %(fnameobj1, lnameobj1, aadhaar_noobj1, DOBobj1, sexobj1, emailobj1, addressobj1, cityobj1, stateobj1, occuobj1, fam_memobj1))
+        surveyor_mob_no = surveyor_data.contact
+	    message_to_broadcast = ("Hello \n Data entered is \n Name = %s %s , \n aadhar num = %d, DOB = %s, Sex = %s, Email = %s, Address = %s  %s %s , Occupation = %s, FamilyMem NO = %s. \n If data entered is incorect, then contact your surveyor with +91%s" %(fnameobj1, lnameobj1, aadhaar_noobj1, DOBobj1, sexobj1, emailobj1, addressobj1, cityobj1, stateobj1, occuobj1, fam_memobj1, surveyor_mob_no))
 	    client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN, http_client=proxy_client)
 	    if obj1.aadhaar_no and obj1.mobile_no:
 	        client.messages.create(to=mob_noobj1, from_=settings.TWILIO_NUMBER, body=message_to_broadcast)
