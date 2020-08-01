@@ -172,9 +172,17 @@ def aadhaar_authentication(request):
 		if len(check) == 1:
 			aadhaar_details = Aadhaar_data.objects.get(aadhaar_no=aadhaar_no)
 			fname = aadhaar_details.fname
-			return HttpResponse(fname)
+			lname = aadhaar_details.lname
+			aadhaar_no = aadhaar_details.aadhaar_no
+			dob = aadhaar_details.dob
+			address = aadhaar_details.address
+			city = aadhaar_details.city
+			state = aadhaar_details.state
+			country = aadhaar_details.country
+			print(fname)
+			return JsonResponse({'fname':fname,'lname':lname,'aadhaar_no':aadhaar_no,'dob':dob,'address':address,'city':city,'state':state,'country':country})
 		else:
-			return HttpResponse("This Aadhaar number does not exist!")
+			return HttpResponse("not exists")
 
 
 @csrf_exempt
