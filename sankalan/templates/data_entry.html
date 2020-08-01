@@ -81,8 +81,8 @@
 
     <div class="form-group">
     <label for="name">Name</label>
-    <input class="form-control" type="text" name="fname" placeholder="Enter First name.." id="name" required="required"><br>
-    <input class="form-control" type="text" name="lname" placeholder="Enter Last name.." id="name">
+    <input class="form-control" type="text" name="fname" placeholder="Enter First name.." id="fname" required="required"><br>
+    <input class="form-control" type="text" name="lname" placeholder="Enter Last name.." id="lname">
     </div>
 
     <div class="form-group">
@@ -160,7 +160,7 @@
       type:"get",
       data:{adhar:adhr},
       success:function(data){
-        $("#result").html(data);
+        $("#fname").val(data);
       }
     })
   }

@@ -168,12 +168,13 @@ def aadhaar_authentication(request):
 
 	if request.method == "GET":
 		aadhaar_no = request.GET["adhar"]
-		print(aadhaar_no)
 		check = Aadhaar_data.objects.filter(aadhaar_no=aadhaar_no)
 		if len(check) == 1:
-			return HttpResponse("exists")
+			aadhaar_details = Aadhaar_data.objects.get(aadhaar_no=aadhaar_no)
+			fname = aadhaar_details.fname
+			return HttpResponse(fname)
 		else:
-			return HttpResponse("not exists")
+			return HttpResponse("This Aadhaar number does not exist!")
 
 
 @csrf_exempt
