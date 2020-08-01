@@ -6,7 +6,7 @@ from sankalan_app.models import Contact
 from sankalan_app.models import Feedback
 from sankalan_app.models import Civilian_data
 from sankalan_app.models import Surveyor
-from sankalan_app.models import Received_SMS  
+from sankalan_app.models import Received_SMS
 from django.contrib.auth.decorators import login_required
 from twilio.rest import Client
 from django.conf import settings
@@ -95,8 +95,17 @@ def data_entry(request):
 	    fnameobj1 = obj1.fname
 	    lnameobj1 = obj1.lname
 	    aadhaar_noobj1 = obj1.aadhaar_no
-	    mob_noobj1 = "+918700573206"
-	    message_to_broadcast = ("Hello \n Data entered is \n Name = %s %s , \n aadhar num = %d" %(fnameobj1, lnameobj1, aadhaar_noobj1))
+	    mob_noobj1 = "+91"+ str(obj1.mobile_no)
+	    DOBobj1 = obj1.dob
+	    sexobj1 = obj1.sex
+	    emailobj1 = obj1.email
+	    addressobj1 = obj1.address
+	    cityobj1 = obj1.city
+	    stateobj1 = obj1.state
+	    occuobj1 = obj1.occupation
+	    fam_memobj1 = obj1.family_members
+        surveyor_mob_no = surveyor_data.contact
+	    message_to_broadcast = ("Hello \n Data entered is \n Name = %s %s , \n aadhar num = %d, DOB = %s, Sex = %s, Email = %s, Address = %s  %s %s , Occupation = %s, FamilyMem NO = %s. \n If data entered is incorect, then contact your surveyor with +91%s" %(fnameobj1, lnameobj1, aadhaar_noobj1, DOBobj1, sexobj1, emailobj1, addressobj1, cityobj1, stateobj1, occuobj1, fam_memobj1, surveyor_mob_no))
 	    client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN, http_client=proxy_client)
 	    if obj1.aadhaar_no and obj1.mobile_no:
 	        client.messages.create(to=mob_noobj1, from_=settings.TWILIO_NUMBER, body=message_to_broadcast)
@@ -157,22 +166,22 @@ def check_user(request):
 
 @csrf_exempt
 def sms_response(request):
-	
+
     # Use this data in your application logic
     from_number = request.form['From']
     body = request.form['Body']
-    
+
     aadhaar_no_rec = int(body)
-    
+
     data = Received_SMS(aadhaar_no = aadhaar_no_rec, mobile_no = from_number)
     data.save()
-    
+
     # Start our TwiML response
     resp = MessagingResponse()
-    
+
     # Add a message
     resp.message("Message Received")
-    
+
     return HttpResponse(str(resp))
 
 # Hindi

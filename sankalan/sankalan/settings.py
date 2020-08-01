@@ -30,9 +30,9 @@ DEBUG = True
 ALLOWED_HOSTS = ['sankalanin.pythonanywhere.com']
 
 # Credentials for SMS Stored in .env file
-TWILIO_ACCOUNT_SID = "AC0c76d6f53923d193f344d0da51841bb3"
-TWILIO_AUTH_TOKEN = "e4854ec3ca9ece4a9d128465e858e813"
-TWILIO_NUMBER = "+12562448691"
+#TWILIO_ACCOUNT_SID = "#AC0c76d6f53923d193f344d0da51841bb3"
+#TWILIO_AUTH_TOKEN = "#c6ddee8fc7a3206e3170a0c5ac1ade98"
+#TWILIO_NUMBER = "#+12407340700"
 
 # Application definition
 
