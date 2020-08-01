@@ -6,6 +6,7 @@ from sankalan_app.models import Contact
 from sankalan_app.models import Feedback
 from sankalan_app.models import Civilian_data
 from sankalan_app.models import Surveyor
+from sankalan_app.models import Aadhaar_data
 from sankalan_app.models import Received_SMS
 from django.contrib.auth.decorators import login_required
 from twilio.rest import Client
