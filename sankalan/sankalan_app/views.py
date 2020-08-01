@@ -9,6 +9,7 @@ from sankalan_app.models import Surveyor
 from sankalan_app.models import Aadhaar_data
 from sankalan_app.models import Received_SMS
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 from twilio.rest import Client
 from django.conf import settings
 import os
