@@ -259,7 +259,7 @@ function closeNav() {
             <form name="contact_form" class="text-center" action="" method="POST">
               {% csrf_token %}
               <div class="md-form mt-3">
-                <input type="text" name="fname" id="materialContactFormFirstName" class="form-control" placeholder="First Name" required="required">
+                <input type="text" name="fname" id="materialContactFormFirstName" class="form-control" placeholder="First Name" required="required" onclick=record()>
 
                 <audio class = "cfirstaudio" controls  hidden="">
                   <source src="{% static 'audio/firstname-eng.ogg' %}" type="audio/ogg">
@@ -275,9 +275,16 @@ function closeNav() {
                   $Cenamefield.on('mouseout',function(){
                     $cefirst.get(0).pause();
                   });
-
-
                 </script>
+                <script type="text/javascript">
+              function record()
+              { var recognition = new webkitSpeechRecognition();
+                recognition.lang = "en-GB";
+                recognition.onresult = function(event)
+                { console.log(event);
+                  document.getElementById('materialContactFormFirstName').value = event.results[0][0].transcript;  }
+                recognition.start();  }
+            </script>
               </div>
               <div class="md-form mt-3">
                 <input type="text" name="lname" id="materialContactFormLastName" class="form-control" placeholder="Last Name">
