@@ -324,8 +324,17 @@ function closeNav() {
           <form class="text-center" name="feedback_form" method="POST">
             {% csrf_token %}
             <div class="md-form mt-3">
-              <input type="text" name="fname" id="materialFeedbackFormFirstName" class="form-control" placeholder="First Name">
+              <input type="text" name="fname" id="materialFeedbackFormFirstName" class="form-control" placeholder="First Name" onclick=record()>
             </div>
+            <script type="text/javascript">
+              function record()
+              { var recognition = new webkitSpeechRecognition();
+                recognition.lang = "en-GB";
+                recognition.onresult = function(event)
+                { console.log(event);
+                  document.getElementById('materialFeedbackFormFirstName').value = event.results[0][0].transcript;  }
+                recognition.start();  }
+            </script>
             <div class="md-form mt-3">
               <input type="text" name="lname" id="materialFeedbackFormLastName" class="form-control" placeholder="Last Name">
             <div>
