@@ -86,3 +86,11 @@ ratingEl.forEach((e1) =>{
     e1.classList.add("active");
   });
 });
+
+//functions for voice playing
+
+var audio1 = document.getElementById("audioID1");
+
+function playAudio1() {
+  audio1.play();
+}
