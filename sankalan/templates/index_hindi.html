@@ -100,8 +100,23 @@
 <div class="center" id="logo_border">
   <div class="logo">
  
-<img src="{% static 'images/sankalan_logo_hindi.png' %}" alt="LOGO" class="desktop" id="logo_img"/>
-<img src="{% static 'images/sankalan_logo_hindi.png' %}" class="mobile" id="logo_img">
+	<img src="{% static 'images/sankalan_logo_hindi.png' %}" alt="LOGO" class="desktop" id="logo_img"/>
+	<img src="{% static 'images/sankalan_logo_hindi.png' %}" class="mobile" id="logo_img">
+	<audio controls  hidden="" id="audio_logo">
+		<source src="{% static 'audio/sankalan_logo_hindi.ogg' %}" type="audio/ogg">
+		<source src="{% static 'audio/sankalan_logo_hindi.mp3' %}" type="audio/mpeg">
+		Your browser does not support the audio element.
+    </audio>
+    <script type="text/javascript">
+        var $LogoAudio = $('#audio_logo');
+        var $logo_img_id = $('#logo_img');
+        $logo_img_id.on('mouseenter',function(){
+			$LogoAudio.get(0).play();
+        });
+        $logo_img_id.on('mouseout',function(){
+            $LogoAudio.get(0).pause();
+        });
+    </script>
 </div></div></div>
 
 <!-- navigation bar -->

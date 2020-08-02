@@ -94,3 +94,10 @@ var audio1 = document.getElementById("audioID1");
 function playAudio1() {
   audio1.play();
 }
+
+var audio2 = document.getElementById("audioID2");
+
+function playAudio2() {
+  audio2.play();
+}
+
