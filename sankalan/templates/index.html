@@ -96,9 +96,28 @@
 
 <!--voices for navigation bar-->
 <audio id="audioID2">
+  <source src="{% static 'audio/home.mpeg' %}" type="audio/mpeg">
+</audio>
+
+<audio id="audioID3">
+  <source src="{% static 'audio/contactus.mpeg' %}" type="audio/mpeg">
+</audio>
+
+<audio id="audioID4">
+  <source src="{% static 'audio/faqs.mpeg' %}" type="audio/mpeg">
+</audio>
+
+<audio id="audioID5">
+  <source src="{% static 'audio/feedback.mpeg' %}" type="audio/mpeg">
+</audio>
+
+<audio id="audioID6">
   <source src="{% static 'audio/aboutnav.mpeg' %}" type="audio/mpeg">
 </audio>
 
+<audio id="audioID7">
+  <source src="{% static 'audio/signin.mp3' %}" type="audio/mpeg">
+</audio>
 <!-- marquee -->
 <marquee height="35" bgcolor="#F80D54" scrollamount="5">
 <font size="5" color="white">Please cross-check the details of the surveyor, which is displayed after login.</font>
@@ -129,16 +148,16 @@
         <a class="nav-link" onmouseenter="playAudio2()" href="#top"><i class='fas fa-home'></i>Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" onclick="openBar1()" href="#contact_anchor" onclick="open_collapse_bar()"><i class='fas fa-envelope'></i>Contact</a>
+        <a class="nav-link" onmouseenter="playAudio3()" onclick="openBar1()" href="#contact_anchor" onclick="open_collapse_bar()"><i class='fas fa-envelope'></i>Contact</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" onclick="openBar2()" href="#faq_anchor"><i class='fas fa-question-circle'></i>FAQs</a>
+        <a class="nav-link" onmouseenter="playAudio4()" onclick="openBar2()" href="#faq_anchor"><i class='fas fa-question-circle'></i>FAQs</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" onclick="openBar3()" href="#feedback_anchor"><i class='fas fa-edit'></i>Feedback</a>
+        <a class="nav-link" onmouseenter="playAudio5()" onclick="openBar3()" href="#feedback_anchor"><i class='fas fa-edit'></i>Feedback</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" onclick="openBar4()" href="#about_anchor"><i class='fas fa-info-circle'></i>About</a>
+        <a class="nav-link" onmouseenter="playAudio6()" onclick="openBar4()" href="#about_anchor"><i class='fas fa-info-circle'></i>About</a>
       </li>
       {% if user.is_authenticated %}
       <li class="nav-item">
@@ -146,7 +165,7 @@
       </li>
       {% else %}
       <li class="nav-item" >
-        <a class= "nav-link" href="{% url 'index' %}"  data-toggle="modal" data-target="#staticBackdrop"><i class = "fas fa-sign-in-alt"></i>Sign in</a>
+        <a class= "nav-link" onmouseenter="playAudio7()" href="{% url 'index' %}"  data-toggle="modal" data-target="#staticBackdrop"><i class = "fas fa-sign-in-alt"></i>Sign in</a>
       </li>
       {% endif %}
       <li class="nav-item">
@@ -259,8 +278,9 @@ function closeNav() {
             <form name="contact_form" class="text-center" action="" method="POST">
               {% csrf_token %}
               <div class="md-form mt-3">
-                <input type="text" name="fname" id="materialContactFormFirstName" class="form-control" placeholder="First Name" required="required" onclick=record()>
+                <input type="text" name="fname" id="materialContactFormFirstName" class="form-control recordThis" placeholder="First Name" required="required">
 
+                <!-- Audio part -->
                 <audio class = "cfirstaudio" controls  hidden="">
                   <source src="{% static 'audio/firstname-eng.ogg' %}" type="audio/ogg">
                   <source src="{% static 'audio/firstname-eng.mp3' %}" type="audio/mpeg">
@@ -275,34 +295,30 @@ function closeNav() {
                   $Cenamefield.on('mouseout',function(){
                     $cefirst.get(0).pause();
                   });
+                  // audio part end
+
                 </script>
-                <script type="text/javascript">
-              function record()
-              { var recognition = new webkitSpeechRecognition();
-                recognition.lang = "en-GB";
-                recognition.onresult = function(event)
-                { console.log(event);
-                  document.getElementById('materialContactFormFirstName').value = event.results[0][0].transcript;  }
-                recognition.start();  }
-            </script>
+                
               </div>
               <div class="md-form mt-3">
-                <input type="text" name="lname" id="materialContactFormLastName" class="form-control" placeholder="Last Name">
+                <input type="text" name="lname" id="materialContactFormLastName" class="form-control recordThis" placeholder="Last Name">
 
-                <audio class = "polystar" controls  hidden="" id="lastname">
-                  <source src="{% static 'audio/surname(1)(1).ogg' %}" type="audio/ogg">
-                  <source src="{% static 'audio/surname(1)(1).mp3' %}" type="audio/mpeg">
+                <audio class = "clnameaudio" controls  hidden="">
+                  <source src="{% static 'audio/surname (1).ogg' %}" type="audio/ogg">
+                  <source src="{% static 'audio/surname (1).mp3' %}" type="audio/mpeg">
                 Your browser does not support the audio element.
                 </audio>
                 <script type="text/javascript">
-                  var $polystar1 = $('#lastname');
-                  var $Cnamefield2 = $('#materialContactFormLastName');
-                  $Cnamefield2.on('mouseenter',function(){
-                    $polystar1.get(0).play();
+                  var $cefirst = $('.clnameaudio');
+                  var $Cenamefield = $('#materialContactFormLastName');
+                  $Cenamefield.on('mouseenter',function(){
+                    $cefirst.get(0).play();
                   });
-                  $Cnamefield2.on('mouseout',function(){
-                    $polystar1.get(0).pause();
+                  $Cenamefield.on('mouseout',function(){
+                    $cefirst.get(0).pause();
                   });
+
+
                 </script>
 
               <div class="md-form mt-3">
@@ -317,26 +333,27 @@ function closeNav() {
                 <br>
               </div>
               <div class="md-form mt-3">
-                <input type="email" id="phone" name="email" class="form-control" placeholder="Email.." required="required" required="required">
+                <input type="email" id="phone" name="email" class="form-control contactFormEmail recordThis" placeholder="Email.." required="required" required="required">
                 <audio controls  hidden="" id="emailDesc">
                   <source src="{% static 'audio/email(1).ogg' %}" type="audio/ogg">
                   <source src="{% static 'audio/email(1).mp3' %}" type="audio/mpeg">
                 Your browser does not support the audio element.
                 </audio>
                 <script type="text/javascript">
-                  var $emailDesc = $('#emailDesc');
-                  var $email = $('#phone');
-                  $email.on('mouseenter',function(){
-                    $emailDesc.get(0).play();
+                  var $email_eng_desc = $('#email_desc_eng');
+                  var $email_contact_form = $('.contactFormEmail');
+                  $email_contact_form.on('mouseenter',function(){
+                    $email_eng_desc.get(0).play();
                   });
-                  $email.on('mouseout',function(){
-                    $emailDesc.get(0).pause();
+                  $email_contact_form.on('mouseout',function(){
+                    $email_eng_desc.get(0).pause();
                   });
                 </script>
+
               </div>
               <div class="md-form mt-3">
                 <label for="subject" id = "subjectLabel" class="form-control">Subject:</label><br>
-                <textarea class="form-control" id="subject" name="subject" placeholder="..write here...." cols=40 rows=4 required="required"></textarea>
+                <textarea class="form-control  recordThis" id="subject" name="subject" placeholder="..write here...." cols=40 rows=4 required="required"></textarea>
                 <audio controls  hidden="" id="writeHere">
                   <source src="{% static 'audio/subject-eng.ogg' %}" type="audio/ogg">
                   <source src="{% static 'audio/subject-eng.mp3' %}" type="audio/mpeg">
@@ -352,6 +369,7 @@ function closeNav() {
                     $writeHere.get(0).pause();
                   });
                 </script>
+
               </div>
               <div id="SubmitButton">
                 <input type="submit" name="contact_form" value="Submit" class="btn" id = "contactSubmitButton">
@@ -449,23 +467,25 @@ function closeNav() {
           <form class="text-center" name="feedback_form" method="POST">
             {% csrf_token %}
             <div class="md-form mt-3">
-              <input type="text" name="fname" id="materialFeedbackFormFirstName" class="form-control" placeholder="First Name" onclick=record()>
+              <input type="text" name="fname" id="materialFeedbackFormFirstName" class="form-control recordThis" placeholder="First Name">
             </div>
-            <audio class = "polystar" controls  hidden="">
+
+            <audio class = "engFname_audio" controls  hidden="">
               <source src="{% static 'audio/firstname-eng.ogg' %}" type="audio/ogg">
               <source src="{% static 'audio/firstname-eng.mp3' %}" type="audio/mpeg">
             Your browser does not support the audio element.
             </audio>
             <script type="text/javascript">
-              var $polystar = $('.polystar');
-              var $namefield = $('#materialFeedbackFormFirstName');
-              $namefield.on('mouseenter',function(){
-                $polystar.get(0).play();
+              var $eng_fname_audio = $('.engFname_audio');
+              var $fb_fname = $('#materialFeedbackFormFirstName');
+              $fb_fname.on('mouseenter',function(){
+                $eng_fname_audio.get(0).play();
               });
-              $namefield.on('mouseout',function(){
-                $polystar.get(0).pause();
+              $fb_fname.on('mouseout',function(){
+                $eng_fname_audio.get(0).pause();
               });
             </script>
+
             <script type="text/javascript">
               function record()
               { var recognition = new webkitSpeechRecognition();
@@ -474,60 +494,71 @@ function closeNav() {
                 { console.log(event);
                   document.getElementById('materialFeedbackFormFirstName').value = event.results[0][0].transcript;  }
                 recognition.start();  }
+
             </script>
+
             <div class="md-form mt-3">
-              <input type="text" name="lname" id="materialFeedbackFormLastName" class="form-control" placeholder="Last Name">
-              <audio class = "polystar" controls  hidden="" id="lastname">
-                <source src="{% static 'audio/surname(1).ogg' %}" type="audio/ogg">
-                <source src="{% static 'audio/surname(1).mp3' %}" type="audio/mpeg">
+
+            <input type="text" name="lname" id="materialFeedbackFormLastName" class="form-control recordThis" placeholder="Last Name">
+
+              <audio class = "engLname_audio" controls  hidden="">
+                <source src="{% static 'audio/eng-lname.ogg' %}" type="audio/ogg">
+                <source src="{% static 'audio/eng-lname.mp3' %}" type="audio/mpeg">
               Your browser does not support the audio element.
               </audio>
+            
               <script type="text/javascript">
-                var $polystar1 = $('#lastname');
-                var $namefield2 = $('#materialFeedbackFormLastName');
-                $namefield2.on('mouseenter',function(){
-                  $polystar1.get(0).play();
+                var $eng_lname_audio = $('.engLname_audio');
+                var $fb_lname = $('#materialFeedbackFormLastName');
+                $fb_lname.on('mouseenter',function(){
+                  $eng_lname_audio.get(0).play();
                 });
-                $namefield2.on('mouseout',function(){
-                  $polystar1.get(0).pause();
-                });
-              </script>
-            <div>
-            </div>
-            <div class="md-form mt-3">
-              <input type="text" name="email" id="phone" class="form-control" placeholder="Email..">
-              <audio controls  hidden="" id="emailDesc">
-                <source src="{% static 'audio/email(1).ogg' %}" type="audio/ogg">
-                <source src="{% static 'audio/email(1).mp3' %}" type="audio/mpeg">
-              Your browser does not support the audio element.
-              </audio>
-              <script type="text/javascript">
-                var $emailDesc = $('#emailDesc');
-                var $Feedback_email = $('.feedFormEmail');
-                $Feedback_email.on('mouseenter',function(){
-                  $emailDesc.get(0).play();
-                });
-                $Feedback_email.on('mouseout',function(){
-                  $emailDesc.get(0).pause();
+                $fb_lname.on('mouseout',function(){
+                  $eng_lname_audio.get(0).pause();
                 });
               </script>
             </div>
+
+            <div class="md-form mt-3">
+              <audio controls  hidden="" id="email_desc_eng">
+                <source src="{% static 'audio/email (1).ogg' %}" type="audio/ogg">
+                <source src="{% static 'audio/email (1).mp3' %}" type="audio/mpeg">
+                     Your browser does not support the audio element.
+                </audio>
+              <input type="text" name="email" id="phone" class="form-control feedbackFormEmail recordThis" placeholder="Email..">
+    
+              <script type="text/javascript">
+                var $email_eng_desc = $('#email_desc_eng');
+                var $email_fb_form = $('.feedbackFormEmail');
+                $email_fb_form.on('mouseenter',function(){
+                  $email_eng_desc.get(0).play();
+                });
+                $email_fb_form.on('mouseout',function(){
+                  $email_eng_desc.get(0).pause();
+                });
+              </script>
+            </div>
+
             <div class="md-form mt-3">
               <label for="subject" id = "feedbackLabel" class="form-control">Feedback:</label><br>
-              <textarea class="form-control" id="subject" name="subject" placeholder="..write here...." cols=40 rows=4 required="required"></textarea>
-              <audio controls  hidden="" id="writeFeedbackAudio">
-                <source src="{% static 'audio/feedback(write-here)-eng.ogg' %}" type="audio/ogg">
-                <source src="{% static 'audio/feedback(write-here)-eng.mp3' %}" type="audio/mpeg">
-              Your browser does not support the audio element.
+        
+              <textarea class="form-control feedbackSubject recordThis" id="subject" name="subject" placeholder="..write here...." cols=40 rows=4 required="required"></textarea>
+
+              <audio controls  hidden="" id="feedback_writeHere">
+                  <source src="{% static 'audio/feedback(write-here)-eng.ogg' %}" type="audio/ogg">
+                  <source src="{% static 'audio/feedback(write-here)-eng.mp3' %}" type="audio/mpeg">
+                Your browser does not support the audio element.
               </audio>
+              
+              
               <script type="text/javascript">
-                var $writeFBAudio = $('#writeFeedbackAudio');
-                var $FBSubject = $('.feedback_subject');
-                $FBSubject.on('mouseenter',function(){
-                  $writeFBAudio.get(0).play();
+                var $fb_writeHere = $('#feedback_writeHere');
+                var $fb_subject = $('.feedbackSubject');
+                $fb_subject.on('mouseenter',function(){
+                  $fb_writeHere.get(0).play();
                 });
-                $FBSubject.on('mouseout',function(){
-                  $writeFBAudio.get(0).pause();
+                $fb_subject.on('mouseout',function(){
+                  $fb_writeHere.get(0).pause();
                 });
               </script>
             </div>
@@ -666,6 +697,19 @@ function closeNav() {
     $('#myModal').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus')
     })
+$(".recordThis").on("click", function(){
+    var _this = $(this);
+    var recognition = new webkitSpeechRecognition();
+    recognition.lang = "en-GB";
+    recognition.onresult = function(event){ 
+      console.log(event);
+      _this.val(event.results[0][0].transcript);  
+    }
+    recognition.start();
+  //Record and get value
+    // $(this).val("recorded value")
+})
+
 </script>
 <!--POPUP LOGIN END-->
 
