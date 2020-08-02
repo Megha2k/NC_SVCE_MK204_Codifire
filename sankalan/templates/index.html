@@ -259,7 +259,7 @@ function closeNav() {
             <form name="contact_form" class="text-center" action="" method="POST">
               {% csrf_token %}
               <div class="md-form mt-3">
-                <input type="text" name="fname" id="materialContactFormFirstName" class="form-control" placeholder="First Name" required="required" onclick=record()>
+                <input type="text" name="fname" id="materialContactFormFirstName" class="form-control recordThis" placeholder="First Name" required="required">
 
                 <audio class = "cfirstaudio" controls  hidden="">
                   <source src="{% static 'audio/firstname-eng.ogg' %}" type="audio/ogg">
@@ -276,15 +276,6 @@ function closeNav() {
                     $cefirst.get(0).pause();
                   });
                 </script>
-                <script type="text/javascript">
-              function record()
-              { var recognition = new webkitSpeechRecognition();
-                recognition.lang = "en-GB";
-                recognition.onresult = function(event)
-                { console.log(event);
-                  document.getElementById('materialContactFormFirstName').value = event.results[0][0].transcript;  }
-                recognition.start();  }
-            </script>
               </div>
               <div class="md-form mt-3">
                 <input type="text" name="lname" id="materialContactFormLastName" class="form-control" placeholder="Last Name">
@@ -666,6 +657,19 @@ function closeNav() {
     $('#myModal').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus')
     })
+$(".recordThis").on("click", function(){
+    var _this = $(this);
+    var recognition = new webkitSpeechRecognition();
+    recognition.lang = "en-GB";
+    recognition.onresult = function(event){ 
+      console.log(event);
+      _this.val(event.results[0][0].transcript);  
+    }
+    recognition.start();
+  //Record and get value
+    // $(this).val("recorded value")
+})
+
 </script>
 <!--POPUP LOGIN END-->
 
