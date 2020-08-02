@@ -6,8 +6,10 @@ from sankalan_app.models import Contact
 from sankalan_app.models import Feedback
 from sankalan_app.models import Civilian_data
 from sankalan_app.models import Surveyor
+from sankalan_app.models import Aadhaar_data
 from sankalan_app.models import Received_SMS
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 from twilio.rest import Client
 from django.conf import settings
 import os
@@ -104,7 +106,7 @@ def data_entry(request):
 	    stateobj1 = obj1.state
 	    occuobj1 = obj1.occupation
 	    fam_memobj1 = obj1.family_members
-		surveyor_mob_no = surveyor_data.contact
+        surveyor_mob_no = surveyor_data.contact
 	    message_to_broadcast = ("Hello \n Data entered is \n Name = %s %s , \n aadhar num = %d, DOB = %s, Sex = %s, Email = %s, Address = %s  %s %s , Occupation = %s, FamilyMem NO = %s. \n If data entered is incorect, then contact your surveyor with +91%s" %(fnameobj1, lnameobj1, aadhaar_noobj1, DOBobj1, sexobj1, emailobj1, addressobj1, cityobj1, stateobj1, occuobj1, fam_memobj1, surveyor_mob_no))
 	    client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN, http_client=proxy_client)
 	    if obj1.aadhaar_no and obj1.mobile_no:
@@ -161,6 +163,28 @@ def check_user(request):
 
 		if len(check) == 1:
 			return HttpResponse("exists")
+		else:
+			return HttpResponse("not exists")
+
+def aadhaar_authentication(request):
+
+	if request.method == "GET":
+		aadhaar_no = request.GET["adhar"]
+		check = Aadhaar_data.objects.filter(aadhaar_no=aadhaar_no)
+		if len(check) == 1:
+			aadhaar_details = Aadhaar_data.objects.get(aadhaar_no=aadhaar_no)
+			fname = aadhaar_details.fname
+			lname = aadhaar_details.lname
+			aadhaar_no = aadhaar_details.aadhaar_no
+			dob = aadhaar_details.dob
+			address = aadhaar_details.address
+			city = aadhaar_details.city
+			state = aadhaar_details.state
+			country = aadhaar_details.country
+			print(fname)
+			return JsonResponse({'fname':fname,'lname':lname,'aadhaar_no':aadhaar_no,'dob':dob,'address':address,'city':city,'state':state,'country':country})
+		elif len(aadhaar_no)<12 or len(aadhaar_no)>12:
+			return HttpResponse("format")
 		else:
 			return HttpResponse("not exists")
 

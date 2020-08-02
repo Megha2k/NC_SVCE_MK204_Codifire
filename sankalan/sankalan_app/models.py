@@ -85,3 +85,16 @@ class Received_SMS(models.Model):
 	class Meta:
 		verbose_name_plural = "Received SMS"
 
+class Aadhaar_data(models.Model):
+	fname = models.CharField(max_length=25)
+	lname = models.CharField(max_length=25)
+	aadhaar_no = models.IntegerField(unique=True)
+	dob = models.DateField(validators=[validate_date])
+	sex = models.CharField(max_length=6,choices=sex_choices,default="female")
+	address = models.TextField(max_length=100, default='')
+	city = models.CharField(max_length=25)
+	state = models.CharField(max_length=40,choices=state_choices,default="Delhi")
+	country = models.CharField(max_length=5,choices=country_choice,default="India")
+
+	class Meta:
+		verbose_name_plural = "Aadhaar Data"

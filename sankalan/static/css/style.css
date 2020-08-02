@@ -528,6 +528,11 @@ textarea{
 .modal{
   background-color: transparent;
 }
+
+#modallogin_jumbotron{
+  margin:-10% 5% 0% 5%;
+  background-color: transparent;
+}
 .modal-content{
       font-family: contantia bold;
       margin: auto;
@@ -616,7 +621,8 @@ textarea{
           /*padding: 0rem;*/
           padding-top: 3px;
           /*margin: -5.7rem -21rem -1rem auto;*/
-          margin: -5.7rem 0rem -1rem 26.3rem;
+          /*margin: -5.7rem 0rem -1rem 26.3rem;*/
+          margin: -5.7rem 0rem -1rem 19.3rem;
           position:absolute;
           float: right;
       }
