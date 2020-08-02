@@ -458,7 +458,7 @@ function closeNav() {
               $namefield.on('mouseout',function(){
                 $polystar.get(0).pause();
               });
-
+            </script>
             <script type="text/javascript">
               function record()
               { var recognition = new webkitSpeechRecognition();
@@ -467,7 +467,6 @@ function closeNav() {
                 { console.log(event);
                   document.getElementById('materialFeedbackFormFirstName').value = event.results[0][0].transcript;  }
                 recognition.start();  }
-
             </script>
             <div class="md-form mt-3">
               <input type="text" name="lname" id="materialFeedbackFormLastName" class="form-control" placeholder="Last Name">
