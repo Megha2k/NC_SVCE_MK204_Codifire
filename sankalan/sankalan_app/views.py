@@ -111,7 +111,7 @@ def data_entry(request):
 	    client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN, http_client=proxy_client)
 	    if obj1.aadhaar_no and obj1.mobile_no:
 	        client.messages.create(to=mob_noobj1, from_=settings.TWILIO_NUMBER, body=message_to_broadcast)
-	        client.calls.create(url='https://drive.google.com/file/d/1BCVtr1XdH42saIPqcyIy-PA23vyEqY87/view', to=mob_noobj1, from_=settings.TWILIO_NUMBER)
+	        client.calls.create(url='https://handler.twilio.com/twiml/EH9ae68effd3dc831606514ae7878cfed9', to=mob_noobj1, from_=settings.TWILIO_NUMBER)
 
 	    return render(request,'data_entry_form_redirect.html')
 	else:
