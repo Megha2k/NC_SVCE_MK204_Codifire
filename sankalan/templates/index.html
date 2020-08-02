@@ -278,7 +278,7 @@ function closeNav() {
                 </script>
               </div>
               <div class="md-form mt-3">
-                <input type="text" name="lname" id="materialContactFormLastName" class="form-control" placeholder="Last Name">
+                <input type="text" name="lname" id="materialContactFormLastName" class="form-control recordThis" placeholder="Last Name">
 
                 <audio class = "polystar" controls  hidden="" id="lastname">
                   <source src="{% static 'audio/surname(1)(1).ogg' %}" type="audio/ogg">
@@ -308,7 +308,7 @@ function closeNav() {
                 <br>
               </div>
               <div class="md-form mt-3">
-                <input type="email" id="phone" name="email" class="form-control" placeholder="Email.." required="required" required="required">
+                <input type="email" id="phone" name="email" class="form-control recordThis" placeholder="Email.." required="required" required="required">
                 <audio controls  hidden="" id="emailDesc">
                   <source src="{% static 'audio/email(1).ogg' %}" type="audio/ogg">
                   <source src="{% static 'audio/email(1).mp3' %}" type="audio/mpeg">
@@ -327,7 +327,7 @@ function closeNav() {
               </div>
               <div class="md-form mt-3">
                 <label for="subject" id = "subjectLabel" class="form-control">Subject:</label><br>
-                <textarea class="form-control" id="subject" name="subject" placeholder="..write here...." cols=40 rows=4 required="required"></textarea>
+                <textarea class="form-control  recordThis" id="subject" name="subject" placeholder="..write here...." cols=40 rows=4 required="required"></textarea>
                 <audio controls  hidden="" id="writeHere">
                   <source src="{% static 'audio/subject-eng.ogg' %}" type="audio/ogg">
                   <source src="{% static 'audio/subject-eng.mp3' %}" type="audio/mpeg">
@@ -440,7 +440,7 @@ function closeNav() {
           <form class="text-center" name="feedback_form" method="POST">
             {% csrf_token %}
             <div class="md-form mt-3">
-              <input type="text" name="fname" id="materialFeedbackFormFirstName" class="form-control" placeholder="First Name" onclick=record()>
+              <input type="text" name="fname" id="materialFeedbackFormFirstName" class="form-control recordThis" placeholder="First Name">
             </div>
             <audio class = "polystar" controls  hidden="">
               <source src="{% static 'audio/firstname-eng.ogg' %}" type="audio/ogg">
@@ -457,17 +457,8 @@ function closeNav() {
                 $polystar.get(0).pause();
               });
             </script>
-            <script type="text/javascript">
-              function record()
-              { var recognition = new webkitSpeechRecognition();
-                recognition.lang = "en-GB";
-                recognition.onresult = function(event)
-                { console.log(event);
-                  document.getElementById('materialFeedbackFormFirstName').value = event.results[0][0].transcript;  }
-                recognition.start();  }
-            </script>
             <div class="md-form mt-3">
-              <input type="text" name="lname" id="materialFeedbackFormLastName" class="form-control" placeholder="Last Name">
+              <input type="text" name="lname" id="materialFeedbackFormLastName" class="form-control recordThis" placeholder="Last Name">
               <audio class = "polystar" controls  hidden="" id="lastname">
                 <source src="{% static 'audio/surname(1).ogg' %}" type="audio/ogg">
                 <source src="{% static 'audio/surname(1).mp3' %}" type="audio/mpeg">
@@ -486,7 +477,7 @@ function closeNav() {
             <div>
             </div>
             <div class="md-form mt-3">
-              <input type="text" name="email" id="phone" class="form-control" placeholder="Email..">
+              <input type="text" name="email" id="phone" class="form-control recordThis" placeholder="Email..">
               <audio controls  hidden="" id="emailDesc">
                 <source src="{% static 'audio/email(1).ogg' %}" type="audio/ogg">
                 <source src="{% static 'audio/email(1).mp3' %}" type="audio/mpeg">
@@ -504,7 +495,7 @@ function closeNav() {
               </script>
             </div>
             <div class="md-form mt-3">
-              <label for="subject" id = "feedbackLabel" class="form-control">Feedback:</label><br>
+              <label for="subject" id = "feedbackLabel" class="form-control recordThis">Feedback:</label><br>
               <textarea class="form-control" id="subject" name="subject" placeholder="..write here...." cols=40 rows=4 required="required"></textarea>
               <audio controls  hidden="" id="writeFeedbackAudio">
                 <source src="{% static 'audio/feedback(write-here)-eng.ogg' %}" type="audio/ogg">
