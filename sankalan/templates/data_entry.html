@@ -82,6 +82,29 @@
 
     <div class="form-group">
     <label for="aadhaar_no">Aadhar Number</label>
+    <input class="form-control" type="number" name="aadhaar_no" placeholder="Enter Aadhaar number.." id="aadhaar_no" required="required">
+
+    <!-- Aadhar Audio -->
+
+    <audio id = "DataAadhar_audio" controls  hidden="">
+      <source src="{% static 'audio/(E)aadharno-dataEntry.mp3' %}" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+    <script type="text/javascript">
+      var $DataAadhar_audio = $('#DataAadhar_audio');
+      var $DataAadhar = $('#aadhaar_no');
+      $DataAadhar.on('mouseenter',function(){
+        $DataAadhar_audio.get(0).play();
+      });
+      $DataAadhar.on('mouseout',function(){
+        $DataAadhar_audio.get(0).pause();
+      });
+    </script>
+
+
+
+    <!-- End -->
+
     <input class="form-control recordThis" type="number" name="aadhaar_no" placeholder="Enter Aadhaar number.." id="aadhaar_no" required="required">
     <button id="verify" style="float: right;" class="btn btn-info" onclick="aadhaar_details()">Verify</button>
     <br>
@@ -89,6 +112,49 @@
 
     <div class="form-group">
     <label for="name">Name</label>
+
+    <input class="form-control" type="text" name="fname" placeholder="Enter First name.." id="fname" required="required" readonly><br>
+    <!-- First Name Audio -->
+
+    <audio class = "dataFname_audio" controls  hidden="">
+      <source src="{% static 'audio/firstname-eng.mp3' %}" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+    <script type="text/javascript">
+      var $dataFname_audio = $('.dataFname_audio');
+      var $dataFname= $('#fname');
+      $dataFname.on('mouseenter',function(){
+        $dataFname_audio.get(0).play();
+      });
+      $dataFname.on('mouseout',function(){
+        $dataFname_audio.get(0).pause();
+      });
+
+
+    </script>
+
+    <!-- END -->
+
+    <input class="form-control" type="text" name="lname" placeholder="Enter Last name.." id="lname" readonly>
+
+    <audio class = "dataLname_audio" controls  hidden="">
+      <source src="{% static 'audio/surname (1).mp3' %}" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+    <script type="text/javascript">
+      var $dataLname_audio = $('.dataLname_audio');
+      var $dataLname = $('#lname');
+      $dataLname.on('mouseenter',function(){
+        $dataLname_audio.get(0).play();
+      });
+      $dataLname.on('mouseout',function(){
+        $dataLname_audio.get(0).pause();
+      });
+    </script>
+
+    <!-- End -->
+
+
     <input class="form-control recordThis" type="text" name="fname" placeholder="Enter First name.." id="fname" required="required" readonly><br>
     <input class="form-control recordThis" type="text" name="lname" placeholder="Enter Last name.." id="lname" readonly>
     </div>
@@ -111,6 +177,25 @@
 
     <div class="form-group">
     <label for="email">Email</label>
+    <input class="form-control" type="email" name="email" placeholder="Enter Email.." id="email" required="required">
+    <!-- Email Audio -->
+    <audio controls  hidden="" id="dataEmail_audio">
+      <source src="{% static 'audio/email (1).mp3' %}" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+
+    <script type="text/javascript">
+      var $dataEmail_audio = $('#dataEmail_audio');
+      var $dataEmail = $('#email');
+      $dataEmail.on('mouseenter',function(){
+        $dataEmail_audio.get(0).play();
+      });
+      $dataEmail.on('mouseout',function(){
+        $dataEmail_audio.get(0).pause();
+      });
+    </script>
+    <!-- End -->
+
     <input class="form-control recordThis" type="email" name="email" placeholder="Enter Email.." id="email" required="required">
     </div>
 
