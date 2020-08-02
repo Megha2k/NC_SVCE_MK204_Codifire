@@ -276,11 +276,8 @@ function closeNav() {
                   $Cenamefield.on('mouseout',function(){
                     $cefirst.get(0).pause();
                   });
-<<<<<<< HEAD
                   // audio part end
 
-=======
->>>>>>> 7a5a9176f0ddd62c418dd31779a6f4680d5e4321
                 </script>
                 
               </div>
@@ -317,18 +314,16 @@ function closeNav() {
                 <br>
               </div>
               <div class="md-form mt-3">
-<<<<<<< HEAD
-                <input type="email" id="phone" name="email" class="form-control contactFormEmail" placeholder="Email.." required="required" required="required">
+
+               <!--  <input type="email" id="phone" name="email" class="form-control contactFormEmail" placeholder="Email.." required="required" required="required">
 
                 <audio controls  hidden="" id="email_desc_eng">
                   <source src="{% static 'audio/email (1).ogg' %}" type="audio/ogg">
-                  <source src="{% static 'audio/email (1).mp3' %}" type="audio/mpeg">
-=======
-                <input type="email" id="phone" name="email" class="form-control recordThis" placeholder="Email.." required="required" required="required">
+                  <source src="{% static 'audio/email (1).mp3' %}" type="audio/mpeg"> -->
+                <input type="email" id="phone" name="email" class="form-control contactFormEmail recordThis" placeholder="Email.." required="required" required="required">
                 <audio controls  hidden="" id="emailDesc">
                   <source src="{% static 'audio/email(1).ogg' %}" type="audio/ogg">
                   <source src="{% static 'audio/email(1).mp3' %}" type="audio/mpeg">
->>>>>>> 7a5a9176f0ddd62c418dd31779a6f4680d5e4321
                 Your browser does not support the audio element.
                 </audio>
                 <script type="text/javascript">
@@ -345,12 +340,9 @@ function closeNav() {
               </div>
               <div class="md-form mt-3">
                 <label for="subject" id = "subjectLabel" class="form-control">Subject:</label><br>
-<<<<<<< HEAD
-                <textarea class="form-control" id="subject" name="subject" placeholder="..write here...." cols=40 rows=4 required="required"></textarea>
+                <!-- <textarea class="form-control" id="subject" name="subject" placeholder="..write here...." cols=40 rows=4 required="required"></textarea> -->
 
-=======
                 <textarea class="form-control  recordThis" id="subject" name="subject" placeholder="..write here...." cols=40 rows=4 required="required"></textarea>
->>>>>>> 7a5a9176f0ddd62c418dd31779a6f4680d5e4321
                 <audio controls  hidden="" id="writeHere">
                   <source src="{% static 'audio/subject-eng.ogg' %}" type="audio/ogg">
                   <source src="{% static 'audio/subject-eng.mp3' %}" type="audio/mpeg">
@@ -481,7 +473,6 @@ function closeNav() {
               $fb_fname.on('mouseout',function(){
                 $eng_fname_audio.get(0).pause();
               });
-<<<<<<< HEAD
             </script>
 
             <script type="text/javascript">
@@ -494,21 +485,22 @@ function closeNav() {
                 recognition.start();  }
 
             </script>
+
             <div class="md-form mt-3">
-              <input type="text" name="lname" id="materialFeedbackFormLastName" class="form-control" placeholder="Last Name">
+<!--               <input type="text" name="lname" id="materialFeedbackFormLastName" class="form-control" placeholder="Last Name"> -->
+            <input type="text" name="lname" id="materialFeedbackFormLastName" class="form-control recordThis" placeholder="Last Name">
               <audio class = "engLname_audio" controls  hidden="">
                 <source src="{% static 'audio/eng-lname.ogg' %}" type="audio/ogg">
                 <source src="{% static 'audio/eng-lname.mp3' %}" type="audio/mpeg">
-=======
-            </script>
-            <div class="md-form mt-3">
-              <input type="text" name="lname" id="materialFeedbackFormLastName" class="form-control recordThis" placeholder="Last Name">
-              <audio class = "polystar" controls  hidden="" id="lastname">
-                <source src="{% static 'audio/surname(1).ogg' %}" type="audio/ogg">
-                <source src="{% static 'audio/surname(1).mp3' %}" type="audio/mpeg">
->>>>>>> 7a5a9176f0ddd62c418dd31779a6f4680d5e4321
               Your browser does not support the audio element.
               </audio>
+            <!-- <div class="md-form mt-3"> -->
+              
+              <!-- <audio class = "polystar" controls  hidden="" id="lastname">
+                <source src="{% static 'audio/surname(1).ogg' %}" type="audio/ogg">
+                <source src="{% static 'audio/surname(1).mp3' %}" type="audio/mpeg">
+              Your browser does not support the audio element.
+              </audio> -->
               <script type="text/javascript">
                 var $eng_lname_audio = $('.engLname_audio');
                 var $fb_lname = $('#materialFeedbackFormLastName');
@@ -519,22 +511,23 @@ function closeNav() {
                   $eng_lname_audio.get(0).pause();
                 });
               </script>
-            <div>
+            <!-- <div> -->
             </div>
+
+
             <div class="md-form mt-3">
-<<<<<<< HEAD
-              <input type="text" name="email" id="phone" class="form-control" placeholder="Email..">
+              <!-- <input type="text" name="email" id="phone" class="form-control" placeholder="Email.."> -->
               <audio controls  hidden="" id="email_desc_eng">
                 <source src="{% static 'audio/email (1).ogg' %}" type="audio/ogg">
                 <source src="{% static 'audio/email (1).mp3' %}" type="audio/mpeg">
-=======
-              <input type="text" name="email" id="phone" class="form-control recordThis" placeholder="Email..">
-              <audio controls  hidden="" id="emailDesc">
+                     Your browser does not support the audio element.
+                </audio>
+              <input type="text" name="email" id="phone" class="form-control feedbackFormEmail recordThis" placeholder="Email..">
+              <!-- <audio controls  hidden="" id="emailDesc">
                 <source src="{% static 'audio/email(1).ogg' %}" type="audio/ogg">
                 <source src="{% static 'audio/email(1).mp3' %}" type="audio/mpeg">
->>>>>>> 7a5a9176f0ddd62c418dd31779a6f4680d5e4321
-              Your browser does not support the audio element.
-              </audio>
+                 Your browser does not support the audio element.
+              </audio> -->
               <script type="text/javascript">
                 var $email_eng_desc = $('#email_desc_eng');
                 var $email_fb_form = $('.feedbackFormEmail');
@@ -546,20 +539,19 @@ function closeNav() {
                 });
               </script>
             </div>
+
             <div class="md-form mt-3">
-<<<<<<< HEAD
               <label for="subject" id = "feedbackLabel" class="form-control">Feedback:</label><br>
-              <textarea class="form-control" id="subject" name="subject" placeholder="..write here...." cols=40 rows=4 required="required"></textarea>
+              <!-- <textarea class="form-control" id="subject" name="subject" placeholder="..write here...." cols=40 rows=4 required="required"></textarea> -->
+              <textarea class="form-control feedbackSubject recordThis" id="subject" name="subject" placeholder="..write here...." cols=40 rows=4 required="required"></textarea>
+
               <audio controls  hidden="" id="feedback_writeHere">
-=======
-              <label for="subject" id = "feedbackLabel" class="form-control recordThis">Feedback:</label><br>
-              <textarea class="form-control recordThis" id="subject" name="subject" placeholder="..write here...." cols=40 rows=4 required="required"></textarea>
-              <audio controls  hidden="" id="writeFeedbackAudio">
->>>>>>> 7a5a9176f0ddd62c418dd31779a6f4680d5e4321
-                <source src="{% static 'audio/feedback(write-here)-eng.ogg' %}" type="audio/ogg">
-                <source src="{% static 'audio/feedback(write-here)-eng.mp3' %}" type="audio/mpeg">
-              Your browser does not support the audio element.
+                  <source src="{% static 'audio/feedback(write-here)-eng.ogg' %}" type="audio/ogg">
+                  <source src="{% static 'audio/feedback(write-here)-eng.mp3' %}" type="audio/mpeg">
+                Your browser does not support the audio element.
               </audio>
+              <!-- <label for="subject" id = "feedbackLabel" class="form-control recordThis">Feedback:</label><br> -->
+              
               <script type="text/javascript">
                 var $fb_writeHere = $('#feedback_writeHere');
                 var $fb_subject = $('.feedbackSubject');
