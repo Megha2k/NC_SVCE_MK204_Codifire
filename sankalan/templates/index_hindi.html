@@ -100,22 +100,21 @@
 <div class="center" id="logo_border">
   <div class="logo">
  
-	<img src="{% static 'images/sankalan_logo_hindi.png' %}" alt="LOGO" class="desktop" id="logo_img"/>
-	<img src="{% static 'images/sankalan_logo_hindi.png' %}" class="mobile" id="logo_img">
+	<img src="{% static 'images/sankalan_logo_hindi.png' %}" alt="LOGO" class="desktop" id="logo_img" onmouseenter="playVid()" onmouseout="pauseVid()"/>
+	<img src="{% static 'images/sankalan_logo_hindi.png' %}" class="mobile" id="logo_img" onmouseenter="playVid()" onmouseout="pauseVid()"/>
 	<audio controls  hidden="" id="audio_logo">
 		<source src="{% static 'audio/sankalan_logo_hindi.ogg' %}" type="audio/ogg">
 		<source src="{% static 'audio/sankalan_logo_hindi.mp3' %}" type="audio/mpeg">
 		Your browser does not support the audio element.
     </audio>
     <script type="text/javascript">
-        var $LogoAudio = $('#audio_logo');
-        var $logo_img_id = $('#logo_img');
-        $logo_img_id.on('mouseenter',function(){
-			$LogoAudio.get(0).play();
-        });
-        $logo_img_id.on('mouseout',function(){
-            $LogoAudio.get(0).pause();
-        });
+        var $vid = $("#audio_logo"); 
+		function playVid() { 
+			vid.play(); 
+		} 
+		function pauseVid() { 
+			vid.pause(); 
+		} 
     </script>
 </div></div></div>
 
@@ -129,27 +128,125 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-lg-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#top"><i class='fas fa-home'></i>होमपेज <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#top" onmouseenter="playVid()" onmouseout="pauseVid()"><i class='fas fa-home'></i>होमपेज <span class="sr-only">(current)</span></a>
+		<audio controls  hidden="" id="audio_home">
+			<source src="{% static 'audio/home_hindi.ogg' %}" type="audio/ogg">
+			<source src="{% static 'audio/home_hindi.mp3' %}" type="audio/mpeg">
+		Your browser does not support the audio element.
+		</audio>
+		<script type="text/javascript"> 
+			var $vid = $("#audio_home"); 
+			function playVid() { 
+				vid.play(); 
+			} 
+			function pauseVid() { 
+			vid.pause(); 
+			} 
+		</script>
       </li>
       <li class="nav-item">
-        <a class="nav-link" onclick="openBar3()" href="#contact_anchor" onclick="open_collapse_bar()"><i class='fas fa-envelope'></i>संपर्क</a>
+        <a class="nav-link" onclick="openBar3()" href="#contact_anchor"  onmouseenter="playVid()" onmouseout="pauseVid()"><i class='fas fa-envelope'></i>संपर्क</a>
+		<audio controls  hidden="" id="audio_contact">
+			<source src="{% static 'audio/contact_hindi.ogg' %}" type="audio/ogg">
+			<source src="{% static 'audio/contact_hindi.mp3' %}" type="audio/mpeg">
+		Your browser does not support the audio element.
+		</audio>
+		<script type="text/javascript"> 
+			var $vid = $("#audio_contact"); 
+			function playVid() { 
+				vid.play(); 
+			} 
+			function pauseVid() { 
+			vid.pause(); 
+			} 
+		</script>
       </li>
       <li class="nav-item">
-        <a class="nav-link" onclick="openBar2()" href="#faq_anchor"><i class='fas fa-question-circle'></i>प्रश्न</a>
+        <a class="nav-link" onclick="openBar2()" href="#faq_anchor" onmouseenter="playVid()" onmouseout="pauseVid()"><i class='fas fa-question-circle'></i>प्रश्न</a>
+		<audio controls  hidden="" id="audio_FAQ">
+			<source src="{% static 'audio/FAQ_hindi.ogg' %}" type="audio/ogg">
+			<source src="{% static 'audio/FAQ_hindi.mp3' %}" type="audio/mpeg">
+		Your browser does not support the audio element.
+		</audio>
+		<script type="text/javascript"> 
+			var $vid = $("#audio_FAQ"); 
+			function playVid() { 
+				vid.play(); 
+			} 
+			function pauseVid() { 
+			vid.pause(); 
+			} 
+		</script>
       </li>
       <li class="nav-item">
-        <a class="nav-link" onclick="openBar4()" href="#feedback_anchor"><i class='fas fa-edit'></i>प्रतिपुष्टि</a>
+        <a class="nav-link" onclick="openBar4()" href="#feedback_anchor" onmouseenter="playVid()" onmouseout="pauseVid()"><i class='fas fa-edit'></i>प्रतिपुष्टि</a>
+		<audio controls  hidden="" id="audio_feedback">
+			<source src="{% static 'audio/feedback_hindi.ogg' %}" type="audio/ogg">
+			<source src="{% static 'audio/feedback_hindi.mp3' %}" type="audio/mpeg">
+		Your browser does not support the audio element.
+		</audio>
+		<script type="text/javascript"> 
+			var $vid = $("#audio_feedback"); 
+			function playVid() { 
+				vid.play(); 
+			} 
+			function pauseVid() { 
+			vid.pause(); 
+			} 
+		</script>
       </li>
       <li class="nav-item">
-        <a class="nav-link" onclick="openBar1()" href="#about_anchor"><i class='fas fa-info-circle'></i>बारे में</a>
+        <a class="nav-link" onclick="openBar1()" href="#about_anchor" onmouseenter="playVid()" onmouseout="pauseVid()"><i class='fas fa-info-circle'></i>बारे में</a>
+		<audio controls  hidden="" id="audio_about">
+			<source src="{% static 'audio/about_hindi.ogg' %}" type="audio/ogg">
+			<source src="{% static 'audio/about_hindi.mp3' %}" type="audio/mpeg">
+		Your browser does not support the audio element.
+		</audio>
+		<script type="text/javascript"> 
+			var $vid = $("#audio_about"); 
+			function playVid() { 
+				vid.play(); 
+			} 
+			function pauseVid() { 
+			vid.pause(); 
+			} 
+		</script>
       </li>
       <li>
-        <button type="button" class="btn btn-primary" id = "login_button" data-toggle="modal" data-target="#staticBackdrop" style="vertical-align: middle;">
+        <button type="button" class="btn btn-primary" id = "login_button" data-toggle="modal" data-target="#staticBackdrop" style="vertical-align: middle;" onmouseenter="playVid()" onmouseout="pauseVid()">
           <span>सिग्न इन</span>
         </button>
+		<audio controls  hidden="" id="audio_signin">
+			<source src="{% static 'audio/signin_hindi.ogg' %}" type="audio/ogg">
+			<source src="{% static 'audio/signin_hindi.mp3' %}" type="audio/mpeg">
+		Your browser does not support the audio element.
+		</audio>
+		<script type="text/javascript"> 
+			var $vid = $("#audio_signin"); 
+			function playVid() { 
+				vid.play(); 
+			} 
+			function pauseVid() { 
+			vid.pause(); 
+			} 
+		</script>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'index' %}">English</a>
+        <a class="nav-link" href="{% url 'index' %}" onmouseenter="playVid()" onmouseout="pauseVid()">English</a>
+		<audio controls  hidden="" id="audio_english">
+			<source src="{% static 'audio/english_hindi.ogg' %}" type="audio/ogg">
+			<source src="{% static 'audio/english_hindi.mp3' %}" type="audio/mpeg">
+		Your browser does not support the audio element.
+		</audio>
+		<script type="text/javascript"> 
+			var $vid = $("#audio_english"); 
+			function playVid() { 
+				vid.play(); 
+			} 
+			function pauseVid() { 
+			vid.pause(); 
+			} 
+		</script>
       </li>
     </ul>
 
@@ -225,20 +322,33 @@ function closeNav() {
 <a id="faq_anchor"></a>
 
 <button class="accordion">अधिकतर पूछे जाने वाले सवाल</button>
-<div id="faq" class="panel">
+<div id="faq" class="panel" onmouseenter="playVidFAQdown()" onmouseout="pauseVidFAQdown()">
 
         <font face="Georgia" size=4>
         <b>प्र.  हमें कैसे पता चलेगा कि सर्वेक्षण करने वाला एक सच्चा सरकारी अधिकारी है?</b>
         <br>
-        उ.  सरकार ने प्रत्येक सर्वेक्षणकर्ता को एक आईडी-कार्ड प्रदान किया है, कृपया फोटोग्राफ के साथ-साथ अन्य विवरण भी दें।
+        उ.  सरकार ने प्रत्येक सर्वेक्षणकर्ता को एक आईडी-कार्ड प्रदान किया है, कृपया फोटोग्राफ के साथ-साथ अन्य विवरण भी देखें।
         इसके अलावा, उसके पास वेबसाइट पर लॉगिन करने के लिए एक अद्वितीय सर्वेयर आईडी है। लॉगिन के बाद स्क्रीन पर सर्वेक्षक के सभी आवश्यक विवरण प्रदर्शित किए जाते हैं।
         <br><br>
-        <b>प्र.  क्या होगा अगर हम गलत विवरण प्रस्तुत करने के लिए गलत हैं? उन्हें कैसे ठीक किया जाए?</b>
+        <b>प्र.  क्या होगा अगर हम किसी कारन गलत विवरण प्रस्तुत कर देते हैं ? उन्हें कैसे ठीक किया जाए?</b>
         <br>
-        उ.   अपना विवरण जमा करने के बाद, आपके डेटा का एक लिंक आपको एसएमएस के माध्यम से भेजा जाएगा। आप 10 दिनों की समय सीमा के भीतर अपनी त्रुटियों को ठीक कर सकते हैं।
-         समय सीमा समाप्त होते ही लिंक समाप्त हो जाता है।
+       अपना विवरण जमा करने के बाद, आपके डेटा की  एक  प्रतिलिपि आपको एसएमएस के माध्यम से भेजी  जाएगी । आप कुछ निर्धारित  दिनों की समय सीमा के भीतर अपनी त्रुटियों को ठीक कर सकते हैं।
         </font>
 </div>
+<audio controls  hidden="" id="audio_FAQ_down">
+	<source src="{% static 'audio/FAQ_down_hindi.ogg' %}" type="audio/ogg">
+	<source src="{% static 'audio/FAQ_down_hindi.mp3' %}" type="audio/mpeg">
+	Your browser does not support the audio element.
+</audio>
+<script type="text/javascript"> 
+	var $vid = $("#audio_FAQ_down"); 
+	function playVidFAQdown() { 
+		vid.play(); 
+	} 
+	function pauseVidFAQdown() { 
+		vid.pause(); 
+	} 
+</script>
 
 <!-- Collapse bars for Contact -->
 
@@ -424,9 +534,24 @@ function closeNav() {
 <a id="about_anchor"></a>
 
 <button class="accordion">बारे में</button>
-<div id="about" class="panel">
+<div id="about" class="panel" onmouseenter="playVidbareme()" onmouseout="pauseVidbareme()">
   <p>अक्सर जमीनी स्तर के डेटा संग्रह की प्रक्रिया त्रुटियों की ओर ले जाती है। सरकार ने डेटा संग्रह और भंडारण की प्रक्रिया को डिजिटल बनाने के लिए "संकल्प" नाम की यह योजना शुरू की है। <br> इस प्रक्रिया में भारत के नागरिकों की पूर्ण भागीदारी और विश्वसनीयता शामिल है। </p>
 </div>
+<audio controls  hidden="" id="audio_bareme">
+	<source src="{% static 'audio/bareme_hindi.ogg' %}" type="audio/ogg">
+	<source src="{% static 'audio/bareme_hindi_hindi.mp3' %}" type="audio/mpeg">
+	Your browser does not support the audio element.
+</audio>
+<script type="text/javascript"> 
+	var $vid = $("#audio_bareme"); 
+	function playVidbareme() { 
+		vid.play(); 
+	} 
+	function pauseVidbareme() { 
+		vid.pause(); 
+	} 
+</script>
+
 
 <!-- Collapse bars for FEEDBACK FORM -->
 
