@@ -254,9 +254,44 @@ function closeNav() {
               {% csrf_token %}
               <div class="md-form mt-3">
                 <input type="text" name="fname" id="materialContactFormFirstName" class="form-control" placeholder="First Name" required="required">
+
+                <audio class = "cfirstaudio" controls  hidden="">
+                  <source src="{% static 'audio/firstname-eng.ogg' %}" type="audio/ogg">
+                  <source src="{% static 'audio/firstname-eng.mp3' %}" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+                <script type="text/javascript">
+                  var $cefirst = $('.cfirstaudio');
+                  var $Cenamefield = $('#materialContactFormFirstName');
+                  $Cenamefield.on('mouseenter',function(){
+                    $cefirstaudio.get(0).play();
+                  });
+                  $Cenamefield.on('mouseout',function(){
+                    $cefirstaudio.get(0).pause();
+                  });
+
+
+                </script>
               </div>
               <div class="md-form mt-3">
                 <input type="text" name="lname" id="materialContactFormLastName" class="form-control" placeholder="Last Name">
+
+                <audio class = "polystar" controls  hidden="" id="lastname">
+                  <source src="{% static 'audio/surname(1).ogg' %}" type="audio/ogg">
+                  <source src="{% static 'audio/surname(1).mp3' %}" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+                <script type="text/javascript">
+                  var $polystar1 = $('#lastname');
+                  var $Cnamefield2 = $('#materialContactFormLastName');
+                  $Cnamefield2.on('mouseenter',function(){
+                    $polystar1.get(0).play();
+                  });
+                  $Cnamefield2.on('mouseout',function(){
+                    $polystar1.get(0).pause();
+                  });
+                </script>
+
               <div class="md-form mt-3">
                 <label for="state" id="stateLabel">State: &nbsp;&nbsp;&nbsp;</label>
                 <select id="state" class="form-control" name="state" required="required">
@@ -270,22 +305,99 @@ function closeNav() {
               </div>
               <div class="md-form mt-3">
                 <input type="email" id="phone" name="email" class="form-control" placeholder="Email.." required="required" required="required">
+                <audio controls  hidden="" id="emailDesc">
+                  <source src="{% static 'audio/email(1).ogg' %}" type="audio/ogg">
+                  <source src="{% static 'audio/email(1).mp3' %}" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+                <script type="text/javascript">
+                  var $emailDesc = $('#emailDesc');
+                  var $email = $('#phone');
+                  $email.on('mouseenter',function(){
+                    $emailDesc.get(0).play();
+                  });
+                  $email.on('mouseout',function(){
+                    $emailDesc.get(0).pause();
+                  });
+                </script>
               </div>
               <div class="md-form mt-3">
                 <label for="subject" id = "subjectLabel" class="form-control">Subject:</label><br>
                 <textarea class="form-control" id="subject" name="subject" placeholder="..write here...." cols=40 rows=4 required="required"></textarea>
+                <audio controls  hidden="" id="writeHere">
+                  <source src="{% static 'audio/subject-eng.ogg' %}" type="audio/ogg">
+                  <source src="{% static 'audio/subject-eng.mp3' %}" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+                <script type="text/javascript">
+                  var $writeHere = $('#writeHere');
+                  var $ContactSubject = $('#subject');
+                  $ContactSubject.on('mouseenter',function(){
+                    $writeHere.get(0).play();
+                  });
+                  $ContactSubject.on('mouseout',function(){
+                    $writeHere.get(0).pause();
+                  });
+                </script>
               </div>
               <div id="SubmitButton">
                 <input type="submit" name="contact_form" value="Submit" class="btn" id = "contactSubmitButton">
+                <audio controls  hidden="" id="audio_submit">
+                  <source src="{% static 'audio/submit_button-contact-eng.ogg' %}" type="audio/ogg">
+                  <source src="{% static 'audio/submit_button-contact-eng.mp3' %}" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+                <script type="text/javascript">
+                  var $SubmitAudio = $('#audio_submit');
+                  var $contactSubmit = $('#contactSubmitButton');
+                  $contactSubmit.on('mouseenter',function(){
+                    $SubmitAudio.get(0).play();
+                  });
+                  $contactSubmit.on('mouseout',function(){
+                    $SubmitAudio.get(0).pause();
+                  });  
+                </script>
               </div>
               <hr size="3px">
               <div id ="callmailanchor">
                 <a class="mail_anchor" href="mailto: codifire.sankalan@gmail.com">
                   <img src="{% static 'images/gmail.png' %}" width="12%">
                 </a>&emsp;&emsp;&emsp;&emsp;
+                <audio controls  hidden="" id="Cemail">
+                  <source src="{% static 'audio/email_button-contact-eng.ogg' %}" type="audio/ogg">
+                  <source src="{% static 'audio/email_button-contact-eng.mp3' %}" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+                <script type="text/javascript">
+                  var $CemailAudio = $('#Cemail');
+                  var $email_anchor = $('.mail_anchor');
+                  $email_anchor.on('mouseenter',function(){
+                    $CemailAudio.get(0).play();
+                  });
+                  $email_anchor.on('mouseout',function(){
+                    $CemailAudio.get(0).pause();
+                  });
+                  
+                </script>
                 <a class="call_anchor" href="tel:9354742566">
                   <img src="{% static 'images/call.png' %}" width="9%" align="center">
                 </a>
+                <audio controls  hidden="" id="audio_call">
+                  <source src="{% static 'audio/call_button-contact-eng.ogg' %}" type="audio/ogg">
+                  <source src="{% static 'audio/call_button-contact-eng.mp3' %}" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+                <script type="text/javascript">
+                  var $CallAudio = $('#audio_call');
+                  var $call_anchor = $('.call_anchor');
+                  $call_anchor.on('mouseenter',function(){
+                    $CallAudio.get(0).play();
+                  });
+                  $call_anchor.on('mouseout',function(){
+                    $CallAudio.get(0).pause();
+                  });
+                  
+                </script>
               </div>
 
             </form>
@@ -326,16 +438,77 @@ function closeNav() {
             <div class="md-form mt-3">
               <input type="text" name="fname" id="materialFeedbackFormFirstName" class="form-control" placeholder="First Name">
             </div>
+            <audio class = "polystar" controls  hidden="">
+              <source src="{% static 'audio/firstname-eng.ogg' %}" type="audio/ogg">
+              <source src="{% static 'audio/firstname-eng.mp3' %}" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
+            <script type="text/javascript">
+              var $polystar = $('.polystar');
+              var $namefield = $('#materialFeedbackFormFirstName');
+              $namefield.on('mouseenter',function(){
+                $polystar.get(0).play();
+              });
+              $namefield.on('mouseout',function(){
+                $polystar.get(0).pause();
+              });
+
+            </script>
             <div class="md-form mt-3">
               <input type="text" name="lname" id="materialFeedbackFormLastName" class="form-control" placeholder="Last Name">
+              <audio class = "polystar" controls  hidden="" id="lastname">
+                <source src="{% static 'audio/surname(1).ogg' %}" type="audio/ogg">
+                <source src="{% static 'audio/surname(1).mp3' %}" type="audio/mpeg">
+              Your browser does not support the audio element.
+              </audio>
+              <script type="text/javascript">
+                var $polystar1 = $('#lastname');
+                var $namefield2 = $('#materialFeedbackFormLastName');
+                $namefield2.on('mouseenter',function(){
+                  $polystar1.get(0).play();
+                });
+                $namefield2.on('mouseout',function(){
+                  $polystar1.get(0).pause();
+                });
+              </script>
             <div>
             </div>
             <div class="md-form mt-3">
               <input type="text" name="email" id="phone" class="form-control" placeholder="Email..">
+              <audio controls  hidden="" id="emailDesc">
+                <source src="{% static 'audio/email(1).ogg' %}" type="audio/ogg">
+                <source src="{% static 'audio/email(1).mp3' %}" type="audio/mpeg">
+              Your browser does not support the audio element.
+              </audio>
+              <script type="text/javascript">
+                var $emailDesc = $('#emailDesc');
+                var $Feedback_email = $('.feedFormEmail');
+                $Feedback_email.on('mouseenter',function(){
+                  $emailDesc.get(0).play();
+                });
+                $Feedback_email.on('mouseout',function(){
+                  $emailDesc.get(0).pause();
+                });
+              </script>
             </div>
             <div class="md-form mt-3">
               <label for="subject" id = "feedbackLabel" class="form-control">Feedback:</label><br>
               <textarea class="form-control" id="subject" name="subject" placeholder="..write here...." cols=40 rows=4 required="required"></textarea>
+              <audio controls  hidden="" id="writeFeedbackAudio">
+                <source src="{% static 'audio/feedback(write-here)-eng.ogg' %}" type="audio/ogg">
+                <source src="{% static 'audio/feedback(write-here)-eng.mp3' %}" type="audio/mpeg">
+              Your browser does not support the audio element.
+              </audio>
+              <script type="text/javascript">
+                var $writeFBAudio = $('#writeFeedbackAudio');
+                var $FBSubject = $('.feedback_subject');
+                $FBSubject.on('mouseenter',function(){
+                  $writeFBAudio.get(0).play();
+                });
+                $FBSubject.on('mouseout',function(){
+                  $writeFBAudio.get(0).pause();
+                });
+              </script>
             </div>
             <!-- Rating Section  -->
             <div>
@@ -365,6 +538,23 @@ function closeNav() {
           </div><br>
             <div id="FeedbackSubmitButton">
                 <input type="submit" class="btn" id = "feedback_submit_btn" name="feedback_form" value="Submit">
+                <audio controls  hidden="" id="FBaudio_submit">
+                  <source src="{% static 'audio/submit_button-contact-eng.ogg' %}" type="audio/ogg">
+                  <source src="{% static 'audio/submit_button-contact-eng.mp3' %}" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+                <script type="text/javascript">
+                  var $FBSubmitAudio = $('#FBaudio_submit');
+                  var $FBSubmit = $('#feedback_submit_btn');
+                  $FBSubmit.on('mouseenter',function(){
+                    $FBSubmitAudio.get(0).play();
+                  });
+                  $FBSubmit.on('mouseout',function(){
+                    $FBSubmitAudio.get(0).pause();
+                  });
+                  
+                  
+                </script>
             </div>
             <hr size="3px">
           </form>
