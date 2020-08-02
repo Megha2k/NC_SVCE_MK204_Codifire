@@ -96,9 +96,28 @@
 
 <!--voices for navigation bar-->
 <audio id="audioID2">
+  <source src="{% static 'audio/home.mpeg' %}" type="audio/mpeg">
+</audio>
+
+<audio id="audioID3">
+  <source src="{% static 'audio/contactus.mpeg' %}" type="audio/mpeg">
+</audio>
+
+<audio id="audioID4">
+  <source src="{% static 'audio/faqs.mpeg' %}" type="audio/mpeg">
+</audio>
+
+<audio id="audioID5">
+  <source src="{% static 'audio/feedback.mpeg' %}" type="audio/mpeg">
+</audio>
+
+<audio id="audioID6">
   <source src="{% static 'audio/aboutnav.mpeg' %}" type="audio/mpeg">
 </audio>
 
+<audio id="audioID7">
+  <source src="{% static 'audio/signin.mp3' %}" type="audio/mpeg">
+</audio>
 <!-- marquee -->
 <marquee height="35" bgcolor="#F80D54" scrollamount="5">
 <font size="5" color="white">Please cross-check the details of the surveyor, which is displayed after login.</font>
@@ -129,16 +148,16 @@
         <a class="nav-link" onmouseenter="playAudio2()" href="#top"><i class='fas fa-home'></i>Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" onclick="openBar1()" href="#contact_anchor" onclick="open_collapse_bar()"><i class='fas fa-envelope'></i>Contact</a>
+        <a class="nav-link" onmouseenter="playAudio3()" onclick="openBar1()" href="#contact_anchor" onclick="open_collapse_bar()"><i class='fas fa-envelope'></i>Contact</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" onclick="openBar2()" href="#faq_anchor"><i class='fas fa-question-circle'></i>FAQs</a>
+        <a class="nav-link" onmouseenter="playAudio4()" onclick="openBar2()" href="#faq_anchor"><i class='fas fa-question-circle'></i>FAQs</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" onclick="openBar3()" href="#feedback_anchor"><i class='fas fa-edit'></i>Feedback</a>
+        <a class="nav-link" onmouseenter="playAudio5()" onclick="openBar3()" href="#feedback_anchor"><i class='fas fa-edit'></i>Feedback</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" onclick="openBar4()" href="#about_anchor"><i class='fas fa-info-circle'></i>About</a>
+        <a class="nav-link" onmouseenter="playAudio6()" onclick="openBar4()" href="#about_anchor"><i class='fas fa-info-circle'></i>About</a>
       </li>
       {% if user.is_authenticated %}
       <li class="nav-item">
@@ -146,7 +165,7 @@
       </li>
       {% else %}
       <li class="nav-item" >
-        <a class= "nav-link" href="{% url 'index' %}"  data-toggle="modal" data-target="#staticBackdrop"><i class = "fas fa-sign-in-alt"></i>Sign in</a>
+        <a class= "nav-link" onmouseenter="playAudio7()" href="{% url 'index' %}"  data-toggle="modal" data-target="#staticBackdrop"><i class = "fas fa-sign-in-alt"></i>Sign in</a>
       </li>
       {% endif %}
       <li class="nav-item">
