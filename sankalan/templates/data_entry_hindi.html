@@ -77,13 +77,13 @@
 
     <div class="form-group">
     <label for="name">नाम</label>
-    <input class="form-control" type="text" name="fname" placeholder="नाम दर्ज करें.." id="name" required="required"><br>
-    <input class="form-control" type="text" name="lname" placeholder="उपनाम दर्ज करें.." id="name">
+    <input class="form-control recordThis" type="text" name="fname" placeholder="नाम दर्ज करें.." id="name" required="required"><br>
+    <input class="form-control recordThis" type="text" name="lname" placeholder="उपनाम दर्ज करें.." id="name">
     </div>
 
     <div class="form-group">
     <label for="aadhaar_no">आधार संख्या</label>
-    <input class="form-control" type="number" name="aadhaar_no" placeholder="आधार संख्या दर्ज करें.." id="aadhaar_no" required="required" min="100000000000" max="999999999999">
+    <input class="form-control recordThis" type="number" name="aadhaar_no" placeholder="आधार संख्या दर्ज करें.." id="aadhaar_no" required="required" min="100000000000" max="999999999999">
     </div>
 
     <div class="form-group">
@@ -104,18 +104,18 @@
 
     <div class="form-group">
     <label for="email">ईमेल</label>
-    <input class="form-control" type="email" name="email" placeholder="ईमेल दर्ज करें.." id="email" required="required">
+    <input class="form-control recordThis" type="email" name="email" placeholder="ईमेल दर्ज करें.." id="email" required="required">
     </div>
 
     <div class="form-group">
     <label for="contact_no">संपर्क</label>
-    <input class="form-control" type="tel" name="mobile_no" placeholder="मोबाइल नंबर दर्ज करें.." id="contact_no" pattern="[0-9]{10}" required="required">
+    <input class="form-control recordThis" type="tel" name="mobile_no" placeholder="मोबाइल नंबर दर्ज करें.." id="contact_no" pattern="[0-9]{10}" required="required">
     </div>
 
     <div class="form-group">
     <label for="address">घर का पता</label>
-    <input class="form-control" type="textarea" name="address" placeholder="घर का पता दर्ज करें.." id="address" required="required"><br>
-    <input class="form-control" type="text" name="city" placeholder="Enter City.." id="address" required="required"><br>
+    <input class="form-control recordThis" type="textarea" name="address" placeholder="घर का पता दर्ज करें.." id="address" required="required"><br>
+    <input class="form-control recordThis" type="text" name="city" placeholder="Enter City.." id="address" required="required"><br>
     <select id="address" name="state" class="form-control" required="required">
             <option value="Andhra Pradesh">आंध्र प्रदेश</option><option value="Arunachal Pradesh">अरुणाचल प्रदेश</option><option value="Assam">असम</option><option value="Bihar">बिहार</option><option value="Chhattisgarh">छत्तीसगढ़</option><option value="Goa">गोवा</option><option value="Gujarat">गुजरात</option><option value="Haryana">हरियाणा</option><option value="Himachal Pradesh">हिमाचल प्रदेश</option><option value="Jharkhand">झारखंड</option><option value="Karnataka">कर्नाटक</option><option value="Kerala">केरल</option><option value="Madhya Pradesh">मध्य प्रदेश</option><option value="Maharashtra">महाराष्ट्र</option><option value="Manipur">मणिपुर</option><option value="Meghalaya">मेघालय</option><option value="Mizoram">मिजोरम</option><option value="Nagaland">नगालैंड</option><option value="Odisha">ओडिशा</option><option value="Punjab">पंजाब</option><option value="Rajasthan">राजस्थान</option><option value="Sikkim">सिक्किम</option><option value="Tamil Nadu">तमिलनाडु</option><option value="Telangana">तेलंगाना</option><option value="Tripura">त्रिपुरा</option><option value="Uttar Pradesh">उत्तर प्रदेश</option><option value="Uttarakhand">उत्तराखंड</option><option value="West Bengal">पश्चिम बंगाल</option><option value="Dadra & Nagar Haveli and Daman & Diu">दादरा और नगर हवेली और दमन और दीव</option><option value="Chandigarh">चंडीगढ़</option><option value="Delhi">दिल्ली</option><option value="Jammu & Kashmir">जम्मू और कश्मीर</option><option value="Ladakh">लद्दाख</option><option value="Lakshadweep">लक्षद्वीप</option><option value="Puducherry">पुडुचेरी</option>
     </select><br>
@@ -126,12 +126,12 @@
 
     <div class="form-group">
     <label for="occupation">व्यवसाय</label>
-    <input class="form-control" type="text" name="occupation" placeholder="व्यवसाय दर्ज करें.." id="occupation" required="required">
+    <input class="form-control recordThis" type="text" name="occupation" placeholder="व्यवसाय दर्ज करें.." id="occupation" required="required">
     </div>
 
     <div class="form-group">
     <label for="members">परिवार के सदस्य</label>
-    <input class="form-control" type="number" name="family_members" placeholder="परिवार के सदस्यों की संख्या.." id="members" required="required" min="1">
+    <input class="form-control recordThis" type="number" name="family_members" placeholder="परिवार के सदस्यों की संख्या.." id="members" required="required" min="1">
     </div>
     
     <div><center>
@@ -142,6 +142,21 @@
 </form>
 
 </div>
+
+<script type="text/javascript">
+   $(".recordThis").on("click", function(){
+    var _this = $(this);
+    var recognition = new webkitSpeechRecognition();
+    recognition.lang = "en-GB";
+    recognition.onresult = function(event){ 
+      console.log(event);
+      _this.val(event.results[0][0].transcript);  
+    }
+    recognition.start();
+  //Record and get value
+    // $(this).val("recorded value")
+})
+</script>
 
 </body>
 
