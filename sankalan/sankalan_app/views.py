@@ -182,6 +182,8 @@ def aadhaar_authentication(request):
 			country = aadhaar_details.country
 			print(fname)
 			return JsonResponse({'fname':fname,'lname':lname,'aadhaar_no':aadhaar_no,'dob':dob,'address':address,'city':city,'state':state,'country':country})
+		elif len(aadhaar_no)<12 or len(aadhaar_no)>12:
+			return HttpResponse("format")
 		else:
 			return HttpResponse("not exists")
 
