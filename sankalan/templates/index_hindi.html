@@ -536,13 +536,13 @@ function closeNav() {
           </div><br>
             <div id="FeedbackSubmitButton">
                 <input type="submit" class="btn" id = "feedback_submit_btn" name="feedback_form" value="फार्म जमा करें">
-                <audio controls  hidden="" id="audio_submit">
+                <audio controls  hidden="" id="FBaudio_submit">
                   <source src="{% static 'audio/submit.ogg' %}" type="audio/ogg">
                   <source src="{% static 'audio/submit.mp3' %}" type="audio/mpeg">
                 Your browser does not support the audio element.
                 </audio>
                 <script type="text/javascript">
-                  var $FBSubmitAudio = $('#audio_submit');
+                  var $FBSubmitAudio = $('#FBaudio_submit');
                   var $FBSubmit = $('#feedback_submit_btn');
                   $FBSubmit.on('mouseenter',function(){
                     $FBSubmitAudio.get(0).play();
