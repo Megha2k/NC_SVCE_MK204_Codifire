@@ -90,10 +90,9 @@
 <a name="top"></a>
 
 <!--audio welcome message-->
-<audio autoplay>
-	<source src="{% static 'audio/wts.mp3' %}" type="audio/mpeg">
+<audio id="audioID1">
+  <source src="{% static 'audio/wts.mp3' %}" type="audio/mpeg">
 </audio>
-
 
 <!-- marquee -->
 <marquee height="35" bgcolor="#F80D54" scrollamount="5">
@@ -103,12 +102,14 @@
 <!-- logo -->
 
 <div style="background: url({% static 'images/cyan.jpg' %}); background-size: cover; isolation: isolate; margin-bottom: 0.5%;">
-<div class="center" id="logo_border">
-  <div class="logo">
+  <div class="center" id="logo_border">
+    <div class="logo">
   
-<img src="{% static 'images/logo.png' %}" alt="LOGO" class="desktop" id="logo_img"/>
-<img src="{% static 'images/sankalan_logo.png' %}" class="mobile" id="logo_img">
-</div></div></div>
+    <img onmouseenter="playAudio1()" src="{% static 'images/logo.png' %}" alt="LOGO" class="desktop" id="logo_img"/>
+    <img onmouseenter="playAudio1()" src="{% static 'images/sankalan_logo.png' %}" class="mobile" id="logo_img">
+    </div>
+  </div>
+</div>
 
 <!-- navigation bar -->
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -264,10 +265,10 @@ function closeNav() {
                   var $cefirst = $('.cfirstaudio');
                   var $Cenamefield = $('#materialContactFormFirstName');
                   $Cenamefield.on('mouseenter',function(){
-                    $cefirstaudio.get(0).play();
+                    $cefirst.get(0).play();
                   });
                   $Cenamefield.on('mouseout',function(){
-                    $cefirstaudio.get(0).pause();
+                    $cefirst.get(0).pause();
                   });
 
 
@@ -436,7 +437,7 @@ function closeNav() {
           <form class="text-center" name="feedback_form" method="POST">
             {% csrf_token %}
             <div class="md-form mt-3">
-              <input type="text" name="fname" id="materialFeedbackFormFirstName" class="form-control" placeholder="First Name">
+              <input type="text" name="fname" id="materialFeedbackFormFirstName" class="form-control" placeholder="First Name" onclick=record()>
             </div>
             <audio class = "polystar" controls  hidden="">
               <source src="{% static 'audio/firstname-eng.ogg' %}" type="audio/ogg">
@@ -452,6 +453,15 @@ function closeNav() {
               $namefield.on('mouseout',function(){
                 $polystar.get(0).pause();
               });
+
+            <script type="text/javascript">
+              function record()
+              { var recognition = new webkitSpeechRecognition();
+                recognition.lang = "en-GB";
+                recognition.onresult = function(event)
+                { console.log(event);
+                  document.getElementById('materialFeedbackFormFirstName').value = event.results[0][0].transcript;  }
+                recognition.start();  }
 
             </script>
             <div class="md-form mt-3">
