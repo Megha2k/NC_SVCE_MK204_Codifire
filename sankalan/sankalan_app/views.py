@@ -181,9 +181,7 @@ def aadhaar_authentication(request):
 			city = aadhaar_details.city
 			state = aadhaar_details.state
 			country = aadhaar_details.country
-			email = aadhaar_details.email
-			mobile_no = aadhaar_details.mobile_no
-			return JsonResponse({'fname':fname,'lname':lname,'aadhaar_no':aadhaar_no,'dob':dob,'address':address,'city':city,'state':state,'country':country,'email':email,'mobile_no':mobile_no})
+			return JsonResponse({'fname':fname,'lname':lname,'aadhaar_no':aadhaar_no,'dob':dob,'address':address,'city':city,'state':state,'country':country})
 		elif len(aadhaar_no)<12 or len(aadhaar_no)>12:
 			return HttpResponse("format")
 		else:

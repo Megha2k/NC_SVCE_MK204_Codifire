@@ -4,7 +4,7 @@ from django.core.validators import MinLengthValidator
 from django.core.validators import MaxLengthValidator
 from datetime import date
 from django.utils import timezone
-from datetime import datetime  
+from datetime import datetime
 from django.core.exceptions import ValidationError
 
 # Create your models here.
@@ -95,8 +95,6 @@ class Aadhaar_data(models.Model):
 	city = models.CharField(max_length=25)
 	state = models.CharField(max_length=40,choices=state_choices,default="Delhi")
 	country = models.CharField(max_length=5,choices=country_choice,default="India")
-	email = models.EmailField(max_length=35, default='')
-	mobile_no = models.IntegerField()
 
 	class Meta:
 		verbose_name_plural = "Aadhaar Data"
