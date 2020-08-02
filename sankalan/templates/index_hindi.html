@@ -243,7 +243,7 @@ function closeNav() {
               {% csrf_token %}
               <div class="md-form mt-3">
                 <input type="text" name="fname" id="materialContactFormFirstName" class="form-control" placeholder="नाम" required="required">
-                <audio class = "polystar" controls autoplay hidden="">
+                <audio class = "polystar" controls  hidden="">
                   <source src="{% static 'audio/first.ogg' %}" type="audio/ogg">
                   <source src="{% static 'audio/first.mp3' %}" type="audio/mpeg">
                 Your browser does not support the audio element.
@@ -259,7 +259,7 @@ function closeNav() {
               </div>
               <div class="md-form mt-3">
                 <input type="text" name="lname" id="materialContactFormLastName" class="form-control" placeholder="उपनाम">
-                <audio class = "polystar" controls autoplay hidden="" id="lastname">
+                <audio class = "polystar" controls  hidden="" id="lastname">
                   <source src="{% static 'audio/surname.ogg' %}" type="audio/ogg">
                   <source src="{% static 'audio/surname.mp3' %}" type="audio/mpeg">
                 Your browser does not support the audio element.
@@ -287,7 +287,7 @@ function closeNav() {
               </div>
               <div class="md-form mt-3">
                 <input type="email" id="phone" name="email" class="form-control" placeholder="ईमेल.." required="required" required="required">
-                <audio controls autoplay hidden="" id="emailDesc">
+                <audio controls  hidden="" id="emailDesc">
                   <source src="{% static 'audio/email.ogg' %}" type="audio/ogg">
                   <source src="{% static 'audio/email.mp3' %}" type="audio/mpeg">
                 Your browser does not support the audio element.
@@ -306,7 +306,7 @@ function closeNav() {
               <div class="md-form mt-3">
                 <label for="subject" id = "subjectLabel" class="form-control">विषय:</label><br>
                 <textarea class="form-control" id="subject" name="subject" placeholder="..यहाँ लिखें...." cols=40 rows=4 required="required"></textarea>
-                <audio controls autoplay hidden="" id="writeHere">
+                <audio controls  hidden="" id="writeHere">
                   <source src="{% static 'audio/writeHere.ogg' %}" type="audio/ogg">
                   <source src="{% static 'audio/writeHere.mp3' %}" type="audio/mpeg">
                 Your browser does not support the audio element.
@@ -372,7 +372,7 @@ function closeNav() {
             {% csrf_token %}
             <div class="md-form mt-3">
               <input type="text" name="fname" id="materialFeedbackFormFirstName" class="form-control" placeholder="नाम">
-              <audio class = "polystar" controls autoplay hidden="">
+              <audio class = "polystar" controls  hidden="">
                 <source src="{% static 'audio/first.ogg' %}" type="audio/ogg">
                 <source src="{% static 'audio/first.mp3' %}" type="audio/mpeg">
               Your browser does not support the audio element.
@@ -388,7 +388,7 @@ function closeNav() {
             </div>
             <div class="md-form mt-3">
               <input type="text" name="lname" id="materialFeedbackFormLastName" class="form-control" placeholder="उपनाम">
-              <audio class = "polystar" controls autoplay hidden="" id="lastname">
+              <audio class = "polystar" controls  hidden="" id="lastname">
                 <source src="{% static 'audio/surname.ogg' %}" type="audio/ogg">
                 <source src="{% static 'audio/surname.mp3' %}" type="audio/mpeg">
               Your browser does not support the audio element.
