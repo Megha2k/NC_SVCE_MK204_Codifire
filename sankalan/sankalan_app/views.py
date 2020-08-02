@@ -77,19 +77,19 @@ def data_entry(request):
 
 	if 'data_entry_form' in request.POST:
 
-	    fname = request.POST["fname"]
-	    lname = request.POST["lname"]
-	    aadhaar_no = request.POST["aadhaar_no"]
-	    dob = request.POST["dob"]
-	    sex = request.POST["sex"]
-	    email = request.POST["email"]
-	    mobile_no = request.POST["mobile_no"]
-	    address = request.POST["address"]
-	    city = request.POST["city"]
-	    state = request.POST["state"]
-	    country = request.POST["country"]
-	    occupation = request.POST["occupation"]
-	    family_members = request.POST["family_members"]
+	    fname = request.POST.get("fname")
+	    lname = request.POST.get("lname")
+	    aadhaar_no = request.POST.get("aadhaar_no")
+	    dob = request.POST.get("dob")
+	    sex = request.POST.get("sex")
+	    email = request.POST.get("email")
+	    mobile_no = request.POST.get("mobile_no")
+	    address = request.POST.get("address")
+	    city = request.POST.get("city")
+	    state = request.POST.get("state")
+	    country = request.POST.get("country")
+	    occupation = request.POST.get("occupation")
+	    family_members = request.POST.get("family_members")
 
 	    data = Civilian_data(fname=fname,lname=lname,aadhaar_no=aadhaar_no,dob=dob,sex=sex,email=email,mobile_no=mobile_no,address=address,city=city,state=state,country=country,occupation=occupation,family_members=family_members)
 	    data.save()
