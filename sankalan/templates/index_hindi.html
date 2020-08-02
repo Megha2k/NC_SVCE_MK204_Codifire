@@ -243,9 +243,37 @@ function closeNav() {
               {% csrf_token %}
               <div class="md-form mt-3">
                 <input type="text" name="fname" id="materialContactFormFirstName" class="form-control" placeholder="नाम" required="required">
+                <audio class = "polystar" controls autoplay hidden="">
+                  <source src="{% static 'audio/first.ogg' %}" type="audio/ogg">
+                  <source src="{% static 'audio/first.mp3' %}" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+                <script type="text/javascript">
+                  var $polystar = $('.polystar');
+                  var $Cnamefield = $('#materialContactFormFirstName');
+                  $Cnamefield.on('mouseenter',function(){
+                    $polystar.get(0).play();
+                  });
+
+                </script>
               </div>
               <div class="md-form mt-3">
                 <input type="text" name="lname" id="materialContactFormLastName" class="form-control" placeholder="उपनाम">
+                <audio class = "polystar" controls autoplay hidden="" id="lastname">
+                  <source src="{% static 'audio/surname.ogg' %}" type="audio/ogg">
+                  <source src="{% static 'audio/surname.mp3' %}" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+                <script type="text/javascript">
+                  var $polystar1 = $('#lastname');
+                  var $Cnamefield2 = $('#materialContactFormLastName');
+                  $Cnamefield2.on('mouseenter',function(){
+                    $polystar1.get(0).play();
+                  });
+                  $Cnamefield2.on('mouseout',function(){
+                    $polystar1.get(0).pause();
+                  });
+                </script>
               <div class="md-form mt-3">
                 <label for="state" id="stateLabel">राज्य: &nbsp;&nbsp;&nbsp;</label>
                 <select id="state" class="form-control" name="state" required="required">
@@ -259,10 +287,40 @@ function closeNav() {
               </div>
               <div class="md-form mt-3">
                 <input type="email" id="phone" name="email" class="form-control" placeholder="ईमेल.." required="required" required="required">
+                <audio controls autoplay hidden="" id="emailDesc">
+                  <source src="{% static 'audio/email.ogg' %}" type="audio/ogg">
+                  <source src="{% static 'audio/email.mp3' %}" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+                <script type="text/javascript">
+                  var $emailDesc = $('#emailDesc');
+                  var $email = $('#phone');
+                  $email.on('mouseenter',function(){
+                    $emailDesc.get(0).play();
+                  });
+                  $email.on('mouseout',function(){
+                    $emailDesc.get(0).pause();
+                  });
+                </script>
               </div>
               <div class="md-form mt-3">
                 <label for="subject" id = "subjectLabel" class="form-control">विषय:</label><br>
                 <textarea class="form-control" id="subject" name="subject" placeholder="..यहाँ लिखें...." cols=40 rows=4 required="required"></textarea>
+                <audio controls autoplay hidden="" id="writeHere">
+                  <source src="{% static 'audio/writeHere.ogg' %}" type="audio/ogg">
+                  <source src="{% static 'audio/writeHere.mp3' %}" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+                <script type="text/javascript">
+                  var $writeHere = $('#writeHere');
+                  var $ContactSubject = $('#subject');
+                  $ContactSubject.on('mouseenter',function(){
+                    $writeHere.get(0).play();
+                  });
+                  $ContactSubject.on('mouseout',function(){
+                    $writeHere.get(0).pause();
+                  });
+                </script>
               </div>
               <div id="SubmitButton">
                 <input type="submit" name="contact_form" value="फार्म जमा करें" class="btn" id = "contactSubmitButton">
@@ -314,9 +372,37 @@ function closeNav() {
             {% csrf_token %}
             <div class="md-form mt-3">
               <input type="text" name="fname" id="materialFeedbackFormFirstName" class="form-control" placeholder="नाम">
+              <audio class = "polystar" controls autoplay hidden="">
+                <source src="{% static 'audio/first.ogg' %}" type="audio/ogg">
+                <source src="{% static 'audio/first.mp3' %}" type="audio/mpeg">
+              Your browser does not support the audio element.
+              </audio>
+              <script type="text/javascript">
+                var $polystar = $('.polystar');
+                var $namefield = $('#materialFeedbackFormFirstName');
+                $namefield.on('mouseenter',function(){
+                  $polystar.get(0).play();
+                });
+
+              </script>
             </div>
             <div class="md-form mt-3">
               <input type="text" name="lname" id="materialFeedbackFormLastName" class="form-control" placeholder="उपनाम">
+              <audio class = "polystar" controls autoplay hidden="" id="lastname">
+                <source src="{% static 'audio/surname.ogg' %}" type="audio/ogg">
+                <source src="{% static 'audio/surname.mp3' %}" type="audio/mpeg">
+              Your browser does not support the audio element.
+              </audio>
+              <script type="text/javascript">
+                var $polystar1 = $('#lastname');
+                var $namefield2 = $('#materialFeedbackFormLastName');
+                $namefield2.on('mouseenter',function(){
+                  $polystar1.get(0).play();
+                });
+                $namefield2.on('mouseout',function(){
+                  $polystar1.get(0).pause();
+                });
+              </script>
             <div>
             </div>
             <div class="md-form mt-3">
