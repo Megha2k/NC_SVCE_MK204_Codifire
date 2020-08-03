@@ -118,6 +118,11 @@
 <audio id="audioID7">
   <source src="{% static 'audio/signin.mp3' %}" type="audio/mpeg">
 </audio>
+
+<audio id="audioID8">
+  <source src="{% static 'audio/go-to-hindi-page.mp3' %}" type="audio/mpeg">
+</audio>
+
 <!-- marquee -->
 <marquee height="35" bgcolor="#F80D54" scrollamount="5">
 <font size="5" color="white">Please cross-check the details of the surveyor, which is displayed after login.</font>
@@ -128,7 +133,7 @@
 <div style="background: url({% static 'images/cyan.jpg' %}); background-size: cover; isolation: isolate; margin-bottom: 0.5%;">
   <div class="center" id="logo_border">
     <div class="logo">
-  
+
     <img onmouseenter="playAudio1()" src="{% static 'images/logo.png' %}" alt="LOGO" class="desktop" id="logo_img"/>
     <img onmouseenter="playAudio1()" src="{% static 'images/sankalan_logo.png' %}" class="mobile" id="logo_img">
     </div>
@@ -169,7 +174,7 @@
       </li>
       {% endif %}
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'homepage_hindi' %}">हिंदी</a>
+        <a class="nav-link" onmouseenter="playAudio8()" href="{% url 'homepage_hindi' %}">हिंदी</a>
       </li>
     </ul>
 
@@ -194,8 +199,8 @@
 
 <div id="main">
   <div style="float: left; font-weight: bold; font-size: 150% ;  font-family:Andalus ; padding-left:1%;padding-top: 0; color: white;">Sankalan</div>
-  <button class="openbtn" onclick="openNav()"><i class="fa fa-reorder"></i></button>  
-  
+  <button class="openbtn" onclick="openNav()"><i class="fa fa-reorder"></i></button>
+
 </div>
 
 <script>
@@ -380,7 +385,7 @@ function closeNav() {
                   });
                   $contactSubmit.on('mouseout',function(){
                     $SubmitAudio.get(0).pause();
-                  });  
+                  });
                 </script>
               </div>
               <hr size="3px">
@@ -402,7 +407,7 @@ function closeNav() {
                   $email_anchor.on('mouseout',function(){
                     $CemailAudio.get(0).pause();
                   });
-                  
+
                 </script>
                 <a class="call_anchor" href="tel:9354742566">
                   <img src="{% static 'images/call.png' %}" width="9%" align="center">
@@ -421,7 +426,7 @@ function closeNav() {
                   $call_anchor.on('mouseout',function(){
                     $CallAudio.get(0).pause();
                   });
-                  
+
                 </script>
               </div>
 
@@ -598,8 +603,8 @@ function closeNav() {
                   $FBSubmit.on('mouseout',function(){
                     $FBSubmitAudio.get(0).pause();
                   });
-                  
-                  
+
+
                 </script>
             </div>
             <hr size="3px">

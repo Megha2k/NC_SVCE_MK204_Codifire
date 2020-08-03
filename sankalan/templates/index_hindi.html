@@ -64,16 +64,16 @@
 
 .manshowing
 {
-    width:24%; 
-    position:absolute; 
-    top:10%; 
+    width:24%;
+    position:absolute;
+    top:10%;
     right:-3%;
 }
 .womanshowing
 {
     width:15%;
-    position:absolute; 
-    top:16%; 
+    position:absolute;
+    top:16%;
     left:5%;
 }
   @media only screen and (max-width: 600px)
@@ -99,22 +99,23 @@
 <div style="background: url({% static 'images/cyan.jpg' %}); background-size: cover; isolation: isolate; margin-bottom: 0.5%;">
 <div class="center" id="logo_border">
   <div class="logo">
- 
-	<img src="{% static 'images/sankalan_logo_hindi.png' %}" alt="LOGO" class="desktop" id="logo_img" onmouseenter="playVid()" onmouseout="pauseVid()"/>
-	<img src="{% static 'images/sankalan_logo_hindi.png' %}" class="mobile" id="logo_img" onmouseenter="playVid()" onmouseout="pauseVid()"/>
+
+	<img src="{% static 'images/sankalan_logo_hindi.png' %}" alt="LOGO" class="desktop" id="logo_img"/>
+	<img src="{% static 'images/sankalan_logo_hindi.png' %}" class="mobile" id="logo_img"/>
 	<audio controls  hidden="" id="audio_logo">
 		<source src="{% static 'audio/sankalan_logo_hindi.ogg' %}" type="audio/ogg">
 		<source src="{% static 'audio/sankalan_logo_hindi.mp3' %}" type="audio/mpeg">
 		Your browser does not support the audio element.
     </audio>
     <script type="text/javascript">
-        var $vid = $("#audio_logo"); 
-		function playVid() { 
-			vid.play(); 
-		} 
-		function pauseVid() { 
-			vid.pause(); 
-		} 
+        var $LogoAudio = $('#audio_logo');
+        var $logo_img_id = $('#logo_img');
+        $logo_img_id.on('mouseenter',function(){
+			$LogoAudio.get(0).play();
+        });
+        $logo_img_id.on('mouseout',function(){
+            $LogoAudio.get(0).pause();
+        });
     </script>
 </div></div></div>
 
@@ -128,92 +129,97 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-lg-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#top" onmouseenter="playVid()" onmouseout="pauseVid()"><i class='fas fa-home'></i>होमपेज <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#top" id ="homepagenav_hindi"><i class='fas fa-home'></i>होमपेज <span class="sr-only">(current)</span></a>
 		<audio controls  hidden="" id="audio_home">
 			<source src="{% static 'audio/home_hindi.ogg' %}" type="audio/ogg">
 			<source src="{% static 'audio/home_hindi.mp3' %}" type="audio/mpeg">
 		Your browser does not support the audio element.
 		</audio>
-		<script type="text/javascript"> 
-			var $vid = $("#audio_home"); 
-			function playVid() { 
-				vid.play(); 
-			} 
-			function pauseVid() { 
-			vid.pause(); 
-			} 
-		</script>
+		<script type="text/javascript">
+        var $home_nav_Audio = $('#audio_home');
+        var $home_nav_id = $('#homepagenav_hindi');
+        $home_nav_id.on('mouseenter',function(){
+			$home_nav_Audio.get(0).play();
+        });
+        $home_nav_id.on('mouseout',function(){
+            $home_nav_Audio.get(0).pause();
+        });
+        </script>
       </li>
       <li class="nav-item">
-        <a class="nav-link" onclick="openBar3()" href="#contact_anchor"  onmouseenter="playVid()" onmouseout="pauseVid()"><i class='fas fa-envelope'></i>संपर्क</a>
+        <a class="nav-link" onclick="openBar3()" href="#contact_anchor" id = "contactnav_hindi"><i class='fas fa-envelope'></i>संपर्क</a>
 		<audio controls  hidden="" id="audio_contact">
 			<source src="{% static 'audio/contact_hindi.ogg' %}" type="audio/ogg">
 			<source src="{% static 'audio/contact_hindi.mp3' %}" type="audio/mpeg">
 		Your browser does not support the audio element.
 		</audio>
-		<script type="text/javascript"> 
-			var $vid = $("#audio_contact"); 
-			function playVid() { 
-				vid.play(); 
-			} 
-			function pauseVid() { 
-			vid.pause(); 
-			} 
-		</script>
+		<script type="text/javascript">
+        var $nav_contact_Audio = $('#audio_contact');
+        var $nav_contact_id = $('#contactnav_hindi');
+        $nav_contact_id.on('mouseenter',function(){
+			$nav_contact_Audio.get(0).play();
+        });
+        $nav_contact_id.on('mouseout',function(){
+            $nav_contact_Audio.get(0).pause();
+        });
+        </script>
       </li>
       <li class="nav-item">
-        <a class="nav-link" onclick="openBar2()" href="#faq_anchor" onmouseenter="playVid()" onmouseout="pauseVid()"><i class='fas fa-question-circle'></i>प्रश्न</a>
+        <a class="nav-link" onclick="openBar2()" href="#faq_anchor" id="FAQnav_hindi"><i class='fas fa-question-circle'></i>प्रश्न</a>
 		<audio controls  hidden="" id="audio_FAQ">
 			<source src="{% static 'audio/FAQ_hindi.ogg' %}" type="audio/ogg">
 			<source src="{% static 'audio/FAQ_hindi.mp3' %}" type="audio/mpeg">
 		Your browser does not support the audio element.
 		</audio>
-		<script type="text/javascript"> 
-			var $vid = $("#audio_FAQ"); 
-			function playVid() { 
-				vid.play(); 
-			} 
-			function pauseVid() { 
-			vid.pause(); 
-			} 
-		</script>
+		<script type="text/javascript">
+        var $nav_FAQ_Audio = $('#audio_FAQ');
+        var $nav_FAQ_id = $('#FAQnav_hindi');
+        $nav_FAQ_id.on('mouseenter',function(){
+			$nav_FAQ_Audio.get(0).play();
+        });
+        $nav_FAQ_id.on('mouseout',function(){
+            $nav_FAQ_Audio.get(0).pause();
+        });
+        </script>
       </li>
       <li class="nav-item">
-        <a class="nav-link" onclick="openBar4()" href="#feedback_anchor" onmouseenter="playVid()" onmouseout="pauseVid()"><i class='fas fa-edit'></i>प्रतिपुष्टि</a>
+        <a class="nav-link" onclick="openBar4()" href="#feedback_anchor" id="feednav_hindi"><i class='fas fa-edit'></i>प्रतिपुष्टि</a>
 		<audio controls  hidden="" id="audio_feedback">
 			<source src="{% static 'audio/feedback_hindi.ogg' %}" type="audio/ogg">
 			<source src="{% static 'audio/feedback_hindi.mp3' %}" type="audio/mpeg">
 		Your browser does not support the audio element.
 		</audio>
-		<script type="text/javascript"> 
-			var $vid = $("#audio_feedback"); 
-			function playVid() { 
-				vid.play(); 
-			} 
-			function pauseVid() { 
-			vid.pause(); 
-			} 
-		</script>
+		<script type="text/javascript">
+        var $nav_feed_Audio = $('#audio_feedback');
+        var $nav_feed_id = $('#feednav_hindi');
+        $nav_feed_id.on('mouseenter',function(){
+			$nav_feed_Audio.get(0).play();
+        });
+        $nav_feed_id.on('mouseout',function(){
+            $nav_feed_Audio.get(0).pause();
+        });
+        </script>
       </li>
       <li class="nav-item">
-        <a class="nav-link" onclick="openBar1()" href="#about_anchor" onmouseenter="playVid()" onmouseout="pauseVid()"><i class='fas fa-info-circle'></i>बारे में</a>
+        <a class="nav-link" onclick="openBar1()" href="#about_anchor" id ="abtnav_hindi"><i class='fas fa-info-circle'></i>बारे में</a>
 		<audio controls  hidden="" id="audio_about">
 			<source src="{% static 'audio/about_hindi.ogg' %}" type="audio/ogg">
 			<source src="{% static 'audio/about_hindi.mp3' %}" type="audio/mpeg">
 		Your browser does not support the audio element.
 		</audio>
-		<script type="text/javascript"> 
-			var $vid = $("#audio_about"); 
-			function playVid() { 
-				vid.play(); 
-			} 
-			function pauseVid() { 
-			vid.pause(); 
-			} 
-		</script>
+		<script type="text/javascript">
+        var $nav_abt_Audio = $('#audio_about');
+        var $nav_abt_id = $('#abtnav_hindi');
+        $nav_abt_id.on('mouseenter',function(){
+			$nav_abt_Audio.get(0).play();
+        });
+        $nav_abt_id.on('mouseout',function(){
+            $nav_abt_Audio.get(0).pause();
+        });
+        </script>
       </li>
-      <li>
-        <button type="button" class="btn btn-primary" id = "login_button" data-toggle="modal" data-target="#staticBackdrop" style="vertical-align: middle;" onmouseenter="playVid()" onmouseout="pauseVid()">
+      <li id ="signinnav_hindi">
+        <button type="button" class="btn btn-primary" id = "login_button" data-toggle="modal" data-target="#staticBackdrop" style="vertical-align: middle;">
           <span>सिग्न इन</span>
         </button>
 		<audio controls  hidden="" id="audio_signin">
@@ -221,32 +227,34 @@
 			<source src="{% static 'audio/signin_hindi.mp3' %}" type="audio/mpeg">
 		Your browser does not support the audio element.
 		</audio>
-		<script type="text/javascript"> 
-			var $vid = $("#audio_signin"); 
-			function playVid() { 
-				vid.play(); 
-			} 
-			function pauseVid() { 
-			vid.pause(); 
-			} 
-		</script>
+		<script type="text/javascript">
+        var $nav_signin_Audio = $('#audio_signin');
+        var $nav_signin_id = $('#signinnav_hindi');
+        $nav_signin_id.on('mouseenter',function(){
+			$nav_signin_Audio.get(0).play();
+        });
+        $nav_feed_id.on('mouseout',function(){
+            $nav_feed_Audio.get(0).pause();
+        });
+        </script>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'index' %}" onmouseenter="playVid()" onmouseout="pauseVid()">English</a>
+        <a class="nav-link" href="{% url 'index' %}" id="engnav_hindi">English</a>
 		<audio controls  hidden="" id="audio_english">
 			<source src="{% static 'audio/english_hindi.ogg' %}" type="audio/ogg">
 			<source src="{% static 'audio/english_hindi.mp3' %}" type="audio/mpeg">
 		Your browser does not support the audio element.
 		</audio>
-		<script type="text/javascript"> 
-			var $vid = $("#audio_english"); 
-			function playVid() { 
-				vid.play(); 
-			} 
-			function pauseVid() { 
-			vid.pause(); 
-			} 
-		</script>
+		<script type="text/javascript">
+        var $nav_eng_Audio = $('#audio_english');
+        var $nav_eng_id = $('#engnav_hindi');
+        $nav_eng_id.on('mouseenter',function(){
+			$nav_eng_Audio.get(0).play();
+        });
+        $nav_eng_id.on('mouseout',function(){
+            $nav_eng_Audio.get(0).pause();
+        });
+        </script>
       </li>
     </ul>
 
@@ -269,8 +277,8 @@
 
 <div id="main">
   <div style="float: left; font-weight: bold; font-size: 150% ;  font-family:Andalus ; padding-left:1%;padding-top: 0; color: white;">Sankalan</div>
-  <button class="openbtn" onclick="openNav()"><i class="fa fa-reorder"></i></button>  
-  
+  <button class="openbtn" onclick="openNav()"><i class="fa fa-reorder"></i></button>
+
 </div>
 
 <script>
@@ -322,7 +330,7 @@ function closeNav() {
 <a id="faq_anchor"></a>
 
 <button class="accordion">अधिकतर पूछे जाने वाले सवाल</button>
-<div id="faq" class="panel" onmouseenter="playVidFAQdown()" onmouseout="pauseVidFAQdown()">
+<div id="faq" class="panel" id = "FAQdown_hindi">
 
         <font face="Georgia" size=4>
         <b>प्र.  हमें कैसे पता चलेगा कि सर्वेक्षण करने वाला एक सच्चा सरकारी अधिकारी है?</b>
@@ -340,14 +348,15 @@ function closeNav() {
 	<source src="{% static 'audio/FAQ_down_hindi.mp3' %}" type="audio/mpeg">
 	Your browser does not support the audio element.
 </audio>
-<script type="text/javascript"> 
-	var $vid = $("#audio_FAQ_down"); 
-	function playVidFAQdown() { 
-		vid.play(); 
-	} 
-	function pauseVidFAQdown() { 
-		vid.pause(); 
-	} 
+<script type="text/javascript">
+    var $nav_FAQdown_Audio = $('#audio_FAQ_down');
+    var $nav_FAQdown_id = $('#FAQdown_hindi');
+    $nav_FAQdown_id.on('mouseenter',function(){
+		$nav_FAQdown_Audio.get(0).play();
+    });
+    $nav_FAQdown_id.on('mouseout',function(){
+        $nav_FAQdown_Audio.get(0).pause();
+    });
 </script>
 
 <!-- Collapse bars for Contact -->
@@ -467,7 +476,7 @@ function closeNav() {
                   });
                   $contactSubmit.on('mouseout',function(){
                     $SubmitAudio.get(0).pause();
-                  });  
+                  });
                 </script>
 
               </div>
@@ -491,7 +500,7 @@ function closeNav() {
                   $email_anchor.on('mouseout',function(){
                     $CemailAudio.get(0).pause();
                   });
-                  
+
                 </script>
 
                 <a class="call_anchor" href="tel:9354742566">
@@ -512,7 +521,7 @@ function closeNav() {
                   $call_anchor.on('mouseout',function(){
                     $CallAudio.get(0).pause();
                   });
-                  
+
                 </script>
               </div>
 
@@ -531,22 +540,23 @@ function closeNav() {
 <a id="about_anchor"></a>
 
 <button class="accordion">बारे में</button>
-<div id="about" class="panel" onmouseenter="playVidbareme()" onmouseout="pauseVidbareme()">
-  <p>अक्सर जमीनी स्तर के डेटा संग्रह की प्रक्रिया त्रुटियों की ओर ले जाती है। सरकार ने डेटा संग्रह और भंडारण की प्रक्रिया को डिजिटल बनाने के लिए "संकल्प" नाम की यह योजना शुरू की है। <br> इस प्रक्रिया में भारत के नागरिकों की पूर्ण भागीदारी और विश्वसनीयता शामिल है। </p>
+<div id="about" class="panel">
+  <p id ="bareme_hindi">अक्सर जमीनी स्तर के डेटा संग्रह की प्रक्रिया त्रुटियों की ओर ले जाती है। सरकार ने डेटा संग्रह और भंडारण की प्रक्रिया को डिजिटल बनाने के लिए "संकल्प" नाम की यह योजना शुरू की है। <br> इस प्रक्रिया में भारत के नागरिकों की पूर्ण भागीदारी और विश्वसनीयता शामिल है। </p>
 </div>
 <audio controls  hidden="" id="audio_bareme">
 	<source src="{% static 'audio/bareme_hindi.ogg' %}" type="audio/ogg">
 	<source src="{% static 'audio/bareme_hindi_hindi.mp3' %}" type="audio/mpeg">
 	Your browser does not support the audio element.
 </audio>
-<script type="text/javascript"> 
-	var $vid = $("#audio_bareme"); 
-	function playVidbareme() { 
-		vid.play(); 
-	} 
-	function pauseVidbareme() { 
-		vid.pause(); 
-	} 
+<script type="text/javascript">
+    var $nav_bareme_Audio = $('#audio_bareme');
+    var $nav_bareme_id = $('#bareme_hindi');
+    $nav_bareme_id.on('mouseenter',function(){
+		$nav_bareme_Audio.get(0).play();
+    });
+    $nav_bareme_id.on('mouseout',function(){
+        $nav_bareme_Audio.get(0).pause();
+    });
 </script>
 
 
@@ -687,8 +697,8 @@ function closeNav() {
                   $FBSubmit.on('mouseout',function(){
                     $FBSubmitAudio.get(0).pause();
                   });
-                  
-                  
+
+
                 </script>
 
             </div>
@@ -783,9 +793,9 @@ function closeNav() {
     var _this = $(this);
     var recognition = new webkitSpeechRecognition();
     recognition.lang = "en-GB";
-    recognition.onresult = function(event){ 
+    recognition.onresult = function(event){
       console.log(event);
-      _this.val(event.results[0][0].transcript);  
+      _this.val(event.results[0][0].transcript);
     }
     recognition.start();
   //Record and get value
