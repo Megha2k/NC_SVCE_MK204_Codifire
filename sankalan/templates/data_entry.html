@@ -81,7 +81,6 @@
     {% csrf_token %}
     <div class="form-group">
     <label for="aadhaar_no">Aadhar Number</label>
-    <!-- <input class="form-control" type="number" name="aadhaar_no" placeholder="Enter Aadhaar number.." id="aadhaar_no" required="required"> -->
     <input class="form-control recordThis" type="number" name="aadhaar_no" placeholder="Enter Aadhaar number.." id="aadhaar_no" required="required">
     <!-- Aadhar Audio -->
     <audio id = "DataAadhar_audio" controls  hidden="">
@@ -105,13 +104,6 @@
 
     <div class="form-group">
     <label for="name">Name</label>
-
-   <!--  <input class="form-control" type="text" name="fname" placeholder="Enter First name.." id="fname" required="required" readonly><br> -->
-    
-
-   <!--  <input class="form-control" type="text" name="lname" placeholder="Enter Last name.." id="lname" readonly> -->
-
-
     <input class="form-control recordThis" type="text" name="fname" placeholder="Enter First name.." id="fname" required="required" readonly><br>
     <!-- First Name Audio -->
     <audio class = "dataFname_audio" controls  hidden="">
@@ -166,8 +158,6 @@
 
     <div class="form-group">
     <label for="email">Email</label>
-    <!-- <input class="form-control" type="email" name="email" placeholder="Enter Email.." id="email" required="required"> -->
-
     <input class="form-control recordThis" type="email" name="email" placeholder="Enter Email.." id="email" required="required">
     <!-- Email Audio -->
     <audio controls  hidden="" id="dataEmail_audio">
