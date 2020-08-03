@@ -84,6 +84,22 @@
     <div class="form-group">
     <label for="aadhaar_no">आधार संख्या</label>
     <input class="form-control recordThis" type="number" name="aadhaar_no" placeholder="आधार संख्या दर्ज करें.." id="aadhaar_no" required="required" min="100000000000" max="999999999999">
+    <!-- Aadhar Audio -->
+    <audio id = "DataAadhar_audioHindi" controls  hidden="">
+      <source src="{% static 'audio/aadhar-dataEntry.mp3' %}" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+    <script type="text/javascript">
+      var $DataAadhar_audioHindi = $('#DataAadhar_audioHindi');
+      var $DataAadhar_Hindi = $('#aadhaar_no');
+      $DataAadhar_Hindi.on('mouseenter',function(){
+        $DataAadhar_audioHindi.get(0).play();
+      });
+      $DataAadhar_Hindi.on('mouseout',function(){
+        $DataAadhar_audioHindi.get(0).pause();
+      });
+    </script>
+    <!-- End -->
     </div>
 
     <div class="form-group">
@@ -105,6 +121,23 @@
     <div class="form-group">
     <label for="email">ईमेल</label>
     <input class="form-control recordThis" type="email" name="email" placeholder="ईमेल दर्ज करें.." id="email" required="required">
+    <!-- Email Audio -->
+    <audio controls  hidden="" id="dataEmail_audioHindi">
+      <source src="{% static 'audio/email.mp3' %}" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+
+    <script type="text/javascript">
+      var $dataEmail_audioHindi = $('#dataEmail_audioHindi');
+      var $dataEmail_Hindi = $('#email');
+      $dataEmail_Hindi.on('mouseenter',function(){
+        $dataEmail_audioHindi.get(0).play();
+      });
+      $dataEmail_Hindi.on('mouseout',function(){
+        $dataEmail_audioHindi.get(0).pause();
+      });
+    </script>
+    <!-- End -->
     </div>
 
     <div class="form-group">
@@ -127,11 +160,45 @@
     <div class="form-group">
     <label for="occupation">व्यवसाय</label>
     <input class="form-control recordThis" type="text" name="occupation" placeholder="व्यवसाय दर्ज करें.." id="occupation" required="required">
+    <!-- Occupation Audio -->
+    <audio controls  hidden="" id="dataOccupation_audioHindi">
+      <source src="{% static 'audio/(E)occupation-dataEntry.mp3' %}" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+
+    <script type="text/javascript">
+      var $dataOccupation_audioHindi = $('#dataOccupation_audioHindi');
+      var $dataOccupation_Hindi = $('#occupation');
+      $dataOccupation_Hindi.on('mouseenter',function(){
+        $dataOccupation_audioHindi.get(0).play();
+      });
+      $dataOccupation_Hindi.on('mouseout',function(){
+        $dataOccupation_audioHindi.get(0).pause();
+      });
+    </script>
+    <!-- End -->
     </div>
 
     <div class="form-group">
     <label for="members">परिवार के सदस्य</label>
     <input class="form-control recordThis" type="number" name="family_members" placeholder="परिवार के सदस्यों की संख्या.." id="members" required="required" min="1">
+    <!-- Family members Audio -->
+    <audio controls  hidden="" id="dataFamily_audioHindi">
+      <source src="{% static 'audio/(E)familyno-dataEntry.mp3' %}" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+
+    <script type="text/javascript">
+      var $dataFamily_audioHindi = $('#dataFamily_audioHindi');
+      var $dataFamily_Hindi = $('#members');
+      $dataFamily_Hindi.on('mouseenter',function(){
+        $dataFamily_audioHindi.get(0).play();
+      });
+      $dataFamily_Hindi.on('mouseout',function(){
+        $dataFamily_audioHindi.get(0).pause();
+      });
+    </script>
+    <!-- End -->
     </div>
     
     <div><center>

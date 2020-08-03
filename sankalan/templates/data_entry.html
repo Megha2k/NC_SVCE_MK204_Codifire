@@ -105,40 +105,9 @@
     <div class="form-group">
     <label for="name">Name</label>
     <input class="form-control recordThis" type="text" name="fname" placeholder="Enter First name.." id="fname" required="required" readonly><br>
-    <!-- First Name Audio -->
-    <audio class = "dataFname_audio" controls  hidden="">
-      <source src="{% static 'audio/firstname-eng.mp3' %}" type="audio/mpeg">
-    Your browser does not support the audio element.
-    </audio>
-    <script type="text/javascript">
-      var $dataFname_audio = $('.dataFname_audio');
-      var $dataFname= $('#fname');
-      $dataFname.on('mouseenter',function(){
-        $dataFname_audio.get(0).play();
-      });
-      $dataFname.on('mouseout',function(){
-        $dataFname_audio.get(0).pause();
-      });
-    </script>
-    <!-- END -->
+
     <input class="form-control recordThis" type="text" name="lname" placeholder="Enter Last name.." id="lname" readonly>
-    <!-- Last Name Read -->
-     <audio class = "dataLname_audio" controls  hidden="">
-       <source src="{% static 'audio/surname (1).mp3' %}" type="audio/mpeg">
-     Your browser does not support the audio element.
-     </audio>
-     <script type="text/javascript">
-       var $dataLname_audio = $('.dataLname_audio');
-       var $dataLname = $('#lname');
-       $dataLname.on('mouseenter',function(){
-         $dataLname_audio.get(0).play();
-       });
-       $dataLname.on('mouseout',function(){
-         $dataLname_audio.get(0).pause();
-       });
-     </script>
-     <!-- End -->
-    </div>
+     </div>
 
     <div class="form-group">
     <label for="dob">Date of Birth</label>
@@ -197,11 +166,45 @@
     <div class="form-group">
     <label for="occupation">Occupation</label>
     <input class="form-control recordThis" type="text" name="occupation" placeholder="Enter Occupation.." id="occupation" required="required">
+    <!-- Occupation Audio -->
+    <audio controls  hidden="" id="dataOccupation_audio">
+      <source src="{% static 'audio/(E)occupation-dataEntry.mp3' %}" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+
+    <script type="text/javascript">
+      var $dataOccupation_audio = $('#dataOccupation_audio');
+      var $dataOccupation = $('#occupation');
+      $dataOccupation.on('mouseenter',function(){
+        $dataOccupation_audio.get(0).play();
+      });
+      $dataOccupation.on('mouseout',function(){
+        $dataOccupation_audio.get(0).pause();
+      });
+    </script>
+    <!-- End -->
     </div>
 
     <div class="form-group">
     <label for="members">Family Members</label>
     <input class="form-control recordThis" type="number" name="family_members" placeholder="Number of Family members.." id="members" required="required" min="1">
+    <!-- Family members Audio -->
+    <audio controls  hidden="" id="dataFamily_audio">
+      <source src="{% static 'audio/(E)familyno-dataEntry.mp3' %}" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+
+    <script type="text/javascript">
+      var $dataFamily_audio = $('#dataFamily_audio');
+      var $dataFamily = $('#members');
+      $dataFamily.on('mouseenter',function(){
+        $dataFamily_audio.get(0).play();
+      });
+      $dataFamily.on('mouseout',function(){
+        $dataFamily_audio.get(0).pause();
+      });
+    </script>
+    <!-- End -->
     </div>
 
     <div><center>
