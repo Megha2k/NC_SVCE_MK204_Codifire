@@ -250,21 +250,34 @@ function closeNav() {
 
 <a id="faq_anchor"></a>
 
-<button class="accordion">Frequently Asked Questions</button>
+<button class="accordion" id = "FAQdown_english">Frequently Asked Questions</button>
 <div id="faq" class="panel">
 
         <font face="Georgia" size=4>
-        <b>Q.  How do we know that the surveyor approaching ia a true government official?</b>
+        <b>Q.  How do we know that the surveyor approaching is a true government official?</b>
         <br>
-        A.  The government has provided each surveyor with an ID-card, please tally the photograph as well as other details.
-        Moreover he/she has a unique surveyor ID to login at the website. All the necessary details of the surveyor are displayed on the screen after login.
+        A.  The government has provided each surveyor an ID-card, please tally the photograph as well as other details. Moreover, he/she has a unique surveyor ID to login with at the website. All the necessary details of the surveyor are displayed on the screen after login.
         <br><br>
-        <b>Q.  What if we are mistaken to submit wrong details? How to get them corrected?</b>
+        <b>Q.  What if we make the mistake of submitting the wrong details? How will we get them corrected?</b>
         <br>
-        A.   After submitting your details, a link of your data will be sent to you via SMS. You can correct your errors there, within a time limit of 10 days.
-         The link expires as the time limit expires.
+        A.   After submitting your details, an SMS will be sent to you which will contain all the details of yours. If there are some errors in the data, then you can contact the surveyor with his contact number given at the end of the SMS.
         </font>
 </div>
+<audio controls  hidden="" id="audio_FAQ_down">
+	<source src="{% static 'audio/FAQ_down_english.ogg' %}" type="audio/ogg">
+	<source src="{% static 'audio/FAQ_down_english.mp3' %}" type="audio/mpeg">
+	Your browser does not support the audio element.
+</audio>
+<script type="text/javascript">
+    var $nav_FAQdown_Audio = $('#audio_FAQ_down');
+    var $nav_FAQdown_id = $('#FAQdown_english');
+    $nav_FAQdown_id.on('click',function(){
+		$nav_FAQdown_Audio.get(0).play();
+    });
+    $nav_FAQdown_id.on('mouseout',function(){
+        $nav_FAQdown_Audio.get(0).pause();
+    });
+</script>
 
 <!-- Collapse bars for Contact -->
 
@@ -444,10 +457,26 @@ function closeNav() {
 
 <a id="about_anchor"></a>
 
-<button class="accordion">About</button>
+<button class="accordion" id ="about_down">About</button>
 <div id="about" class="panel">
-  <p>Often the ground-level data collection process leads to errors. Government has started this scheme named "Sankalan" to digitalise the process of data collection and storage.<br>This process involves complete involvement & credibility of the citizens of India. </p>
+  <p>Often the ground-level data collection process leads to errors. The government has started this scheme named, "Sankalan", to digitalize the process of data collection and storage.<br>This process involves the complete involvement & credibility of the citizens of India.</p>
 </div>
+<audio controls  hidden="" id="audio_about_down">
+	<source src="{% static 'audio/about_down_english.ogg' %}" type="audio/ogg">
+	<source src="{% static 'audio/about_down_english.mp3' %}" type="audio/mpeg">
+	Your browser does not support the audio element.
+</audio>
+<script type="text/javascript">
+    var $nav_abtdwn_Audio = $('#audio_about_down');
+    var $nav_abtdwn_id = $('#about_down');
+    $nav_abtdwn_id.on('click',function(){
+		$nav_abtdwn_Audio.get(0).play();
+    });
+    $nav_abtdwn_id.on('mouseout',function(){
+        $nav_abtdwn_Audio.get(0).pause();
+    });
+</script>
+
 
 <!-- Collapse bars for FEEDBACK FORM -->
 
