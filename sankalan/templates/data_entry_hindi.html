@@ -43,7 +43,8 @@
           <div class="text-center"><img src="/media/{{surveyor_data.photo}}" style="height: 15%; width: 15%;"></div>
           <table class="table table-bordered">
             <tr><th>नाम</th><td>{{user.first_name}}&nbsp;{{user.last_name}}</td></tr>
-            <tr><th>सर्वेक्षक आई.डी.</th><td>{{surveyor_data.surveyor_id}}</td></tr>           
+            <tr><th>सर्वेक्षक आई.डी.</th><td>{{surveyor_data.surveyor_id}}</td></tr>
+            <tr><th>मोबाइल नंबर</th><td>{{surveyor_data.contact}}</td></tr>
           </table>
 
         </div>
@@ -76,12 +77,13 @@
     {% csrf_token %}
 
     <div class="form-group">
-    <label for="name">नाम</label>
-    <input class="form-control recordThis" type="text" name="fname" placeholder="नाम दर्ज करें.." id="name" required="required"><br>
-    <input class="form-control recordThis" type="text" name="lname" placeholder="उपनाम दर्ज करें.." id="name">
+    <label for="aadhaar_no">आधार संख्या</label>
+    <input class="form-control recordThis" type="number" name="aadhaar_no" placeholder="आधार संख्या दर्ज करें.." id="aadhaar_no" required="required">
+    <button id="verify" style="float: right;" class="btn btn-info" onclick=aadhaar_details()>जाँच करें</button>
     </div>
 
     <div class="form-group">
+
     <label for="aadhaar_no">आधार संख्या</label>
     <input class="form-control recordThis" type="number" name="aadhaar_no" placeholder="आधार संख्या दर्ज करें.." id="aadhaar_no" required="required" min="100000000000" max="999999999999">
     <!-- Aadhar Audio -->
@@ -100,16 +102,19 @@
       });
     </script>
     <!-- End -->
+    <label for="name">नाम</label>
+    <input class="form-control recordThis" type="text" name="fname" placeholder="नाम दर्ज करें.." id="fname" required="required" readonly><br>
+    <input class="form-control recordThis" type="text" name="lname" placeholder="उपनाम दर्ज करें.." id="lname" readonly>
     </div>
 
     <div class="form-group">
     <label for="dob">जन्म् तिथि</label>
-    <input class="form-control" type="date" name="dob" placeholder="जन्म् की तारीख़ दर्ज करे.." id="dob" required="required" max="" max="2020-08-01">
+    <input class="form-control" type="date" name="dob" placeholder="जन्म् की तारीख़ दर्ज करे.." id="dob" required="required" max="" max="2020-08-01"  readonly>
     </div>
 
     <div class="form-group">लिंग</b>
     <div class="form-check">
-    <input class="form-check-input" type="radio" name="sex" id="female" value="female" checked="checked" required="required">
+    <input class="form-check-input" type="radio" name="sex" id="female" value="female" checked="checked" required="required" readonly>
     <label class="form-check-label" for="female">महिला</label>&emsp;&emsp;
     <input class="form-check-input" type="radio" name="sex" id="male" value="male" required="required">
     <label class="form-check-label" for="male">नर</label>&emsp;&emsp;
@@ -147,12 +152,12 @@
 
     <div class="form-group">
     <label for="address">घर का पता</label>
-    <input class="form-control recordThis" type="textarea" name="address" placeholder="घर का पता दर्ज करें.." id="address" required="required"><br>
-    <input class="form-control recordThis" type="text" name="city" placeholder="Enter City.." id="address" required="required"><br>
-    <select id="address" name="state" class="form-control" required="required">
+    <input class="form-control recordThis" type="textarea" name="address" placeholder="घर का पता दर्ज करें.." id="address" required="required" readonly><br>
+    <input class="form-control recordThis" type="text" name="city" placeholder="Enter City.." id="city" required="required" readonly><br>
+    <select id="state" name="state" class="form-control" required="required" readonly>
             <option value="Andhra Pradesh">आंध्र प्रदेश</option><option value="Arunachal Pradesh">अरुणाचल प्रदेश</option><option value="Assam">असम</option><option value="Bihar">बिहार</option><option value="Chhattisgarh">छत्तीसगढ़</option><option value="Goa">गोवा</option><option value="Gujarat">गुजरात</option><option value="Haryana">हरियाणा</option><option value="Himachal Pradesh">हिमाचल प्रदेश</option><option value="Jharkhand">झारखंड</option><option value="Karnataka">कर्नाटक</option><option value="Kerala">केरल</option><option value="Madhya Pradesh">मध्य प्रदेश</option><option value="Maharashtra">महाराष्ट्र</option><option value="Manipur">मणिपुर</option><option value="Meghalaya">मेघालय</option><option value="Mizoram">मिजोरम</option><option value="Nagaland">नगालैंड</option><option value="Odisha">ओडिशा</option><option value="Punjab">पंजाब</option><option value="Rajasthan">राजस्थान</option><option value="Sikkim">सिक्किम</option><option value="Tamil Nadu">तमिलनाडु</option><option value="Telangana">तेलंगाना</option><option value="Tripura">त्रिपुरा</option><option value="Uttar Pradesh">उत्तर प्रदेश</option><option value="Uttarakhand">उत्तराखंड</option><option value="West Bengal">पश्चिम बंगाल</option><option value="Dadra & Nagar Haveli and Daman & Diu">दादरा और नगर हवेली और दमन और दीव</option><option value="Chandigarh">चंडीगढ़</option><option value="Delhi">दिल्ली</option><option value="Jammu & Kashmir">जम्मू और कश्मीर</option><option value="Ladakh">लद्दाख</option><option value="Lakshadweep">लक्षद्वीप</option><option value="Puducherry">पुडुचेरी</option>
     </select><br>
-    <select id="address" name="country" class="form-control">
+    <select id="country" name="country" class="form-control" readonly>
             <option value="India">भारत</option>
     </select>
     </div>
@@ -200,7 +205,7 @@
     </script>
     <!-- End -->
     </div>
-    
+
     <div><center>
         <br><input type="submit" class="btn" id="data_entry_submit_btn" name="data_entry_form" value="फार्म जमा करें">
     </center></div><br>
@@ -211,13 +216,49 @@
 </div>
 
 <script type="text/javascript">
+  function aadhaar_details()
+  {
+    let adhr = document.getElementById("aadhaar_no").value;
+    $.ajax({
+      url:"{% url 'aadhaar_authentication' %}",
+      type:"get",
+      data:{adhar:adhr},
+      success:function(data)
+      {
+        $("#fname").val(data.fname);
+        $("#lname").val(data.lname);
+        $("#aadhaar_no").val(data.aadhaar_no);
+        $("#dob").val(data.dob);
+        $("#address").val(data.address);
+        $("#city").val(data.city);
+        $("#state").val(data.state);
+        $("#country").val(data.country);
+        $("#aadhaar_no").removeClass("alert alert-danger");
+        $("#data_entry_submit_btn").removeAttr("disabled","disabled")
+
+        if (data == "format")
+          { alert("गलत प्रारूप!");
+            $("#aadhaar_no").addClass("alert alert-danger");
+            $("#data_entry_submit_btn").attr("disabled","disabled");
+          }
+        else if (data == "not exists")
+          { alert("यह आधार नंबर मौजूद नहीं है!");
+            $("#aadhaar_no").addClass("alert alert-danger");
+            $("#data_entry_submit_btn").attr("disabled","disabled");
+          }
+      }
+    })
+  }
+</script>
+
+<script type="text/javascript">
    $(".recordThis").on("click", function(){
     var _this = $(this);
     var recognition = new webkitSpeechRecognition();
     recognition.lang = "en-GB";
-    recognition.onresult = function(event){ 
+    recognition.onresult = function(event){
       console.log(event);
-      _this.val(event.results[0][0].transcript);  
+      _this.val(event.results[0][0].transcript);
     }
     recognition.start();
   //Record and get value

@@ -101,3 +101,40 @@ function playAudio2() {
   audio2.play();
 }
 
+var audio3 = document.getElementById("audioID3");
+
+function playAudio3() {
+  audio3.play();
+}
+
+var audio4 = document.getElementById("audioID4");
+
+function playAudio4() {
+  audio4.play();
+}
+
+var audio5 = document.getElementById("audioID5");
+
+function playAudio5() {
+  audio5.play();
+}
+
+var audio6 = document.getElementById("audioID6");
+
+function playAudio6() {
+  audio6.play();
+}
+
+var audio7 = document.getElementById("audioID7");
+
+function playAudio7() {
+  audio7.play();
+}
+
+var audio8 = document.getElementById("audioID8");
+
+function playAudio8() {
+  audio8.play();
+}
+
+
