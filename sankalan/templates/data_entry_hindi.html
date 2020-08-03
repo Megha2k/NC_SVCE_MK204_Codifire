@@ -222,6 +222,22 @@
 
     <div><center>
         <br><input type="submit" class="btn" id="data_entry_submit_btn" name="data_entry_form" value="फार्म जमा करें">
+        <!-- Submit Button Audio -->
+        <audio controls  hidden="" id="dataSubmit_audioHindi">
+          <source src="{% static 'audio/submit.mp3' %}" type="audio/mpeg">
+        Your browser does not support the audio element.
+        </audio>
+        <script type="text/javascript">
+          var $dataSubmit_audioHindi = $('#dataSubmit_audioHindi');
+          var $dataSubmit_Hindi = $('#data_entry_submit_btn');
+          $dataSubmit_Hindi.on('mouseenter',function(){
+            $dataSubmit_audioHindi.get(0).play();
+          });
+          $dataSubmit_Hindi.on('mouseout',function(){
+            $dataSubmit_audioHindi.get(0).pause();
+          });
+        </script>
+        <!-- END -->
     </center></div><br>
 
   </b></font>

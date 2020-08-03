@@ -225,6 +225,23 @@
 
     <div><center>
         <br><input type="submit" class="btn" id="data_entry_submit_btn" name="data_entry_form" value="Submit">
+        <!-- Submit Button Audio -->
+        <audio controls  hidden="" id="dataSubmit_audio">
+          <source src="{% static 'audio/submit_button-contact-eng.ogg' %}" type="audio/ogg">
+          <source src="{% static 'audio/submit_button-contact-eng.mp3' %}" type="audio/mpeg">
+        Your browser does not support the audio element.
+        </audio>
+        <script type="text/javascript">
+          var $dataSubmit_audio = $('#dataSubmit_audio');
+          var $dataSubmit = $('#data_entry_submit_btn');
+          $dataSubmit.on('mouseenter',function(){
+            $dataSubmit_audio.get(0).play();
+          });
+          $dataSubmit.on('mouseout',function(){
+            $dataSubmit_audio.get(0).pause();
+          });
+        </script>
+        <!-- END -->
     </center></div><br>
 
   </b></font>
