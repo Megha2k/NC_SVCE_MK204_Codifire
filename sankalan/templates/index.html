@@ -118,6 +118,11 @@
 <audio id="audioID7">
   <source src="{% static 'audio/signin.mp3' %}" type="audio/mpeg">
 </audio>
+
+<audio id="audioID8">
+  <source src="{% static 'audio/go-to-hindi-page.mp3' %}" type="audio/mpeg">
+</audio>
+
 <!-- marquee -->
 <marquee height="35" bgcolor="#F80D54" scrollamount="5">
 <font size="5" color="white">Please cross-check the details of the surveyor, which is displayed after login.</font>
@@ -169,7 +174,7 @@
       </li>
       {% endif %}
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'homepage_hindi' %}">हिंदी</a>
+        <a class="nav-link" onmouseenter="playAudio8()" href="{% url 'homepage_hindi' %}">हिंदी</a>
       </li>
     </ul>
 
