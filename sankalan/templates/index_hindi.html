@@ -412,6 +412,7 @@ function closeNav() {
                     $polystar1.get(0).pause();
                   });
                 </script>
+
               <div class="md-form mt-3">
                 <label for="state" id="stateLabel">राज्य: &nbsp;&nbsp;&nbsp;</label>
                 <select id="state" class="form-control" name="state" required="required">
@@ -433,6 +434,7 @@ function closeNav() {
                   });
                 </script>
                 <!-- END -->
+                <input type="text" id="state" name="state" class="form-control recordThis" placeholder="राज्य.." required="required" required="required">
               </div>
               <div>
                 <br>
@@ -444,8 +446,7 @@ function closeNav() {
                 <audio controls  hidden="" id="emailDesc">
                   <source src="{% static 'audio/email.ogg' %}" type="audio/ogg">
                   <source src="{% static 'audio/email.mp3' %}" type="audio/mpeg">
-                Your browser does not support the audio element.
-                </audio>
+              </audio>
                 <script type="text/javascript">
                   var $emailDesc = $('#emailDesc');
                   var $email = $('#phone');
