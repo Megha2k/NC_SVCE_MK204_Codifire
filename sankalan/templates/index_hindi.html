@@ -218,7 +218,7 @@
         });
         </script>
       </li>
-      <li id ="signinnav_hindi">
+      <li>
         <button type="button" class="btn btn-primary" id = "login_button" data-toggle="modal" data-target="#staticBackdrop" style="vertical-align: middle;">
           <span>सिग्न इन</span>
         </button>
@@ -229,7 +229,7 @@
 		</audio>
 		<script type="text/javascript">
         var $nav_signin_Audio = $('#audio_signin');
-        var $nav_signin_id = $('#signinnav_hindi');
+        var $nav_signin_id = $('#login_button');
         $nav_signin_id.on('mouseenter',function(){
 			$nav_signin_Audio.get(0).play();
         });
@@ -539,9 +539,9 @@ function closeNav() {
 
 <a id="about_anchor"></a>
 
-<button class="accordion">बारे में</button>
+<button class="accordion" id ="bareme_hindi">बारे में</button>
 <div id="about" class="panel">
-  <p id ="bareme_hindi">अक्सर जमीनी स्तर के डेटा संग्रह की प्रक्रिया त्रुटियों की ओर ले जाती है। सरकार ने डेटा संग्रह और भंडारण की प्रक्रिया को डिजिटल बनाने के लिए "संकल्प" नाम की यह योजना शुरू की है। <br> इस प्रक्रिया में भारत के नागरिकों की पूर्ण भागीदारी और विश्वसनीयता शामिल है। </p>
+  <p>अक्सर जमीनी स्तर के डेटा संग्रह की प्रक्रिया त्रुटियों की ओर ले जाती है। सरकार ने डेटा संग्रह और भंडारण की प्रक्रिया को डिजिटल बनाने के लिए "संकल्प" नाम की यह योजना शुरू की है। <br> इस प्रक्रिया में भारत के नागरिकों की पूर्ण भागीदारी और विश्वसनीयता शामिल है। </p>
 </div>
 <audio controls  hidden="" id="audio_bareme">
 	<source src="{% static 'audio/bareme_hindi.ogg' %}" type="audio/ogg">
