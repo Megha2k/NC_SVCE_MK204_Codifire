@@ -77,16 +77,10 @@
     {% csrf_token %}
 
     <div class="form-group">
+
     <label for="aadhaar_no">आधार संख्या</label>
     <input class="form-control recordThis" type="number" name="aadhaar_no" placeholder="आधार संख्या दर्ज करें.." id="aadhaar_no" required="required">
-    <button id="verify" style="float: right;" class="btn btn-info" onclick=aadhaar_details()>जाँच करें</button>
-    </div>
-
-    <div class="form-group">
-
-    <label for="aadhaar_no">आधार संख्या</label>
-    <input class="form-control recordThis" type="number" name="aadhaar_no" placeholder="आधार संख्या दर्ज करें.." id="aadhaar_no" required="required" min="100000000000" max="999999999999">
-    <!-- Aadhar Audio -->
+     <!-- Aadhar Audio -->
     <audio id = "DataAadhar_audioHindi" controls  hidden="">
       <source src="{% static 'audio/aadhar-dataEntry.mp3' %}" type="audio/mpeg">
     Your browser does not support the audio element.
@@ -102,6 +96,7 @@
       });
     </script>
     <!-- End -->
+    </div>
     <label for="name">नाम</label>
     <input class="form-control recordThis" type="text" name="fname" placeholder="नाम दर्ज करें.." id="fname" required="required" readonly><br>
     <input class="form-control recordThis" type="text" name="lname" placeholder="उपनाम दर्ज करें.." id="lname" readonly>
@@ -148,6 +143,22 @@
     <div class="form-group">
     <label for="contact_no">संपर्क</label>
     <input class="form-control recordThis" type="tel" name="mobile_no" placeholder="मोबाइल नंबर दर्ज करें.." id="contact_no" pattern="[0-9]{10}" required="required">
+    <!-- Aadhar Audio -->
+    <audio id = "DataContact_audioHindi" controls  hidden="">
+      <source src="{% static 'audio/(E)contactno-dataEntry.mp3' %}" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+    <script type="text/javascript">
+      var $DataContact_audioHindi = $('#DataContact_audioHindi');
+      var $DataContact_Hindi = $('#contact_no');
+      $DataContact_Hindi.on('mouseenter',function(){
+        $DataContact_audioHindi.get(0).play();
+      });
+      $DataContact_Hindi.on('mouseout',function(){
+        $DataContact_audioHindi.get(0).pause();
+      });
+    </script>
+    <!-- End -->
     </div>
 
     <div class="form-group">
@@ -167,7 +178,7 @@
     <input class="form-control recordThis" type="text" name="occupation" placeholder="व्यवसाय दर्ज करें.." id="occupation" required="required">
     <!-- Occupation Audio -->
     <audio controls  hidden="" id="dataOccupation_audioHindi">
-      <source src="{% static 'audio/(E)occupation-dataEntry.mp3' %}" type="audio/mpeg">
+      <source src="{% static 'audio/occupation-dataEntry.mp3' %}" type="audio/mpeg">
     Your browser does not support the audio element.
     </audio>
 

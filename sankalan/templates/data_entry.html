@@ -149,6 +149,22 @@
     <div class="form-group">
     <label for="contact_no">Contact</label>
     <input class="form-control recordThis" type="tel" name="mobile_no" placeholder="Enter Mobile number.." id="contact_no" pattern="[0-9]{10}" required="required">
+    <!-- Aadhar Audio -->
+    <audio id = "DataContact_audio" controls  hidden="">
+      <source src="{% static 'audio/(E)contactno-dataEntry.mp3' %}" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+    <script type="text/javascript">
+      var $DataContact_audio = $('#DataContactr_audio');
+      var $DataContact = $('#contact_no');
+      $DataContact.on('mouseenter',function(){
+        $DataContact_audio.get(0).play();
+      });
+      $DataContact.on('mouseout',function(){
+        $DataContact_audio.get(0).pause();
+      });
+    </script>
+    <!-- End -->
     </div>
 
     <div class="form-group">
