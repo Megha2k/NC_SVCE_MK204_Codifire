@@ -118,6 +118,11 @@
 <audio id="audioID7">
   <source src="{% static 'audio/signin.mp3' %}" type="audio/mpeg">
 </audio>
+
+<audio id="audioID8">
+  <source src="{% static 'audio/go-to-hindi-page.mp3' %}" type="audio/mpeg">
+</audio>
+
 <!-- marquee -->
 <marquee height="35" bgcolor="#F80D54" scrollamount="5">
 <font size="5" color="white">Please cross-check the details of the surveyor, which is displayed after login.</font>
@@ -169,7 +174,7 @@
       </li>
       {% endif %}
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'homepage_hindi' %}">हिंदी</a>
+        <a class="nav-link" onmouseenter="playAudio8()" href="{% url 'homepage_hindi' %}">हिंदी</a>
       </li>
     </ul>
 
@@ -281,46 +286,40 @@ function closeNav() {
                 <input type="text" name="fname" id="materialContactFormFirstName" class="form-control recordThis" placeholder="First Name" required="required">
 
                 <!-- Audio part -->
-                <audio class = "cfirstaudio" controls  hidden="">
+                <audio class = "contact_fname_engAudio" controls  hidden="">
                   <source src="{% static 'audio/firstname-eng.ogg' %}" type="audio/ogg">
                   <source src="{% static 'audio/firstname-eng.mp3' %}" type="audio/mpeg">
                 Your browser does not support the audio element.
                 </audio>
                 <script type="text/javascript">
-                  var $cefirst = $('.cfirstaudio');
-                  var $Cenamefield = $('#materialContactFormFirstName');
-                  $Cenamefield.on('mouseenter',function(){
-                    $cefirst.get(0).play();
+                  var $contact_fname_audio = $('.contact_fname_engAudio');
+                  var $contact_fname = $('#materialContactFormFirstName');
+                  $contact_fname.on('mouseenter',function(){
+                    $contact_fname_audio.get(0).play();
                   });
-                  $Cenamefield.on('mouseout',function(){
-                    $cefirst.get(0).pause();
+                  $contact_fname.on('mouseout',function(){
+                    $contact_fname_audio.get(0).pause();
                   });
-                  // audio part end
-
-                </script>
-                
+                </script>             
               </div>
               <div class="md-form mt-3">
                 <input type="text" name="lname" id="materialContactFormLastName" class="form-control recordThis" placeholder="Last Name">
 
-                <audio class = "clnameaudio" controls  hidden="">
+                <audio class = "contact_lname_audio" controls  hidden="">
                   <source src="{% static 'audio/surname (1).ogg' %}" type="audio/ogg">
                   <source src="{% static 'audio/surname (1).mp3' %}" type="audio/mpeg">
                 Your browser does not support the audio element.
                 </audio>
                 <script type="text/javascript">
-                  var $cefirst = $('.clnameaudio');
-                  var $Cenamefield = $('#materialContactFormLastName');
-                  $Cenamefield.on('mouseenter',function(){
-                    $cefirst.get(0).play();
+                  var $contact_lname_audio = $('.contact_lname_audio');
+                  var $contact_lname = $('#materialContactFormLastName');
+                  $contact_lname.on('mouseenter',function(){
+                    $contact_lname_audio.get(0).play();
                   });
-                  $Cenamefield.on('mouseout',function(){
-                    $cefirst.get(0).pause();
+                  $contact_lname.on('mouseout',function(){
+                    $contact_lname_audio.get(0).pause();
                   });
-
-
-                </script>
-
+               </script>
               <div class="md-form mt-3">
                 <label for="state" id="stateLabel">State: &nbsp;&nbsp;&nbsp;</label>
                 <select id="state" class="form-control" name="state" required="required">
